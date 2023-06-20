@@ -88787,3 +88787,4 @@ INSERT INTO tbl_kecamatan (id_kecamatan, kecamatan, id_kabupaten) VALUES
 (431106003, 'MALABUTOR', 431106),
 (431106004, 'REMU SELATAN', 431106),
 (431106005, 'KLASABI', 431106);
+
