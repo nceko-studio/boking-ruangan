@@ -28,7 +28,67 @@
 							<a href="#" class="nav-link ">
 								<i class="nav-icon fas fa-tachometer-alt"></i>
 								<p>
-									Beranda
+									Dashboard
+								</p>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<!-- <a href="<?= base_url('dashboard') ?>" class="nav-link <?php if ($title == "Dashboard") { echo "active"; } ?>"> -->
+							<a href="#" class="nav-link ">
+								<i class="nav-icon fas fa-address-card"></i>
+								<p>
+									Pendaftaran Pasien
+								</p>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<!-- <a href="<?= base_url('dashboard') ?>" class="nav-link <?php if ($title == "Dashboard") { echo "active"; } ?>"> -->
+							<a href="#" class="nav-link ">
+								<i class="nav-icon fas fa-users"></i>
+								<p>
+									Data Pasien
+								</p>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<!-- <a href="<?= base_url('dashboard') ?>" class="nav-link <?php if ($title == "Dashboard") { echo "active"; } ?>"> -->
+							<a href="#" class="nav-link ">
+								<i class="nav-icon fas fa-building"></i>
+								<p>
+									Data Ruangan
+								</p>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<!-- <a href="<?= base_url('dashboard') ?>" class="nav-link <?php if ($title == "Dashboard") { echo "active"; } ?>"> -->
+							<a href="#" class="nav-link ">
+								<i class="nav-icon fas fa-globe"></i>
+								<p>
+									Master Data
+								</p>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<!-- <a href="<?= base_url('dashboard') ?>" class="nav-link <?php if ($title == "Dashboard") { echo "active"; } ?>"> -->
+							<a href="#" class="nav-link ">
+								<i class="nav-icon fas fa-users"></i>
+								<p>
+									Transaksi
+								</p>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<!-- <a href="<?= base_url('dashboard') ?>" class="nav-link <?php if ($title == "Dashboard") { echo "active"; } ?>"> -->
+							<a href="#" class="nav-link ">
+								<i class="nav-icon fas fa-book"></i>
+								<p>
+									Laporan
 								</p>
 							</a>
 						</li>
