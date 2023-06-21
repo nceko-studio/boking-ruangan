@@ -76,22 +76,17 @@
               </a>
             </li>
 
-
-            <?php if($this->session->userdata('role') == 1) { ?>
-
         <li class="menu-item <?php if($title == "User Management"){ echo 'active';} ?>">
                 <a href="<?= base_url('user_management')?>" class="menu-link">
-                  <i class="menu-icon tf-icons bx bx-user"></i>
-                  <div data-i18n="Analytics">User Management</div>
+                  <i class="menu-icon tf-icons bx bx-table"></i>
+                  <div data-i18n="Analytics">Boking Ruangan</div>
                 </a>
               </li>
-
-            <?php } ?>
             
         <li class="menu-item <?php if($title == "Data Tanaman"){ echo 'active';} ?>">
                 <a href="<?= base_url('tanaman')?>" class="menu-link">
-                  <i class="menu-icon tf-icons bx bx-table"></i>
-                  <div data-i18n="Analytics">Data Tanaman</div>
+                  <i class="menu-icon tf-icons bx bx-repeat"></i>
+                  <div data-i18n="Analytics">History Ruangan</div>
                 </a>
               </li>
             </ul>

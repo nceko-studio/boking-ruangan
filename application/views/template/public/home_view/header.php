@@ -6,7 +6,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-	<title>TANAMAN | <?= $title ?></title>
+	<title>SIMBOR | <?= $title ?></title>
 
 	<meta name="description" content="" />
 
@@ -43,5 +43,4 @@
 
 <body>
 	<!-- Layout wrapper -->
-	<div class="layout-wrapper layout-content-navbar">
-		<div class="layout-container">
+	<div class="layout-wrapper">

@@ -1,6 +1,9 @@
+		<!-- jQuery -->
+		<script src="<?= base_url('public/plugins/jquery/jquery.min.js') ?>"></script>
+
 		<!-- /.content-wrapper -->
 		<footer class="main-footer">
-			<strong>Copyright &copy; <?= date('Y'); ?> <a href="#">Monitoring Dosen</a>.</strong>
+			<strong>Copyright &copy; <?= date('Y'); ?> <a href="#">SIBOR</a>.</strong>
 			All rights reserved.
 			<div class="float-right d-none d-sm-inline-block">
 				<b>Beta Version</b> 0.0.1
