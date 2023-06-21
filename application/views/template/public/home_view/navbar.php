@@ -18,7 +18,7 @@
  		<div class="navbar-nav flex-row align-items-center ms-auto">
 			 <a href="<?= base_url('regist') ?>">Sing Up</a>
 			 &ensp; /  &ensp;
-			 <a>
+			 <a href="<?= base_url('login') ?>">
 				<button class="btn btn-primary">Log In</button>
 			 </a>
  		</div>

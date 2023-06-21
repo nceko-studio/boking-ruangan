@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="apple-touch-icon" sizes="76x76" href="<?= base_url('assets/private/dist/img/logo.png') ?>">
 	<link rel="icon" type="image/png" href="<?= base_url('assets/private/dist/img/logo.png') ?>">
-	<title>Monitoring Dosen</title>
+	<title>SIMBOR | <?= $title ?></title>
 
 
 
@@ -43,7 +43,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 	<div class="wrapper">
 
-		<!-- Preloader -->
+		<!-- Preloader
 		<div class="preloader flex-column justify-content-center align-items-center">
 			<img class="animation__shake" src="<?= base_url('assets/private/dist/img/logo.png') ?>" alt="AdminLTELogo" height="60" width="60">
-		</div>
+		</div> -->

@@ -1,11 +1,24 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
-	public function index()
+class Dashboard extends CI_Controller {
+	public function admin()
 	{
-		$this->load->view('template/public/home_view/header');
-		$this->load->view('public/home_view/index');
-		$this->load->view('template/public/home_view/footer');
+		$data['title'] = 'Dashboard';
+		$this->load->view('template/private/header',$data);
+		$this->load->view('template/private/navbar',$data);
+		$this->load->view('template/private/sidebar',$data);
+		$this->load->view('private/dashboard',$data);
+		$this->load->view('template/private/footer',$data);
+	}
+
+	public function user()
+	{
+		$data['title'] = 'Dashboard';
+		$this->load->view('template/public/user_panel/header',$data);
+		$this->load->view('template/public/user_panel/sidebar',$data);
+		$this->load->view('template/public/user_panel/navbar',$data);
+		$this->load->view('public/user_area/dashboard',$data);
+		$this->load->view('template/public/user_panel/footer',$data);
 	}
 }
