@@ -26,3 +26,6 @@
 			<!-- /.content -->
 		</div>
 
+<!-- jQuery -->
+<script src="<?= base_url('assets/private/plugins/jquery/jquery.min.js')?>"></script>
+
