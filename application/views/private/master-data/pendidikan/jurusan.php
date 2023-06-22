@@ -33,7 +33,7 @@
 								</div>
 							</div>
 						</div>
-						<form action="<?= site_url('private/master-data/pendidikan/jurusan_new') ?>" method="POST">
+						<form action="<?= site_url('private/master_data/pendidikan/jurusan_new') ?>" method="POST">
 							<div class="card-body">
                                 <div class="form-group">
                                     <label for="id_jenjang">Pilih Jenjang Pendidikan</label>
@@ -84,7 +84,7 @@
 											<td><?= $v->jenjang_pendidikan; ?></td>
 											<td><?= $v->jurusan_pendidikan; ?></td>
 											<td>
-												<a href="<?= base_url('private/master-data/pendidikan/jurusan_hapus/' . $v->id_jurusan_pendidikan) ?>">
+												<a href="<?= base_url('private/master_data/pendidikan/jurusan_hapus/' . $v->id_jurusan_pendidikan) ?>">
 													<button class="btn bg-danger btn-xs" title="Hapus Keting" style="width: 30px;">
 														<i class="fas fa-user-minus"></i>
 													</button>

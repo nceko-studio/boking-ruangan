@@ -69,4 +69,36 @@ class MasterDataModel extends CI_Model
 	}
 
 	// End Jurusan Pendidikan
+
+	// Start Unit Kerja Pendidikan
+
+	public function AllUK()
+	{
+		return $this->db->get('tbl_unit_kerja')->result();
+	}
+
+	function NewUK($data)
+	{
+		if (!empty($data)) {
+			$this->db->insert('tbl_unit_kerja',$data);
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function DeleteUK($id)
+	{
+		if (!empty($id)) {
+			$this->db->where('id_unit_kerja',$id);
+			$this->db->delete('tbl_unit_kerja');
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	// End Unit Kerja Pendidikan
 }

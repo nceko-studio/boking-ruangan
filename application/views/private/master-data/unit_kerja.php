@@ -11,7 +11,6 @@
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Beranda</a></li>
 						<li class="breadcrumb-item">Master Data</li>
-						<li class="breadcrumb-item">Pendidikan</li>
 						<li class="breadcrumb-item active"><?= $title ?></li>
 					</ol>
 				</div><!-- /.col -->
@@ -29,15 +28,15 @@
 						<div class="card-header">
 							<div class="row">
 								<div class="col-lg-10">
-									<h4 class="card-title">Tambah Jenjang Pendidikan</h4>
+									<h4 class="card-title">Tambah Unit Kerja</h4>
 								</div>
 							</div>
 						</div>
-						<form action="<?= site_url('private/master_data/pendidikan/jenjang_new') ?>" method="POST">
+						<form action="<?= site_url('private/master_data/unit_kerja/uk_new') ?>" method="POST">
 							<div class="card-body">
 								<div class="form-group">
-									<label for="jenjang">Jenjang</label>
-									<input type="text" class="form-control" id="jenjang" name="jenjang" placeholder="Jenjang Pendidikan" required>
+									<label for="uk">Unit Kerja</label>
+									<input type="text" class="form-control" id="uk" name="uk" placeholder="Unit Kerja" required>
 								</div>
 							</div>
 							<div class="card-footer justify-content-right">
@@ -53,7 +52,7 @@
 						<div class="card-header">
 							<div class="row">
 								<div class="col-lg-10">
-									<h4 class="card-title">Jenjang Pendidikan</h4>
+									<h4 class="card-title">Unit Kerja</h4>
 								</div>
 							</div>
 						</div>
@@ -62,7 +61,7 @@
 								<thead>
 									<tr>
 										<th style="width: 5%;">NO</th>
-										<th style="width: 90%;">Jenjang Pendidikan</th>
+										<th style="width: 90%;">Unit Kerja</th>
 										<th style="width: 5%;">Aksi</th>
 									</tr>
 								</thead>
@@ -71,9 +70,9 @@
 									<?php foreach ($jenjang as $v) : ?>
 										<tr>
 											<td><?= $no++ ?></td>
-											<td><?= $v->jenjang_pendidikan; ?></td>
+											<td><?= $v->unit_kerja; ?></td>
 											<td>
-												<a href="<?= base_url('private/master_data/pendidikan/jenjang_hapus/' . $v->id_jenjang_pendidikan) ?>">
+												<a href="<?= base_url('private/master_data/unit_kerja/uk_hapus/' . $v->id_unit_kerja) ?>">
 													<button class="btn bg-danger btn-xs" title="Hapus Keting" style="width: 30px;">
 														<i class="fas fa-user-minus"></i>
 													</button>
