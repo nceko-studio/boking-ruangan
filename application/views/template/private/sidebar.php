@@ -174,7 +174,7 @@
 		  							</ul>
 		  						</li>
 		  						<li class="nav-item">
-		  							<a href="#" class="nav-link">
+		  							<a href="<?= base_url('private/master_data/unit_kerja') ?>" class="nav-link">
 		  								<i class="far fa-circle nav-icon"></i>
 		  								<p>Unit Kerja</p>
 		  							</a>
