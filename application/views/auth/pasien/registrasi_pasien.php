@@ -8,11 +8,11 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
-    <link rel="stylesheet" href="<?= base_url('assets_lte'); ?>/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="<?= base_url('assets/auth'); ?>/plugins/fontawesome-free/css/all.min.css">
 
-    <link rel="stylesheet" href="<?= base_url('assets_lte'); ?>/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="<?= base_url('assets/auth'); ?>/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
-    <link rel="stylesheet" href="<?= base_url('assets_lte'); ?>/dist/css/adminlte.min.css?v=3.2.0">
+    <link rel="stylesheet" href="<?= base_url('assets/auth'); ?>/dist/css/adminlte.min.css?v=3.2.0">
 
     <style>
         .form-label {
@@ -26,7 +26,7 @@
 <body class="hold-transition login-page">
     <div class="card-body mt-5">
         <div class="text-center">
-            <h2><img src="<?= base_url('assets_lte'); ?>/img/logo.png" alt="" width="50px"><span class="ml-5">Sistem Informasi Manajemen Ruang Rawat Inap RSIA Siti Khadijah</span></h2>
+            <h2><img src="<?= base_url('assets/auth'); ?>/img/logo.png" alt="" width="50px"><span class="ml-5">Sistem Informasi Manajemen Ruang Rawat Inap RSIA Siti Khadijah</span></h2>
         </div>
         <div class="jumbotron mx-auto bg-white">
 
@@ -131,9 +131,9 @@
         </div>
     </div>
 
-    <script src="<?= base_url('assets_lte'); ?>/plugins/jquery/jquery.min.js"></script>
-    <script src="<?= base_url('assets_lte'); ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= base_url('assets_lte'); ?>/dist/js/adminlte.min.js?v=3.2.0"></script>
+    <script src="<?= base_url('assets/auth'); ?>/plugins/jquery/jquery.min.js"></script>
+    <script src="<?= base_url('assets/auth'); ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url('assets/auth'); ?>/dist/js/adminlte.min.js?v=3.2.0"></script>
 </body>
 
 </html>
