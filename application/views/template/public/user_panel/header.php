@@ -29,7 +29,7 @@
 	<!-- Vendors CSS -->
 	<link rel="stylesheet" href="<?= base_url('assets/public/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') ?>" />
 	<link rel="stylesheet" href="<?= base_url('assets/public/vendor/libs/apex-charts/apex-charts.css') ?>" />
-	
+
 
 	<!-- Page CSS -->
 
@@ -39,6 +39,10 @@
 	<!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
 	<!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
 	<script src="<?= base_url('assets/public/js/config.js') ?>"></script>
+
+	
+
+
 </head>
 
 <body>

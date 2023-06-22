@@ -52,5 +52,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['login'] = 'auth/login';
 $route['regist'] = 'auth/regist';
+$route['jenjang'] = 'private/master_data/pendidikan/jenjang';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
