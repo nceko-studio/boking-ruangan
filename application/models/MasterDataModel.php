@@ -101,4 +101,131 @@ class MasterDataModel extends CI_Model
 	}
 
 	// End Unit Kerja Pendidikan
+
+	// Start Agama
+
+	public function AllAgama()
+	{
+		return $this->db->get('tbl_agama')->result();
+	}
+
+	function NewAgama($data)
+	{
+		if (!empty($data)) {
+			$this->db->insert('tbl_agama',$data);
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function DeleteAgama($id)
+	{
+		if (!empty($id)) {
+			$this->db->where('id_agama',$id);
+			$this->db->delete('tbl_agama');
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	// End Agama
+
+	// Start Identitas
+
+	public function AllIdentitas()
+	{
+		return $this->db->get('tbl_identitas')->result();
+	}
+
+	function NewIdentitas($data)
+	{
+		if (!empty($data)) {
+			$this->db->insert('tbl_identitas',$data);
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function DeleteIdentitas($id)
+	{
+		if (!empty($id)) {
+			$this->db->where('id_identitas',$id);
+			$this->db->delete('tbl_identitas');
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	// End Identitas
+
+	// Start Status Kawin
+	public function AllSK()
+	{
+		return $this->db->get('tbl_status_kawin')->result();
+	}
+
+	function NewSK($data)
+	{
+		if (!empty($data)) {
+			$this->db->insert('tbl_status_kawin',$data);
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function DeleteSK($id)
+	{
+		if (!empty($id)) {
+			$this->db->where('id_status_kawin',$id);
+			$this->db->delete('tbl_status_kawin');
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	// End Status Kawin
+
+	// Start Status Pegawai
+
+	public function AllSP()
+	{
+		return $this->db->get('tbl_status_pegawai')->result();
+	}
+
+	function NewSP($data)
+	{
+		if (!empty($data)) {
+			$this->db->insert('tbl_status_pegawai',$data);
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function DeleteSP($id)
+	{
+		if (!empty($id)) {
+			$this->db->where('id_status_pegawai',$id);
+			$this->db->delete('tbl_status_pegawai');
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	// End Status Pegawai
 }
