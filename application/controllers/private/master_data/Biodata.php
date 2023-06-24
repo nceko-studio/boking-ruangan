@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Biodata extends CI_Controller {
-	public function index()
+	public function agama()
 	{
 		$data['title'] = "Biodata";
 		$this->load->view('template/private/header',$data);

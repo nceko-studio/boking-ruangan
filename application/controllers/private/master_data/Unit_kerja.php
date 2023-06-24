@@ -26,7 +26,7 @@ class Unit_kerja extends CI_Controller {
 		} else {
 			$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Gagal Menambahakan Unit Kerja Baru.');
 		}
-		redirect('private/master_data/unit_kerja');
+		redirect('unit_kerja');
 	}
 
     public function uk_hapus($id)
@@ -38,6 +38,6 @@ class Unit_kerja extends CI_Controller {
 		} else {
 			$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Gagal Menghapus Unit Kerja.');
 		}
-		redirect('private/master_data/unit_kerja');
+		redirect('unit_kerja');
 	}
 }

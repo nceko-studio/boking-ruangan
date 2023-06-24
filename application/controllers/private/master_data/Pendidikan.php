@@ -28,7 +28,7 @@ class Pendidikan extends CI_Controller {
 		} else {
 			$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Gagal Menambahakan Jenjang Pendidikan Baru.');
 		}
-		redirect('private/master_data/pendidikan/jenjang');
+		redirect('jenjang');
 	}
 
     public function jenjang_hapus($id)
@@ -40,7 +40,7 @@ class Pendidikan extends CI_Controller {
 		} else {
 			$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Gagal Menghapus Jenjang Pendidikan.');
 		}
-		redirect('private/master_data/pendidikan/jenjang');
+		redirect('jenjang');
 	}
 
     // End Jenjang Pendidikan
@@ -71,7 +71,7 @@ class Pendidikan extends CI_Controller {
 		} else {
 			$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Gagal Menambahakan Jurusan Pendidikan Baru.');
 		}
-		redirect('private/master_data/pendidikan/jurusan');
+		redirect('jurusan');
 	}
 
     public function jurusan_hapus($id)
@@ -83,6 +83,6 @@ class Pendidikan extends CI_Controller {
 		} else {
 			$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Gagal Menghapus Jurusan Pendidikan.');
 		}
-		redirect('private/master_data/pendidikan/jurusan');
+		redirect('jurusan');
 	}
 }

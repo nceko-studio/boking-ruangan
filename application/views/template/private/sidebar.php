@@ -119,31 +119,25 @@
 		  							</a>
 		  							<ul class="nav nav-treeview">
 		  								<li class="nav-item">
-		  									<a href="#" class="nav-link">
+		  									<a href="<?= base_url('agama') ?>" class="nav-link">
 		  										<i class="far fa-dot-circle nav-icon"></i>
 		  										<p>Agama</p>
 		  									</a>
 		  								</li>
 		  								<li class="nav-item">
-		  									<a href="#" class="nav-link">
-		  										<i class="far fa-dot-circle nav-icon"></i>
-		  										<p>Jurusan Pendidikan</p>
-		  									</a>
-		  								</li>
-		  								<li class="nav-item">
-		  									<a href="#" class="nav-link">
+		  									<a href="<?= base_url('identitas') ?>" class="nav-link">
 		  										<i class="far fa-dot-circle nav-icon"></i>
 		  										<p>Identitas</p>
 		  									</a>
 		  								</li>
 		  								<li class="nav-item">
-		  									<a href="#" class="nav-link">
+		  									<a href="<?= base_url('status_kawin') ?>" class="nav-link">
 		  										<i class="far fa-dot-circle nav-icon"></i>
 		  										<p>Status Kawin</p>
 		  									</a>
 		  								</li>
 		  								<li class="nav-item">
-		  									<a href="#" class="nav-link">
+		  									<a href="<?= base_url('status_pegawai') ?>" class="nav-link">
 		  										<i class="far fa-dot-circle nav-icon"></i>
 		  										<p>Status Pegawai</p>
 		  									</a>
@@ -160,13 +154,13 @@
 		  							</a>
 		  							<ul class="nav nav-treeview">
 		  								<li class="nav-item">
-		  									<a href="<?= base_url('private/master_data/pendidikan/jenjang') ?>" class="nav-link">
+		  									<a href="<?= base_url('jenjang') ?>" class="nav-link">
 		  										<i class="far fa-dot-circle nav-icon"></i>
 		  										<p>Jenjang Pendidikan</p>
 		  									</a>
 		  								</li>
 		  								<li class="nav-item">
-		  									<a href="<?= base_url('private/master-data/pendidikan/jurusan') ?>" class="nav-link">
+		  									<a href="<?= base_url('jurusan') ?>" class="nav-link">
 		  										<i class="far fa-dot-circle nav-icon"></i>
 		  										<p>Jurusan Pendidikan</p>
 		  									</a>
@@ -174,7 +168,7 @@
 		  							</ul>
 		  						</li>
 		  						<li class="nav-item">
-		  							<a href="<?= base_url('private/master_data/unit_kerja') ?>" class="nav-link">
+		  							<a href="<?= base_url('unit_kerja') ?>" class="nav-link">
 		  								<i class="far fa-circle nav-icon"></i>
 		  								<p>Unit Kerja</p>
 		  							</a>

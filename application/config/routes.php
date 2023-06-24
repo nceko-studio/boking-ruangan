@@ -50,8 +50,22 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'home';
-$route['login'] = 'auth/login';
-$route['regist'] = 'auth/regist';
-$route['jenjang'] = 'private/master_data/pendidikan/jenjang';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+//Login and register
+$route['login'] = 'auth/login';
+$route['regist'] = 'auth/regist';
+
+//Master Data Biodata
+$route['agama'] = 'private/master_data/biodata/agama';
+$route['identitas'] = 'private/master_data/biodata/identitas';
+$route['status_kawin'] = 'private/master_data/biodata/status_kawin';
+$route['status_pegawai'] = 'private/master_data/biodata/status_pegawai';
+
+//Master Data Pendidikan
+$route['jenjang'] = 'private/master_data/pendidikan/jenjang';
+$route['jurusan'] = 'private/master_data/pendidikan/jurusan';
+
+//Master Data Unit Kerja
+$route['unit_kerja'] = 'private/master_data/unit_kerja';
