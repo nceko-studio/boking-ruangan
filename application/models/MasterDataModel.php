@@ -228,4 +228,198 @@ class MasterDataModel extends CI_Model
 	}
 
 	// End Status Pegawai
+
+	// Start Gedung
+	public function AllGedung()
+	{
+		return $this->db->get('tbl_gedung')->result();
+	}
+
+	function NewGedung($data)
+	{
+		if (!empty($data)) {
+			$this->db->insert('tbl_gedung',$data);
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function DeleteGedung($id)
+	{
+		if (!empty($id)) {
+			$this->db->where('id_gedung',$id);
+			$this->db->delete('tbl_gedung');
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	// End Gedung
+
+	// Start Lantai
+
+	public function AllLantai()
+	{
+		return $this->db->get('tbl_lantai')->result();
+	}
+
+	function NewLantai($data)
+	{
+		if (!empty($data)) {
+			$this->db->insert('tbl_lantai',$data);
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function DeleteLantai($id)
+	{
+		if (!empty($id)) {
+			$this->db->where('id_lantai',$id);
+			$this->db->delete('tbl_lantai');
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	// End Lantai
+
+	// Start Jenis Ruangan
+
+	public function AllJR()
+	{
+		return $this->db->get('tbl_jenis_ruangan')->result();
+	}
+
+	function NewJR($data)
+	{
+		if (!empty($data)) {
+			$this->db->insert('tbl_jenis_ruangan',$data);
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function DeleteJR($id)
+	{
+		if (!empty($id)) {
+			$this->db->where('id_jenis_ruangan',$id);
+			$this->db->delete('tbl_jenis_ruangan');
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	// End Jenis Ruangan
+
+	// Start Group Ruangan
+
+	public function AllGR()
+	{
+		return $this->db->select('a.*,b.jenis_ruangan')
+		->from('tbl_group_ruangan a')
+		->join('tbl_jenis_ruangan b', 'a.id_jenis_ruangan = b.id_jenis_ruangan','left')
+		->get()
+		->result();
+	}
+
+	function NewGR($data)
+	{
+		if (!empty($data)) {
+			$this->db->insert('tbl_group_ruangan',$data);
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function DeleteGR($id)
+	{
+		if (!empty($id)) {
+			$this->db->where('id_group_ruangan',$id);
+			$this->db->delete('tbl_group_ruangan');
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	// End Group Ruangan
+
+	// Start Kelas Rawatan
+	public function AllKR()
+	{
+		return $this->db->get('tbl_kelas_rawatan')->result();
+	}
+
+	function NewKR($data)
+	{
+		if (!empty($data)) {
+			$this->db->insert('tbl_kelas_rawatan',$data);
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function DeleteKR($id)
+	{
+		if (!empty($id)) {
+			$this->db->where('id_kelas_rawatan',$id);
+			$this->db->delete('tbl_kelas_rawatan');
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	// End Kelas Rawatan
+
+	// Start Kelompok Ruangan
+
+	public function AllKelRu()
+	{
+		return $this->db->get('tbl_kelompok_ruangan')->result();
+	}
+
+	function NewKelRu($data)
+	{
+		if (!empty($data)) {
+			$this->db->insert('tbl_kelompok_ruangan',$data);
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function DeleteKelRu($id)
+	{
+		if (!empty($id)) {
+			$this->db->where('id_kelompok_ruangan',$id);
+			$this->db->delete('tbl_kelompok_ruangan');
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	// End Kelompok Ruangan
 }

@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Biodata extends CI_Controller 
 {
-    // Start Jenjang Pendidikan
+    // Start Agama
 	public function agama()
 	{
 		$data['title'] = "Agama";
@@ -42,9 +42,9 @@ class Biodata extends CI_Controller
 		}
 		redirect('agama');
 	}
-    // End Jenjang Pendidikan
+    // End Agama
 
-    // Start Jenjang Pendidikan
+    // Start Identitas
 	public function identitas()
 	{
 		$data['title'] = "Identitas";
@@ -83,9 +83,9 @@ class Biodata extends CI_Controller
 		}
 		redirect('identitas');
 	}
-    // End Jenjang Pendidikan
+    // End Identitas
 
-    // Start Jenjang Pendidikan
+    // Start Status Kawin
 	public function status_kawin()
 	{
 		$data['title'] = "Status Kawin";
@@ -124,9 +124,9 @@ class Biodata extends CI_Controller
 		}
 		redirect('status_kawin');
 	}
-    // End Jenjang Pendidikan
+    // End Status Kawin
 
-    // Start Jenjang Pendidikan
+    // Start Status Pegawai
 	public function status_pegawai()
 	{
 		$data['title'] = "Status Pegawai";
@@ -165,5 +165,5 @@ class Biodata extends CI_Controller
 		}
 		redirect('status_pegawai');
 	}
-    // End Jenjang Pendidikan
+    // End Status Pegawai
 }

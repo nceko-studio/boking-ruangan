@@ -57,6 +57,14 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'auth/login';
 $route['regist'] = 'auth/regist';
 
+//Master Data Ruangan
+$route['gedung'] = 'private/master_data/ruangan/gedung';
+$route['lantai'] = 'private/master_data/ruangan/lantai';
+$route['jenis_ruangan'] = 'private/master_data/ruangan/jenis_ruangan';
+$route['group_ruangan'] = 'private/master_data/ruangan/group_ruangan';
+$route['kelas_rawatan'] = 'private/master_data/ruangan/kelas_rawatan';
+$route['kelompok_ruangan'] = 'private/master_data/ruangan/kelompok_ruangan';
+
 //Master Data Biodata
 $route['agama'] = 'private/master_data/biodata/agama';
 $route['identitas'] = 'private/master_data/biodata/identitas';
