@@ -33,7 +33,7 @@ class Pendaftaran extends CI_Controller
             'id_jurusan_pendidikan' => $this->input->post('jurusan'),
             'id_identitas' => $this->input->post('identitas'),
             'no_identitas' => $this->input->post('ni'),
-            'no_kk' => $this->input->post('nk'),
+            'no_kk' => $this->input->post('kk'),
             'email' => $this->input->post('nop'),
             'riwayat_alergi_obat' => $this->input->post('email')
         );
