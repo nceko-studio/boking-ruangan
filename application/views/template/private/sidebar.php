@@ -30,7 +30,7 @@
 		  					</a>
 		  				</li>
 		  				<li class="nav-item">
-		  					<a href="pages/widgets.html" class="nav-link">
+		  					<a href="<?= base_url('pendaftaran') ?>" class="nav-link">
 		  						<i class="nav-icon fas fa-address-card"></i>
 		  						<p>
 		  							Pendaftaran Pasien
@@ -38,7 +38,7 @@
 		  					</a>
 		  				</li>
 		  				<li class="nav-item">
-		  					<a href="pages/widgets.html" class="nav-link">
+		  					<a href="<?= base_url('data_pasien') ?>" class="nav-link">
 		  						<i class="nav-icon fas fa-users"></i>
 		  						<p>
 		  							Data Pasien
