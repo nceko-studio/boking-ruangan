@@ -2,14 +2,30 @@
 
 class UserModel extends CI_Model
 {
-	public function resetPass($id)
+	public function AllUser()
 	{
-		$data = array(
-			'password'	=> md5('operator123')
-		);
-		$this->db->where('id_user', $id);
-		$this->db->update('tbl_user',$data);
+		return $this->db->select('id_user,nama_user, tempat_lahir, tgl_lahir, no_hp, email')->from('tbl_user')->get()->result();
+	}
 
-		return true;
+	public function NewUser($data)
+	{
+		if (!empty($data)) {
+			$this->db->insert('tbl_user',$data);
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function NewRegist($datas)
+	{
+		if (!empty($data)) {
+			$this->db->insert('tbl_pendaftaran',$data);
+
+			return true;
+		}else{
+			return false;
+		}
 	}
 }
