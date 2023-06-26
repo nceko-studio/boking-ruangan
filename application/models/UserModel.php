@@ -12,7 +12,7 @@ class UserModel extends CI_Model
 		if (!empty($data)) {
 			$this->db->insert('tbl_user',$data);
 
-			return true;
+			return $this->db->insert_id();
 		}else{
 			return false;
 		}
@@ -20,8 +20,8 @@ class UserModel extends CI_Model
 
 	public function NewRegist($datas)
 	{
-		if (!empty($data)) {
-			$this->db->insert('tbl_pendaftaran',$data);
+		if (!empty($datas)) {
+			$this->db->insert('tbl_pendaftaran',$datas);
 
 			return true;
 		}else{

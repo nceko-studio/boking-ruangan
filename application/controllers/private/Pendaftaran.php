@@ -40,25 +40,21 @@ class Pendaftaran extends CI_Controller
 
         $runtime = $this->UserModel->newUser($data);
 
-        if ($runtime == true) {
-            $insertedUserId = $this->runtime->insert_id();
+        if (!empty($runtime)) {;
 
-            $uye = 1212+$insertedUserId;
+            $uye = "1212".$runtime;
             $datas = [
                 'no_register' => $uye,
                 'tgl_daftar' => date("Y-m-d H:i:s"),
-                'id_pasien' => $insertedUserId,
+                'id_pasien' => $runtime,
                 'is_ugd' => $this->input->post('ugd'),
                 'id_jenis_rawatan' => $this->input->post('jenis_rawatan'),
                 'laka_lantas' => $this->input->post('laka_lantas'),
                 'tgl_berobat' => date('Y-m-d H:i:s'),
                 'is_confrim' => 1,
-                'id_ruangan_bed' => $this->input->post('id_bed'),
+                'id_ruangan_bed' => 1,
                 'is_cancled' => 0,
-                'ket_cancled' => null,
-                'id_dokter' => $this->input->post('jurusan'),
-                'sts_selesai' => null,
-                'tgl_selesai' => null,
+                'id_dokter' => 0,
             ];
 
             $sorttime = $this->UserModel->NewRegist($datas);
