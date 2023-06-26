@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 //Login and register
 $route['login'] = 'auth/login';
 $route['regist'] = 'auth/regist';
+$route['logout'] = 'auth/logout';
 
 //Pendaftaran Pasien
 $route['pendaftaran'] = 'private/pendaftaran';
@@ -89,3 +90,10 @@ $route['jurusan'] = 'private/master_data/pendidikan/jurusan';
 
 //Master Data Unit Kerja
 $route['unit_kerja'] = 'private/master_data/unit_kerja';
+
+//Transaksi
+$route['pegawai'] = 'private/transaksi/pegawai';
+$route['akun'] = 'private/transaksi/akun';
+
+//Laporan
+$route['laporan'] = 'private/laporan';
