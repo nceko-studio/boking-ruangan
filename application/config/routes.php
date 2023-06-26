@@ -60,8 +60,14 @@ $route['regist'] = 'auth/regist';
 //Pendaftaran Pasien
 $route['pendaftaran'] = 'private/pendaftaran';
 
-//Data Pasien
+//Biodata Pasien
 $route['data_pasien'] = 'private/pasien';
+
+//Biodata Pasien
+$route['biodata_pasien'] = 'private/pasien/biodata';
+
+//Data Ruangan
+$route['data_ruangan'] = 'private/ruangan';
 
 //Master Data Ruangan
 $route['gedung'] = 'private/master_data/ruangan/gedung';

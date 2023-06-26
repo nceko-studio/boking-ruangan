@@ -32,6 +32,8 @@
                     <!-- form start -->
                     <form action="<?= base_url('private/pendaftaran/new') ?>" method="POST">
                         <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
                             <div class="form-group">
                                 <label for="nama">Nama Pasien</label>
                                 <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Pasien">
@@ -90,24 +92,6 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="jenjang">Jenjang Pendidikan</label>
-                                    <select class="form-control" id="jenjang" name="jenjang" required>
-                                        <option>Pilih Jenjang Pendidikan</option>
-                                        <?php foreach ($jenjang_pendidikan as $jp) { ?>
-                                            <option value="<?= $jp->id_jenjang_pendidikan ?>"><?= $jp->jenjang_pendidikan ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="jurusan">Jurusan Pendidikan</label>
-                                    <select class="form-control" id="jurusan" name="jurusan" required>
-                                        <option>Pilih Jurusan Pendidikan</option>
-                                        <?php foreach ($jurusan_pendidikan as $jur) { ?>
-                                            <option value="<?= $jur->id_jurusan_pendidikan ?>"><?= $jur->jurusan_pendidikan ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
                                     <label for="identitas">Identitas</label>
                                     <select class="form-control" id="identitas" name="identitas" required>
                                         <option>Pilih Jenis Identitas</option>
@@ -116,27 +100,15 @@
                                         <?php } ?>
                                     </select>
                                 </div>
-                            <div class="form-group">
-                                <label for="ni">No Identitas</label>
-                                <input type="text" class="form-control" id="ni" name="ni" placeholder="Nomor Identitas">
-                            </div>
-                            <div class="form-group">
-                                <label for="kk">No Kartu Keluarga</label>
-                                <input type="text" class="form-control" id="kk" name="kk" placeholder="Nomor Kartu Keluarga">
-                            </div>
-                            <div class="form-group">
-                                <label for="nop">No Handphone</label>
-                                <input type="text" class="form-control" id="nop" name="nop" placeholder="Nomor Handphone">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Alamat Email">
-                            </div>
-                            <div class="form-group">
-                                <label for="aler">Riwayat Alergi</label>
-                                <input type="text" class="form-control" id="aler" name="aler" placeholder="Riwayat Alergi">
-                            </div>
-                            <div class="row">
+                                <div class="form-group">
+                                    <label for="ni">No Identitas</label>
+                                    <input type="text" class="form-control" id="ni" name="ni" placeholder="Nomor Identitas">
+                                </div>
+                                <div class="form-group">
+                                    <label for="kk">No Kartu Keluarga</label>
+                                    <input type="text" class="form-control" id="kk" name="kk" placeholder="Nomor Kartu Keluarga">
+                                </div>
+                                <div class="row">
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label for="jr">Jenis Rawatan</label>
@@ -195,6 +167,78 @@
                                     </div>
                                 </div>
                             </div>
+                                </div>
+                                <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="jenjang">Provinsi</label>
+                                        <select class="form-control" id="jenjang" name="jenjang" required>
+                                            <option>Pilih Provinsi</option>
+                                            <?php foreach ($jenjang_pendidikan as $jp) { ?>
+                                                <option value="<?= $jp->id_jenjang_pendidikan ?>"><?= $jp->jenjang_pendidikan ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="jenjang">Kabupaten Kota</label>
+                                        <select class="form-control" id="jenjang" name="jenjang" required>
+                                            <option>Pilih Kabupaten Kota</option>
+                                            <?php foreach ($jenjang_pendidikan as $jp) { ?>
+                                                <option value="<?= $jp->id_jenjang_pendidikan ?>"><?= $jp->jenjang_pendidikan ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="jenjang">Kecamatan</label>
+                                            <select class="form-control" id="jenjang" name="jenjang" required>
+                                                <option>Pilih Kecamatan</option>
+                                                <?php foreach ($jenjang_pendidikan as $jp) { ?>
+                                                    <option value="<?= $jp->id_jenjang_pendidikan ?>"><?= $jp->jenjang_pendidikan ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="jenjang">Desa</label>
+                                            <select class="form-control" id="jenjang" name="jenjang" required>
+                                                <option>Pilih Desa</option>
+                                                <?php foreach ($jenjang_pendidikan as $jp) { ?>
+                                                    <option value="<?= $jp->id_jenjang_pendidikan ?>"><?= $jp->jenjang_pendidikan ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="aler">Alamat</label>
+                                    <textarea class="form-control" rows="1" placeholder="Alamat"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="jenjang">Jenjang Pendidikan</label>
+                                    <select class="form-control" id="jenjang" name="jenjang" required>
+                                        <option>Pilih Jenjang Pendidikan</option>
+                                        <?php foreach ($jenjang_pendidikan as $jp) { ?>
+                                            <option value="<?= $jp->id_jenjang_pendidikan ?>"><?= $jp->jenjang_pendidikan ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="jurusan">Jurusan Pendidikan</label>
+                                    <select class="form-control" id="jurusan" name="jurusan" required>
+                                        <option>Pilih Jurusan Pendidikan</option>
+                                        <?php foreach ($jurusan_pendidikan as $jur) { ?>
+                                            <option value="<?= $jur->id_jurusan_pendidikan ?>"><?= $jur->jurusan_pendidikan ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            <div class="form-group">
+                                <label for="aler">Riwayat Alergi</label>
+                                <input type="text" class="form-control" id="aler" name="aler" placeholder="Riwayat Alergi">
+                            </div>
+                            
                                 <div class="form-group">
                                     <label for="id_dokter">DPJP</label>
                                     <select class="form-control" id="id_dokter" name="id_dokter" required>
@@ -204,6 +248,41 @@
                                         <?php } ?>
                                     </select>
                                 </div>
+                            <div class="form-group">
+                                <label for="nop">No Handphone</label>
+                                <input type="text" class="form-control" id="nop" name="nop" placeholder="Nomor Handphone">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Alamat Email">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="id_dokter">Ruangan</label>
+                                        <select class="form-control" id="id_dokter" name="id_dokter" required>
+                                            <option>Pilih Dokter</option>
+                                            <?php foreach ($dokter as $d) { ?>
+                                                <option value="<?= $d->id_user ?>"><?= $d->nama_user ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="id_dokter">Bed</label>
+                                        <select class="form-control" id="id_dokter" name="id_dokter" required>
+                                            <option>Pilih Dokter</option>
+                                            <?php foreach ($dokter as $d) { ?>
+                                                <option value="<?= $d->id_user ?>"><?= $d->nama_user ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                                    
+                                </div>
+                            </div>
                         </div>
                         <!-- /.card-body -->
 

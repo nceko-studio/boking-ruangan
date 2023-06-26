@@ -46,7 +46,15 @@
 		  					</a>
 		  				</li>
 		  				<li class="nav-item">
-		  					<a href="pages/widgets.html" class="nav-link">
+		  					<a href="<?= base_url('biodata_pasien') ?>" class="nav-link">
+		  						<i class="nav-icon fas fa-users"></i>
+		  						<p>
+		  							Biodata Pasien
+		  						</p>
+		  					</a>
+		  				</li>
+		  				<li class="nav-item">
+		  					<a href="<?= base_url('data_ruangan')?>" class="nav-link">
 		  						<i class="nav-icon fas fa-building"></i>
 		  						<p>
 		  							Data Ruangan
@@ -193,7 +201,7 @@
 		  						<li class="nav-item">
 		  							<a href="pages/search/enhanced.html" class="nav-link">
 		  								<i class="far fa-circle nav-icon"></i>
-		  								<p>Non - Pegawai</p>
+		  								<p>Akun</p>
 		  							</a>
 		  						</li>
 		  					</ul>
