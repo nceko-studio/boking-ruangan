@@ -88788,3 +88788,9 @@ INSERT INTO tbl_kecamatan (id_kecamatan, kecamatan, id_kabupaten) VALUES
 (431106004, 'REMU SELATAN', 431106),
 (431106005, 'KLASABI', 431106);
 
+ALTER TABLE tbl_user
+ADD COLUMN id_provisi int,
+ADD COLUMN id_kabkot INT,
+ADD COLUMN id_kec INT,
+ADD COLUMN id_desa INT,
+ADD COLUMN alamat TEXT;
