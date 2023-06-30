@@ -88802,3 +88802,16 @@ BEGIN
     SET nama_lengkap = CONCAT(gelar_depan, ' ', nama_user, ' ', gelar_blk);
     RETURN nama_lengkap;
 END;
+
+CREATE TRIGGER set_canceled_trigger BEFORE INSERT ON tbl_pendaftaran
+FOR EACH ROW
+BEGIN
+    DECLARE tgl_daftar_hour TIMESTAMP;
+    
+    SET tgl_daftar_hour = DATE_ADD(NEW.tgl_daftar, INTERVAL 1 HOUR);
+    
+    IF NOW() > tgl_daftar_hour AND NEW.is_confrim = '0' THEN
+        SET NEW.is_cancled = '1';
+        SET NEW.ket_cancled = '2';
+    END IF;
+END;
