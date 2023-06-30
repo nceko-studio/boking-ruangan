@@ -8,15 +8,54 @@ class Pendaftaran extends CI_Controller
 		$data['title'] = 'Pendaftaran';
         $data['agama'] = $this->MasterData->AllAgama(); 
         $data['status_kawin'] = $this->MasterData->AllSK(); 
-        $data['jenjang_pendidikan'] = $this->MasterData->AllJenjang(); 
-        $data['jurusan_pendidikan'] = $this->MasterData->AllJurusan(); 
+        $data['jenjang_pendidikan'] = $this->MasterData->AllJenjang();
         $data['identitas'] = $this->MasterData->AllIdentitas(); 
-        $data['dokter'] = $this->MasterData->AllIdentitas(); 
+        $data['dokter'] = $this->db->where('sts_group',"2")->where_not_in('kd_dpjp',null)->get('tbl_user')->result(); 
+        $data['provinsi'] = $this->db->get('tbl_provinsi')->result(); 
+        $data['ruangan'] = $this->M_ruangan->AllRuangan(); 
 		$this->load->view('template/private/header', $data);
 		$this->load->view('template/private/navbar', $data);
 		$this->load->view('template/private/sidebar', $data);
 		$this->load->view('private/pendaftaran', $data);
 		$this->load->view('template/private/footer', $data);
+	}
+
+    public function jurusan()
+	{
+        $id	=	$this->input->post('jenjang');
+		$data	=	$this->db->where('id_jenjang_pendidikan', $id)->get('tbl_jurusan_pendidikan')->result();
+		echo json_encode($data);
+	}
+
+    public function kabupaten()
+	{
+        
+        $id	=	$this->input->post('provinsi');
+		$data	=	$this->db->where('id_provinsi', $id)->get('tbl_kabupaten')->result();
+		echo json_encode($data);
+	}
+
+
+    public function kecamatan()
+	{
+        $id	=	$this->input->post('kabupaten');
+		$data	=	$this->db->where('id_kabupaten', $id)->get('tbl_kecamatan')->result();
+		echo json_encode($data);
+	}
+
+    public function desa()
+	{
+        
+        $id	=	$this->input->post('kecamatan');
+		$data	=	$this->db->where('id_kecamatan', $id)->get('tbl_desa')->result();
+		echo json_encode($data);
+	}
+
+    public function bed()
+	{
+        $id	=	$this->input->post('ruangan');
+		$data	=	$this->db->where('id_ruangan', $id)->get('tbl_ruangan_bed')->result();
+		echo json_encode($data);
 	}
 
     public function new()
@@ -25,7 +64,7 @@ class Pendaftaran extends CI_Controller
             'nama_user' => $this->input->post('nama'),
             'tempat_lahir' => $this->input->post('tl'),
             'tgl_lahir' => $this->input->post('tgl'),
-            'jk' => $this->input->post('jenis_kelamin'),
+            'jk' => $this->input->post('jk'),
             'id_status_kawin' => $this->input->post('status_kawin'),
             'id_agama' => $this->input->post('agama'),
             'goldar' => $this->input->post('goldar'),
@@ -34,8 +73,18 @@ class Pendaftaran extends CI_Controller
             'id_identitas' => $this->input->post('identitas'),
             'no_identitas' => $this->input->post('ni'),
             'no_kk' => $this->input->post('kk'),
-            'email' => $this->input->post('nop'),
-            'riwayat_alergi_obat' => $this->input->post('email')
+            'email' => $this->input->post('email'),
+            'no_hp' => $this->input->post('nop'),
+            'riwayat_alergi_obat' => $this->input->post('aler'),
+            'id_provisi' => $this->input->post('provinsi'),
+            'id_kabkot' => $this->input->post('kabupaten'),
+            'id_kec' => $this->input->post('kecamatan'),
+            'id_desa' => $this->input->post('desa'),
+            'alamat' => $this->input->post('alamat'),
+            'sts_user' => "1",
+            'date_register' => date("Y-m-d"),
+            'user_registered' => 1,
+            'is_difabel' => "0"
         );
 
         $runtime = $this->UserModel->newUser($data);
@@ -52,9 +101,9 @@ class Pendaftaran extends CI_Controller
                 'laka_lantas' => $this->input->post('laka_lantas'),
                 'tgl_berobat' => date('Y-m-d H:i:s'),
                 'is_confrim' => 1,
-                'id_ruangan_bed' => 1,
+                'id_ruangan_bed' => $this->input->post('bed'),
                 'is_cancled' => 0,
-                'id_dokter' => 0,
+                'id_dokter' => $this->input->post('id_dokter'),
             ];
 
             $sorttime = $this->UserModel->NewRegist($datas);
