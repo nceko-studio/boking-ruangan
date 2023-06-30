@@ -31,6 +31,15 @@ class UserModel extends CI_Model
 		}
 	}
 
+	public function AllPegawai()
+	{
+		return $this->db->select('func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_pegawai, IF(kd_dpjp = 1, "-", kd_dpjp) as kd_dpjp_fungsi, tbl_user.*')
+		->from('tbl_user')
+		->where('sts_group',"2")
+		->get()
+		->result();
+	}
+
 	public function NewRegist($datas)
 	{
 		if (!empty($datas)) {
