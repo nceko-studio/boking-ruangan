@@ -23,12 +23,12 @@
  							<div class="d-flex">
  								<div class="flex-shrink-0 me-3">
  									<div class="avatar avatar-online">
- 										<img src="<?= base_url('assets/public/img/avatars/').$this->session->userdata('profile'); ?>" alt class="w-px-40 h-auto rounded-circle" />
+ 										<img src="<?= base_url('assets/public/img/avatars/1.png'); ?>" alt class="w-px-40 h-auto rounded-circle" />
  									</div>
  								</div>
  								<div class="flex-grow-1">
  									<span class="fw-semibold d-block"><?= $this->session->userdata('nama') ?></span>
- 									<small class="text-muted"><?php if ($this->session->userdata('role') == 1) { echo "Pimpinan"; } else { echo "Operator"; }?></small>
+ 									<small class="text-muted"><?php if ($this->session->userdata('role') == 5) { echo "Pasien"; } else { echo "Operator"; }?></small>
  								</div>
  							</div>
  					</li>
@@ -36,7 +36,7 @@
  						<div class="dropdown-divider"></div>
  					</li>
  					<li>
- 						<a class="dropdown-item" href="<?= base_url('auth/logout') ?>">
+ 						<a class="dropdown-item" href="<?= base_url('logout') ?>">
  							<i class="bx bx-power-off me-2"></i>
  							<span class="align-middle">Log Out</span>
  						</a>

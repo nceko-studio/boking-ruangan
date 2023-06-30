@@ -5,7 +5,7 @@ class Riwayat extends CI_Controller
 {
 	public function index()
 	{
-        $user_id = 20;
+        $user_id = $this->session->userdata('id_user');
 		$data['title'] = 'Riwayat Berobat';
         $data['riwayat'] = $this->LaporanModel->AllLaporanById($user_id); 
 		$this->load->view('template/public/user_panel/header', $data);

@@ -17,7 +17,6 @@ class PegawaiModel extends CI_Model
 		->from('tbl_akun a')
 		->join('tbl_mst_role b', 'a.sts_akun = b.id_role','left')
 		->join('tbl_user u', 'a.id_user = u.id_user','left')
-		->where('sts_group',"2")
 		->get()
 		->result();
 	}
