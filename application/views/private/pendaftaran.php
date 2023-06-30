@@ -232,7 +232,7 @@
                                     <select class="form-control" id="id_dokter" name="id_dokter" required>
                                         <option>Pilih Dokter</option>
                                         <?php foreach ($dokter as $d) { ?>
-                                            <option value="<?= $d->id_user ?>"><?= $d->nama_user ?></option>
+                                            <option value="<?= $d->id_user ?>"><?= $d->nama_dokter ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>

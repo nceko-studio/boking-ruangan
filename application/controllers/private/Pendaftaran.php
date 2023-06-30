@@ -10,7 +10,7 @@ class Pendaftaran extends CI_Controller
         $data['status_kawin'] = $this->MasterData->AllSK(); 
         $data['jenjang_pendidikan'] = $this->MasterData->AllJenjang();
         $data['identitas'] = $this->MasterData->AllIdentitas(); 
-        $data['dokter'] = $this->db->where('sts_group',"2")->where_not_in('kd_dpjp',null)->get('tbl_user')->result(); 
+        $data['dokter'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where_not_in('kd_dpjp',null)->get('tbl_user')->result(); 
         $data['provinsi'] = $this->db->get('tbl_provinsi')->result(); 
         $data['ruangan'] = $this->M_ruangan->AllRuangan(); 
 		$this->load->view('template/private/header', $data);
