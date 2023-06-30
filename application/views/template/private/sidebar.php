@@ -53,6 +53,7 @@
 		  						</p>
 		  					</a>
 		  				</li>
+						<?php if ($this->session->userdata('role') == 1){;?>
 		  				<li class="nav-item">
 		  					<a href="<?= base_url('data_ruangan')?>" class="nav-link">
 		  						<i class="nav-icon fas fa-building"></i>
@@ -214,7 +215,8 @@
 		  						</p>
 		  					</a>
 		  				</li>
-		  				<li class="nav-item">
+		  				<?php };?>
+						<li class="nav-item">
 		  					<a href="<?= base_url('logout'); ?>" class="nav-link">
 		  						<i class="nav-icon fas fa-sign-out-alt"></i>
 		  						<p>Log Out</p>
