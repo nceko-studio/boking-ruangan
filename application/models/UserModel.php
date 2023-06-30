@@ -96,4 +96,16 @@ class UserModel extends CI_Model
 			return false;
 		}
 	}
+
+	function DeleteUser($id)
+	{
+		if (!empty($id)) {
+			$this->db->where('id_user',$id);
+			$this->db->delete('tbl_user');
+
+			return true;
+		}else{
+			return false;
+		}
+	}
 }

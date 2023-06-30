@@ -59,7 +59,13 @@
 												<td><?= $v->tempat_lahir; ?> / <?= date("d-m-Y",strtotime($v->tgl_lahir)); ?></td>
 												<td><?= $v->no_hp; ?></td>
 												<td><?= $v->email; ?></td>
-												<td><?= $v->email; ?></td>
+												<td>
+													<a href="<?= base_url('private/transaksi/pegawai/hapus/' . $v->id_user) ?>">
+														<button class="btn bg-danger btn-xs" title="Proses Pulang" style="width: 30px;">
+															<i class="fas fa-user-minus"></i>
+														</button>
+													</a>   
+												</td>
 											</tr>
 										<?php endforeach; ?>
 									</tbody>
