@@ -39,8 +39,8 @@
                         <div class="row g-0">
                             <p><?= $in['lantai']; ?> (Ruangan Perawatan Anak)</p>
                             <p>Kelas: <?= $in['kelas_rawatan']; ?></p>
-                            <p class="text-center">Foto Ruangan</p>
-                            <img src="<?= base_url('assets'); ?>/public/img/avatars/6.png" alt="" width="40px">
+                            <!-- <p class="text-center">Foto Ruangan</p> -->
+                            <!-- <img src="<?= base_url('assets'); ?>/public/img/avatars/6.png" alt="" width="40px"> -->
                             <p>Keterangan Kamar:</p>
                             <li>Kelas <?= $in['kelas_rawatan']; ?> merupakan ruangan bangsai</li>
                             <p>Status Kamar: Tersedia</p>

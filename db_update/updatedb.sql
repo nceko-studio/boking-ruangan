@@ -88802,3 +88802,19 @@ BEGIN
     SET nama_lengkap = CONCAT(gelar_depan, ' ', nama_user, ' ', gelar_blk);
     RETURN nama_lengkap;
 END;
+
+CREATE EVENT update_canceled_event
+ON SCHEDULE EVERY 5 MINUTE
+ON COMPLETION PRESERVE
+DO
+BEGIN
+    UPDATE tbl_pendaftaran
+    SET is_cancled = '1',
+        ket_cancled = '2'
+    WHERE no_register IN (
+        SELECT no_register
+        FROM tbl_pendaftaran
+        WHERE is_confrim = '0'
+        AND tgl_daftar <= NOW() - INTERVAL 1 HOUR
+    );
+END;

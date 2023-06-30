@@ -49,7 +49,29 @@
 											<td><?= $v->nama_ruangan; ?> / No. BED :<?= $v->no_bed; ?></td>
 											<td><?= $v->nama_dokter; ?></td>
 											<td>
-                                                
+												<?php if ($v->is_confrim == "0"): ?>
+												<a href="<?= base_url('private/pasien/berobat/' . $v->no_register) ?>">
+													<button class="btn bg-success btn-xs" title="Konfirmasi Berobat" style="width: 30px;">
+														<i class="fas fa-check"></i>
+													</button>
+												</a>   
+												<a href="<?= base_url('private/pasien/hapus/' . $v->no_register) ?>">
+													<button class="btn bg-danger btn-xs" title="Batalkan Pesanan Ruangan" style="width: 30px;">
+														<i class="fas fa-minus"></i>
+													</button>
+												</a>
+												<?php else: ?>
+												<a href="<?= base_url('private/pasien/tambah/' . $v->no_register) ?>">
+													<button class="btn bg-info btn-xs" title="Atur Perawat" style="width: 30px;">
+														<i class="fas fa-pen"></i>
+													</button>
+												</a>
+												<a href="<?= base_url('private/pasien/pulang/' . $v->no_register) ?>">
+													<button class="btn bg-success btn-xs" title="Proses Pulang" style="width: 30px;">
+														<i class="fas fa-user-check"></i>
+													</button>
+												</a>   
+												<?php endif; ?>                                             
                                             </td>
 										</tr>
 									<?php endforeach; ?>
