@@ -36,7 +36,7 @@
 
             <div class="w-40 mx-auto text-center">
                 <h2 class="login-box-msg">Silahkan Login</h2>
-                <form action="<?= base_url(); ?>auth/proseslogin" method="post">
+                <form action="<?= base_url('auth/login_proses'); ?>" method="post">
                     <div class="form-group row">
                         <label for="username" class="col-sm-3 col-form-label form-label">Username</label>
                         <div class="col-sm-6">

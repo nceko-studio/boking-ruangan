@@ -8,6 +8,39 @@ class Auth extends CI_Controller
 		$this->load->view('auth/login');
 	}
 
+	public function login_proses()
+	{
+		$email = $this->input->post('username');
+		$password = MD5($this->input->post('password'));
+
+		$cekEmail = $this->db->where('username', $email)->from('tbl_akun')->get()->row();
+
+		if ($cekEmail == true) {
+			if ($cekEmail->password == $password) {
+				if ($cekEmail->is_active == 1) {
+					$data_session = array(
+						'username' => $cekEmail->username,
+						'role' => $cekEmail->sts_akun,
+						'id_user' => $cekEmail->id_user
+					);
+					$this->session->set_userdata($data_session);
+
+					redirect('dashboard');
+				} else {
+					$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Akun Anda dalam penangguhan harap hubungi Admin.');
+					redirect('auth/login');
+				}
+			} else {
+				$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Password Yang Anda Masukan Tidak Sesuai.');
+				redirect('auth/login');
+			}
+		} else {
+			$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Username Tidak Ditemukan.');
+			redirect('auth/login');
+		}
+	}
+
+
 	public function regist()
 	{
         $data['agama'] = $this->MasterData->AllAgama(); 
@@ -77,8 +110,10 @@ class Auth extends CI_Controller
 
 	public function logout()
 	{
-		$this->load->view('template/public/home_view/header');
-		$this->load->view('public/home_view/index');
-		$this->load->view('template/public/home_view/footer');
+		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('role');
+		$this->session->unset_userdata('id_user');
+		$this->session->sess_destroy();
+		redirect('login');
 	}
 }

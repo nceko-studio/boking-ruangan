@@ -20,7 +20,7 @@ class Boking extends CI_Controller
         $jam = date('H');
         $detik = date('s');
         $runtime = $jam . $detik;
-        $user_id = 20;
+        $user_id = $this->session->userdata('id_user');
 		$uye = "1212".$runtime;
             $datas = [
                 'no_register' => $uye,
@@ -30,7 +30,7 @@ class Boking extends CI_Controller
                 'id_jenis_rawatan' => $this->input->post('jenis_rawatan'),
                 'laka_lantas' => $this->input->post('laka_lantas'),
                 'tgl_berobat' => date('Y-m-d H:i:s'),
-                'is_confrim' => "1",
+                'is_confrim' => "0",
                 'id_ruangan_bed' => $this->input->post('bed'),
                 'is_cancled' => "0",
                 'sts_selesai' => "0",

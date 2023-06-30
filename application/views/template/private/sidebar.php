@@ -14,7 +14,7 @@
 		  				<img src="<?= base_url('assets/private/dist/img/user2-160x160.jpg') ?>" class="img-circle elevation-2" alt="User Image">
 		  			</div>
 		  			<div class="info">
-		  				<a href="#" class="d-block">EKO HIDAYAT</a>
+		  				<a href="#" class="d-block"><?= $this->session->userdata('username') ?></a>
 		  			</div>
 		  		</div>
 
