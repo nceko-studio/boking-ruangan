@@ -100,9 +100,10 @@ class Pendaftaran extends CI_Controller
                 'id_jenis_rawatan' => $this->input->post('jenis_rawatan'),
                 'laka_lantas' => $this->input->post('laka_lantas'),
                 'tgl_berobat' => date('Y-m-d H:i:s'),
-                'is_confrim' => 1,
+                'is_confrim' => "1",
                 'id_ruangan_bed' => $this->input->post('bed'),
-                'is_cancled' => 0,
+                'is_cancled' => "0",
+                'sts_selesai' => "0",
                 'id_dokter' => $this->input->post('id_dokter'),
             ];
 
