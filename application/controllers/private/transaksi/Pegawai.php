@@ -62,4 +62,16 @@ class Pegawai extends CI_Controller
 
         redirect('pegawai');
 	}
+
+    public function hapus($id)
+	{
+		$hapus = $this->UserModel->DeleteUser($id);
+
+		if ($hapus == true) {
+			$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> Berhasil Menghapus Pegawai.');
+		} else {
+			$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Gagal Menghapus Pegawai.');
+		}
+		redirect('pegawai');
+	}
 }
