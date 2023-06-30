@@ -52,13 +52,13 @@
                                     &ensp;
                                     &ensp;
                                     <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="jenis_kelamin">
-                                    <label class="form-check-label">Laki Lai</label>
+                                    <input class="form-check-input" type="radio" name="jk" value="1">
+                                    <label class="form-check-label">Laki Laki</label>
                                     </div>
                                     &ensp;
                                     &ensp;
                                     <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="jenis_kelamin" checked>
+                                    <input class="form-check-input" type="radio" name="jk" value="2">
                                     <label class="form-check-label">Perempuan</label>
                                     </div>
                                 </div>
@@ -172,49 +172,40 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="jenjang">Provinsi</label>
-                                        <select class="form-control" id="jenjang" name="jenjang" required>
+                                        <label for="provinsi">Provinsi</label>
+                                        <select class="form-control" id="provinsi" name="provinsi" required>
                                             <option>Pilih Provinsi</option>
-                                            <?php foreach ($jenjang_pendidikan as $jp) { ?>
-                                                <option value="<?= $jp->id_jenjang_pendidikan ?>"><?= $jp->jenjang_pendidikan ?></option>
+                                            <?php foreach ($provinsi as $prov) { ?>
+                                                <option value="<?= $prov->id_provinsi ?>"><?= $prov->provinsi ?></option>
                                             <?php } ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="jenjang">Kabupaten Kota</label>
-                                        <select class="form-control" id="jenjang" name="jenjang" required>
+                                        <label for="kabupaten">Kabupaten Kota</label>
+                                        <select class="form-control" id="kabupaten" name="kabupaten" required>
                                             <option>Pilih Kabupaten Kota</option>
-                                            <?php foreach ($jenjang_pendidikan as $jp) { ?>
-                                                <option value="<?= $jp->id_jenjang_pendidikan ?>"><?= $jp->jenjang_pendidikan ?></option>
-                                            <?php } ?>
                                         </select>
                                     </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="jenjang">Kecamatan</label>
-                                            <select class="form-control" id="jenjang" name="jenjang" required>
+                                            <label for="kecamatan">Kecamatan</label>
+                                            <select class="form-control" id="kecamatan" name="kecamatan" required>
                                                 <option>Pilih Kecamatan</option>
-                                                <?php foreach ($jenjang_pendidikan as $jp) { ?>
-                                                    <option value="<?= $jp->id_jenjang_pendidikan ?>"><?= $jp->jenjang_pendidikan ?></option>
-                                                <?php } ?>
                                             </select>
                                         </div>
                                         
                                         <div class="form-group">
-                                            <label for="jenjang">Desa</label>
-                                            <select class="form-control" id="jenjang" name="jenjang" required>
+                                            <label for="desa">Desa</label>
+                                            <select class="form-control" id="desa" name="desa" required>
                                                 <option>Pilih Desa</option>
-                                                <?php foreach ($jenjang_pendidikan as $jp) { ?>
-                                                    <option value="<?= $jp->id_jenjang_pendidikan ?>"><?= $jp->jenjang_pendidikan ?></option>
-                                                <?php } ?>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="aler">Alamat</label>
-                                    <textarea class="form-control" rows="1" placeholder="Alamat"></textarea>
+                                    <textarea class="form-control" name="alamat" id="alamat" rows="1" placeholder="Alamat"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="jenjang">Jenjang Pendidikan</label>
@@ -229,9 +220,6 @@
                                     <label for="jurusan">Jurusan Pendidikan</label>
                                     <select class="form-control" id="jurusan" name="jurusan" required>
                                         <option>Pilih Jurusan Pendidikan</option>
-                                        <?php foreach ($jurusan_pendidikan as $jur) { ?>
-                                            <option value="<?= $jur->id_jurusan_pendidikan ?>"><?= $jur->jurusan_pendidikan ?></option>
-                                        <?php } ?>
                                     </select>
                                 </div>
                             <div class="form-group">
@@ -244,7 +232,7 @@
                                     <select class="form-control" id="id_dokter" name="id_dokter" required>
                                         <option>Pilih Dokter</option>
                                         <?php foreach ($dokter as $d) { ?>
-                                            <option value="<?= $d->id_user ?>"><?= $d->nama_user ?></option>
+                                            <option value="<?= $d->id_user ?>"><?= $d->nama_dokter ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -259,23 +247,20 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="id_dokter">Ruangan</label>
-                                        <select class="form-control" id="id_dokter" name="id_dokter" required>
-                                            <option>Pilih Dokter</option>
-                                            <?php foreach ($dokter as $d) { ?>
-                                                <option value="<?= $d->id_user ?>"><?= $d->nama_user ?></option>
+                                        <label for="ruangan">Ruangan</label>
+                                        <select class="form-control" id="ruangan" name="ruangan" required>
+                                            <option>Pilih Ruangan</option>
+                                            <?php foreach ($ruangan as $d) { ?>
+                                                <option value="<?= $d->id_ruangan ?>"><?= $d->nama_ruangan ?></option>
                                             <?php } ?>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="id_dokter">Bed</label>
-                                        <select class="form-control" id="id_dokter" name="id_dokter" required>
+                                        <label for="bed">Bed</label>
+                                        <select class="form-control" id="bed" name="bed" required>
                                             <option>Pilih Dokter</option>
-                                            <?php foreach ($dokter as $d) { ?>
-                                                <option value="<?= $d->id_user ?>"><?= $d->nama_user ?></option>
-                                            <?php } ?>
                                         </select>
                                     </div>
                                 </div>
@@ -309,6 +294,99 @@
       "responsive": true, "lengthChange": false, "autoWidth": false
     }).buttons().container().appendTo('#jenjang_tabel_wrapper .col-md-6:eq(0)');
   });
+</script>
+
+<script>
+	$('#jenjang').change(function() {
+		var jenjang = $(this).val();
+		$.ajax({
+			type: "POST",
+			url: "<?= base_url('private/pendaftaran/jurusan') ?>",
+			data: {
+				jenjang: jenjang
+			},
+			dataType: "json",
+			success: function(response) {
+				var options = '';
+				$.each(response, function(key, value) {
+					options += '<option value="' + value['id_jurusan_pendidikan'] + '">' + value['jurusan_pendidikan'] + '</option>';
+				});
+				$('#jurusan').html(options);
+			}
+		});
+	});
+	$('#provinsi').change(function() {
+		var provinsi = $(this).val();
+		$.ajax({
+			type: "POST",
+			url: "<?= base_url('private/pendaftaran/kabupaten') ?>",
+			data: {
+				provinsi: provinsi
+			},
+			dataType: "json",
+			success: function(response) {
+				var options = '';
+				$.each(response, function(key, value) {
+					options += '<option value="' + value['id_kabupaten'] + '">' + value['kabupaten'] + '</option>';
+				});
+				$('#kabupaten').html(options);
+			}
+		});
+	});
+	$('#kabupaten').change(function() {
+		var kabupaten = $(this).val();
+		$.ajax({
+			type: "POST",
+			url: "<?= base_url('private/pendaftaran/kecamatan') ?>",
+			data: {
+				kabupaten: kabupaten
+			},
+			dataType: "json",
+			success: function(response) {
+				var options = '';
+				$.each(response, function(key, value) {
+					options += '<option value="' + value['id_kecamatan'] + '">' + value['kecamatan'] + '</option>';
+				});
+				$('#kecamatan').html(options);
+			}
+		});
+	});
+	$('#kecamatan').change(function() {
+		var kecamatan = $(this).val();
+		$.ajax({
+			type: "POST",
+			url: "<?= base_url('private/pendaftaran/desa') ?>",
+			data: {
+				kecamatan: kecamatan
+			},
+			dataType: "json",
+			success: function(response) {
+				var options = '';
+				$.each(response, function(key, value) {
+					options += '<option value="' + value['id_desa'] + '">' + value['desa'] + '</option>';
+				});
+				$('#desa').html(options);
+			}
+		});
+	});
+	$('#ruangan').change(function() {
+		var ruangan = $(this).val();
+		$.ajax({
+			type: "POST",
+			url: "<?= base_url('private/pendaftaran/bed') ?>",
+			data: {
+				ruangan: ruangan
+			},
+			dataType: "json",
+			success: function(response) {
+				var options = '';
+				$.each(response, function(key, value) {
+					options += '<option value="' + value['id_ruangan_bed'] + '">' + value['no_bed'] + '</option>';
+				});
+				$('#bed').html(options);
+			}
+		});
+	});
 </script>
 
 <?php if ($this->session->flashdata('error')) { ?>

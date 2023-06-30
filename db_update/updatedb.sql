@@ -88794,3 +88794,11 @@ ADD COLUMN id_kabkot INT,
 ADD COLUMN id_kec INT,
 ADD COLUMN id_desa INT,
 ADD COLUMN alamat TEXT;
+
+CREATE FUNCTION func_nama_lengkap(gelar_depan VARCHAR(50), nama_user VARCHAR(200), gelar_blk VARCHAR(50))
+RETURNS VARCHAR(300)
+BEGIN
+    DECLARE nama_lengkap VARCHAR(300);
+    SET nama_lengkap = CONCAT(gelar_depan, ' ', nama_user, ' ', gelar_blk);
+    RETURN nama_lengkap;
+END;

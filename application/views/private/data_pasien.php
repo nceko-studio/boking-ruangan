@@ -35,7 +35,6 @@
 									<tr>
 										<th style="width: 5%;">NO</th>
 										<th style="width: 25%;">Nama Pasien</th>
-										<th style="width: 20%;">Ruangan</th>
 										<th style="width: 20%;">Ruangan Bed</th>
 										<th style="width: 20%;">Dokter DPJP</th>
 										<th style="width: 10%;">aksi</th>
@@ -47,10 +46,11 @@
 										<tr>
 											<td><?= $no++ ?></td>
 											<td><?= $v->nama_user; ?></td>
-											<td><?= $v->tempat_lahir; ?>, <?= date('d-m-Y', strtotime($v->tgl_lahir)); ?></td>
-											<td><?= $v->no_hp; ?><br/> <?= $v->email; ?></td>
-											<td><?= $v->tempat_lahir; ?>, <?= date('d-m-Y', strtotime($v->tgl_lahir)); ?></td>
-											<td><?= $v->no_hp; ?><br/> <?= $v->email; ?></td>
+											<td><?= $v->nama_ruangan; ?> / No. BED :<?= $v->no_bed; ?></td>
+											<td><?= $v->nama_dokter; ?></td>
+											<td>
+                                                
+                                            </td>
 										</tr>
 									<?php endforeach; ?>
 								</tbody>
