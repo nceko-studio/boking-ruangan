@@ -88803,15 +88803,18 @@ BEGIN
     RETURN nama_lengkap;
 END;
 
-CREATE TRIGGER set_canceled_trigger BEFORE INSERT ON tbl_pendaftaran
-FOR EACH ROW
+CREATE EVENT update_canceled_event
+ON SCHEDULE EVERY 5 MINUTE
+ON COMPLETION PRESERVE
+DO
 BEGIN
-    DECLARE tgl_daftar_hour TIMESTAMP;
-    
-    SET tgl_daftar_hour = DATE_ADD(NEW.tgl_daftar, INTERVAL 1 HOUR);
-    
-    IF NOW() > tgl_daftar_hour AND NEW.is_confrim = '0' THEN
-        SET NEW.is_cancled = '1';
-        SET NEW.ket_cancled = '2';
-    END IF;
+    UPDATE tbl_pendaftaran
+    SET is_cancled = '1',
+        ket_cancled = '2'
+    WHERE no_register IN (
+        SELECT no_register
+        FROM tbl_pendaftaran
+        WHERE is_confrim = '0'
+        AND tgl_daftar <= NOW() - INTERVAL 1 HOUR
+    );
 END;
