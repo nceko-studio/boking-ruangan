@@ -76,15 +76,15 @@
               </a>
             </li>
 
-        <li class="menu-item <?php if($title == "User Management"){ echo 'active';} ?>">
-                <a href="<?= base_url('user_management')?>" class="menu-link">
+        <li class="menu-item <?php if($title == "Pesan Ruangan"){ echo 'active';} ?>">
+                <a href="<?= base_url('boking_ruangan')?>" class="menu-link">
                   <i class="menu-icon tf-icons bx bx-table"></i>
                   <div data-i18n="Analytics">Boking Ruangan</div>
                 </a>
               </li>
             
-        <li class="menu-item <?php if($title == "Data Tanaman"){ echo 'active';} ?>">
-                <a href="<?= base_url('tanaman')?>" class="menu-link">
+        <li class="menu-item <?php if($title == "Riwayat Berobat"){ echo 'active';} ?>">
+                <a href="<?= base_url('riwayat')?>" class="menu-link">
                   <i class="menu-icon tf-icons bx bx-repeat"></i>
                   <div data-i18n="Analytics">History Ruangan</div>
                 </a>

@@ -58,6 +58,10 @@ $route['login'] = 'auth/login';
 $route['regist'] = 'auth/regist';
 $route['logout'] = 'auth/logout';
 
+//User Views
+$route['riwayat'] = 'public/histori/riwayat';
+$route['boking_ruangan'] = 'public/pendaftaran/boking';
+
 //Pendaftaran Pasien
 $route['pendaftaran'] = 'private/pendaftaran';
 
