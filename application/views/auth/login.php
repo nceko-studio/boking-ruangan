@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="<?= base_url('assets/auth'); ?>/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
     <link rel="stylesheet" href="<?= base_url('assets/auth'); ?>/dist/css/adminlte.min.css?v=3.2.0">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="<?= base_url('assets'); ?>/private/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="<?= base_url('assets'); ?>/private/plugins/toastr/toastr.min.css">
 
     <style>
         .form-label {
@@ -63,6 +67,40 @@
     <script src="<?= base_url('assets/auth'); ?>/plugins/jquery/jquery.min.js"></script>
     <script src="<?= base_url('assets/auth'); ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="<?= base_url('assets/auth'); ?>/dist/js/adminlte.min.js?v=3.2.0"></script>
+		  <!-- SweetAlert2 -->
+		  <script src="<?= base_url('assets/private/plugins/sweetalert2/sweetalert2.min.js') ?>"></script>
+		  <!-- Toastr -->
+		  <script src="<?= base_url('assets/private/plugins/toastr/toastr.min.js') ?>"></script>
+
+
+
+<?php if ($this->session->flashdata('error')) { ?>
+	<script>
+		$(function() {
+			var Toast = Swal.mixin({
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 3000
+			});
+
+			toastr.error('<?php echo $this->session->flashdata('error'); ?>')
+		});
+	</script>
+<?php } else if ($this->session->flashdata('success')) { ?>
+	<script>
+		$(function() {
+			var Toast = Swal.mixin({
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 3000
+			});
+
+			toastr.success('<?php echo $this->session->flashdata('success'); ?>')
+		});
+	</script>
+<?php } ?>
 </body>
 
 </html>
