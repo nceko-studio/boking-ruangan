@@ -27,23 +27,20 @@
 						<div class="card-header">
 							<div class="row">
 								<div class="col-lg-10">
-									<h4 class="card-title">Tambah Bed Ruangan <?= $ruangan->nama_ruangan; ?></h4>
+									<h4 class="card-title">Perawat Untuk <?= $user->nama_user; ?></h4>
 								</div>
 							</div>
 						</div>
-						<form action="<?= site_url('private/ruangan/bed_new/').$ruangan->id_ruangan; ?>" method="POST">
+						<form action="<?= site_url('private/pasien/tambah_proses/').$user->no_register; ?>" method="POST">
 							<div class="card-body">
-								<div class="form-group">
-									<label for="bed">Nomer BED</label>
-									<input type="text" class="form-control" id="id_ruangan" name="id_ruangan" value="<?= $ruangan->id_ruangan; ?>" hidden>
-									<input type="text" class="form-control" id="bed" name="bed" placeholder="Nomer Untuk Bed" required>
-								</div>
                                 <div class="form-group">
-                                    <label for="kondisi">Kondisi Bed</label>
-                                    <select class="form-control" id="kondisi" name="kondisi" required>
-                                        <option value="1">Pilih Kondisi Bed</option>
-                                        <option value="1">Baik</option>
-                                        <option value="0">Rusak</option>
+                                    <label for="perawat">Perawat</label>
+									<input type="text" class="form-control" id="no_register" name="no_register" value="<?= $user->no_register; ?>" hidden>
+                                    <select class="form-control" id="perawat" name="perawat" required>
+                                        <option value="1">Pilih Perawat</option>
+										<?php foreach ($perawat as $d) { ?>
+                                            <option value="<?= $d->id_user ?>"><?= $d->nama_dokter ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
 							</div>
@@ -60,7 +57,7 @@
 						<div class="card-header">
 							<div class="row">
 								<div class="col-lg-10">
-									<h4 class="card-title">Daftar Bed Ruangan <?= $ruangan->nama_ruangan; ?></h4>
+									<h4 class="card-title">Perawat Untuk Pasien <?= $user->nama_user; ?></h4>
 								</div>
 							</div>
 						</div>
@@ -69,25 +66,19 @@
 								<thead>
 									<tr>
 										<th style="width: 5%;">NO</th>
-										<th style="width: 45%;">Nomer Bed</th>
-										<th style="width: 45%;">Kondisi</th>
+										<th style="width: 45%;">Nama Perawat</th>
 										<th style="width: 5%;">Aksi</th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php $no = 1; ?>
-									<?php foreach ($bed as $v) : ?>
+									<?php foreach ($long_leng as $ll) : ?>
 										<tr>
 											<td><?= $no++ ?></td>
-											<td><?= $v->no_bed; ?></td>
-											<?php if($v->kondisi == "0"):?>
-												<td>Rusak</td>
-											<?php else :?>
-												<td>baik</td>
-											<?php endif; ?>
+											<td><?= $ll->nama_perawat; ?></td>
 											<td>
-												<a href="<?= base_url('private/ruangan/bed_hapus/' . $v->id_ruangan_bed) ?>">
-													<button class="btn bg-danger btn-xs" title="Hapus Agama" style="width: 30px;">
+												<a href="<?= base_url('private/pasien/tambah_hapus/' . $ll->id_detail_perawat.'/'.$user->no_register) ?>">
+													<button class="btn bg-danger btn-xs" title="Hapus Perawat" style="width: 30px;">
 														<i class="fas fa-user-minus"></i>
 													</button>
 												</a>
