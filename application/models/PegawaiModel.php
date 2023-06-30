@@ -56,4 +56,6 @@ class PegawaiModel extends CI_Model
 			return false;
 		}
 	}
+
+	
 }
