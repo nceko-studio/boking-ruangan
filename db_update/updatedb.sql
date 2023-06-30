@@ -88818,3 +88818,10 @@ BEGIN
         AND tgl_daftar <= NOW() - INTERVAL 1 HOUR
     );
 END;
+
+INSERT INTO `tbl_mst_role`(`id_role`, `role`) VALUES 
+('1','Admin'),
+('2','Pegawai'),
+('3','Dokter'),
+('4','Perawat'),
+('5','Pasien');
