@@ -90,8 +90,10 @@ class Pendaftaran extends CI_Controller
         $runtime = $this->UserModel->newUser($data);
 
         if (!empty($runtime)) {;
-
-            $uye = "1212".$runtime;
+            $jam = date('H');
+            $detik = date('s');
+            $makan = $jam . $detik;
+            $uye = "1212".$makan;
             $datas = [
                 'no_register' => $uye,
                 'tgl_daftar' => date("Y-m-d H:i:s"),
