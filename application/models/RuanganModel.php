@@ -4,21 +4,43 @@ class RuanganModel extends CI_Model
 {
     public function getRuangan()
     {
-        $query = $this->db->query("SELECT * 
-        FROM tbl_ruangan r 
-        ,tbl_kelompok_ruangan k 
-        ,tbl_lantai l 
-        ,tbl_group_ruangan g 
-        ,tbl_kelas_rawatan kr 
-        ,tbl_gedung gd
-        where r.id_kelompok_ruangan=k.id_kelompok_ruangan
-        and r.id_lantai=l.id_lantai
-        and g.id_group_ruangan=r.id_group_ruangan
-        and r.id_kelas_rawatan=kr.id_kelas_rawatan
-        and r.id_gedung=gd.id_gedung
-        order by l.id_lantai,kr.id_kelas_rawatan")->result_array();
+        $query = $this->db->query("
+								SELECT
+									r.*,
+									b.*,
+									k.*,
+									g.*,
+									kr.*,
+									l.*,
+									gd.*,
+									CASE
+										WHEN SUM(b.sts_bed = '1') > 0 THEN 'Tersedia'
+										ELSE 'Tidak Tersedia'
+									END AS sts_ruangan,
+									GROUP_CONCAT(
+									CONCAT(
+										CONCAT('No. Bed - ', b.no_bed, ': '),
+										CASE
+										WHEN b.sts_bed = '1' THEN 'Tersedia'
+										ELSE 'Terpakai'
+										END
+									)
+									ORDER BY b.no_bed
+									SEPARATOR '<br />'
+									) AS status_bed
+								FROM tbl_ruangan r
+								LEFT JOIN tbl_ruangan_bed b ON r.id_ruangan = b.id_ruangan
+								LEFT JOIN tbl_kelompok_ruangan k ON r.id_kelompok_ruangan = k.id_kelompok_ruangan
+								LEFT JOIN tbl_group_ruangan g ON r.id_group_ruangan = g.id_group_ruangan
+								LEFT JOIN tbl_kelas_rawatan kr ON r.id_kelas_rawatan = kr.id_kelas_rawatan
+								LEFT JOIN tbl_lantai l ON r.id_lantai = l.id_lantai
+								LEFT JOIN tbl_gedung gd ON r.id_gedung = gd.id_gedung
+								GROUP BY r.nama_ruangan
+					");
 
-        return $query;
+					$result = $query->result_array();
+
+		return $result;
     }
     public function AllRuangan()
     {
@@ -116,5 +138,36 @@ class RuanganModel extends CI_Model
 		}
 	}
 
+	function updateBedTesedia($id)
+	{
+		$data = array(
+			'sts_bed' => '1'
+		);
+
+		if (!empty($id)) {
+			$this->db->where('id_ruangan_bed', $id);
+			$this->db->update('tbl_ruangan_bed', $data);
+
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function updateBedKosong($id)
+	{
+		$data = array(
+			'sts_bed' => '0'
+		);
+
+		if (!empty($id)) {
+			$this->db->where('id_ruangan_bed', $id);
+			$this->db->update('tbl_ruangan_bed', $data);
+
+			return true;
+		}else{
+			return false;
+		}
+	}
 
 }

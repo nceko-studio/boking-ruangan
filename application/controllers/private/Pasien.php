@@ -74,9 +74,16 @@ class Pasien extends CI_Controller
 			'tgl_selesai' => date('Y-m-d H:i:s')
 		);
 		$pulang = $this->UserModel->PendaftaranUpdate($no_register,$data);
+		$checkBed = $this->db->where('no_register',$no_register)->get('tbl_pendaftaran')->row();
 
 		if ($pulang == true) {
-			$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> Berhasil Memulangkan Pasien.');
+			$hus = $this->M_ruangan->updateBedTesedia($checkBed->id_ruangan_bed);
+
+			if ($hus == true) {                    
+				$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> Berhasil Memulangkan Pasien.');
+			}else {
+				$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Gagal Memulangkan Pasien');
+			}
 		} else {
 			$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Gagal Memulangkan Pasien.');
 		}
@@ -91,9 +98,16 @@ class Pasien extends CI_Controller
 		);
 
 		$pulang = $this->UserModel->PendaftaranUpdate($no_register,$data);
+		$checkBed = $this->db->where('no_register',$no_register)->get('tbl_pendaftaran')->row();
 
 		if ($pulang == true) {
-			$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> Berhasil Membatalkan Pemesanan Pasien.');
+			$hus = $this->M_ruangan->updateBedTesedia($checkBed->id_ruangan_bed);
+
+			if ($hus == true) {                    
+				$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> Berhasil Membatalkan Pemesanan Pasien.');
+			}else {
+				$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Gagal Membatalkan Pemesanan Pasien.');
+			}
 		} else {
 			$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Gagal Membatalkan Pemesanan Pasien.');
 		}
