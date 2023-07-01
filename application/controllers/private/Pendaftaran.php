@@ -112,7 +112,13 @@ class Pendaftaran extends CI_Controller
             $sorttime = $this->UserModel->NewRegist($datas);
 
             if ($sorttime == true) {
-                $this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> ' . $this->input->post('nama') . ' Sebagai Pasien Baru Berhasil Di Tambahkan.');
+                $hus = $this->M_ruangan->updateBedKosong($this->input->post('bed'));
+
+                if ($hus == true) {                    
+                    $this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> ' . $this->input->post('nama') . ' Sebagai Pasien Baru Berhasil Di Tambahkan.');
+                }else {
+                    $this->session->set_flashdata('error', '<strong>ERROR!!!</strong> ' . $this->input->post('nama') . ' Sebagai Pasien Baru Gagal Di Tambahkan.');
+                }
             }else {
                 $this->session->set_flashdata('error', '<strong>ERROR!!!</strong> ' . $this->input->post('nama') . ' Sebagai Pasien Baru Gagal Di Tambahkan.');
             }

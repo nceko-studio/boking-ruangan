@@ -23,7 +23,7 @@
                                 <td><?= $no++; ?></td>
                                 <td><?= $ru['lantai']; ?></td>
                                 <td><?= $ru['nama_ruangan']; ?></td>
-                                <td>Tersedia</td>
+                                <td><?= $ru['sts_ruangan']; ?></td>
                                 <td><button class="btn btn-success detail-btn" data-id="<?= $ru['id_ruangan']; ?>">Detail</button></td>
                             </tr>
                         <?php } ?>
