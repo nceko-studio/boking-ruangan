@@ -88817,6 +88817,14 @@ BEGIN
         WHERE is_confrim = '0'
         AND tgl_daftar <= NOW() - INTERVAL 1 HOUR
     );
+    UPDATE tbl_ruangan_bed
+    SET sts_bed = '1'
+    WHERE id_ruangan_bed IN (
+        SELECT id_ruangan_bed
+        FROM tbl_pendaftaran
+        WHERE is_confrim = '0'
+        AND tgl_daftar <= NOW() - INTERVAL 1 HOUR
+    );
 END;
 
 INSERT INTO `tbl_mst_role`(`id_role`, `role`) VALUES 
