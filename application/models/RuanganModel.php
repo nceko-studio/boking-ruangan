@@ -4,21 +4,41 @@ class RuanganModel extends CI_Model
 {
     public function getRuangan()
     {
-        $query = $this->db->query("SELECT * 
-        FROM tbl_ruangan r 
-        ,tbl_kelompok_ruangan k 
-        ,tbl_lantai l 
-        ,tbl_group_ruangan g 
-        ,tbl_kelas_rawatan kr 
-        ,tbl_gedung gd
-        where r.id_kelompok_ruangan=k.id_kelompok_ruangan
-        and r.id_lantai=l.id_lantai
-        and g.id_group_ruangan=r.id_group_ruangan
-        and r.id_kelas_rawatan=kr.id_kelas_rawatan
-        and r.id_gedung=gd.id_gedung
-        order by l.id_lantai,kr.id_kelas_rawatan")->result_array();
+        $query = $this->db->query("
+					SELECT
+						r.*,
+						b.*,
+						p.*,
+						k.*,
+						g.*,
+						kr.*,
+						l.*,
+						gd.*,
+						GROUP_CONCAT(
+						CONCAT(
+							CONCAT('No. Bed - ', b.no_bed, ': '),
+							CASE
+							WHEN p.id_ruangan_bed IS NULL THEN 'Tersedia'
+							ELSE 'Terpakai'
+							END
+						)
+						ORDER BY b.no_bed
+						SEPARATOR '<br />'
+						) AS status_bed
+					FROM tbl_ruangan r
+					LEFT JOIN tbl_ruangan_bed b ON r.id_ruangan = b.id_ruangan
+					LEFT JOIN tbl_pendaftaran p ON b.id_ruangan_bed = p.id_ruangan_bed
+					LEFT JOIN tbl_kelompok_ruangan k ON r.id_kelompok_ruangan = k.id_kelompok_ruangan
+					LEFT JOIN tbl_group_ruangan g ON r.id_group_ruangan = g.id_group_ruangan
+					LEFT JOIN tbl_kelas_rawatan kr ON r.id_kelas_rawatan = kr.id_kelas_rawatan
+					LEFT JOIN tbl_lantai l ON r.id_lantai = l.id_lantai
+					LEFT JOIN tbl_gedung gd ON r.id_gedung = gd.id_gedung
+					GROUP BY r.nama_ruangan
+					");
 
-        return $query;
+					$result = $query->result_array();
+
+		return $result;
     }
     public function AllRuangan()
     {

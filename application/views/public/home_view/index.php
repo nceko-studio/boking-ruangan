@@ -18,13 +18,13 @@
                     </thead>
                     <tbody>
                         <?php $no = 1;
-                        foreach ($ruangan as $ru) { ?>
+                        foreach ($info_ruangan as $ru) { ?>
                             <tr>
                                 <td><?= $no++; ?></td>
-                                <td><?= $ru->lantai; ?></td>
-                                <td><?= $ru->nama_ruangan; ?></td>
-                                <td class="">Tersedia</td>
-                                <td><button class="btn btn-success detail-btn" data-id="<?= $ru->id_ruangan; ?>">Detail</button></td>
+                                <td><?= $ru['lantai']; ?></td>
+                                <td><?= $ru['nama_ruangan']; ?></td>
+                                <td>Tersedia</td>
+                                <td><button class="btn btn-success detail-btn" data-id="<?= $ru['id_ruangan']; ?>">Detail</button></td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -34,16 +34,15 @@
             <?php foreach ($info_ruangan as $in) { ?>
                 <div class="col-lg-2 col-md-4 wow fadeInUp detail-container float-right" data-wow-delay="0.5s" data-id="<?= $in['id_ruangan']; ?>">
                     <!-- detail-container content -->
-                    <h5>Informasi Kamar</h5>
+                    <h5>Informasi Ruangan</h5>
 
                         <div class="row g-0">
-                            <p><?= $in['lantai']; ?> (Ruangan Perawatan Anak)</p>
+                            <p><?= $in['lantai']; ?> (<?= $in['nama_ruangan']; ?>)</p>
                             <p>Kelas: <?= $in['kelas_rawatan']; ?></p>
                             <!-- <p class="text-center">Foto Ruangan</p> -->
                             <!-- <img src="<?= base_url('assets'); ?>/public/img/avatars/6.png" alt="" width="40px"> -->
                             <p>Keterangan Kamar:</p>
-                            <li>Kelas <?= $in['kelas_rawatan']; ?> merupakan ruangan bangsai</li>
-                            <p>Status Kamar: Tersedia</p>
+                            <p><?= $in['status_bed'] ?></p>
                             <div class="col-12">
                                 <a href="<?= base_url('login') ?>" class="btn btn-primary w-100 py-3" >Pesan Sekarang</a>
                             </div>

@@ -88825,3 +88825,6 @@ INSERT INTO `tbl_mst_role`(`id_role`, `role`) VALUES
 ('3','Dokter'),
 ('4','Perawat'),
 ('5','Pasien');
+
+ALTER TABLE tbl_ruangan_bed
+ADD COLUMN sts_bed enum('0','1') COMMENT '0 = Terpakai, 1 = Tersedia';
