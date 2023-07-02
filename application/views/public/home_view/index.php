@@ -66,34 +66,38 @@
 		</div>
 	</div>
 
-	<div class="container">
+  <?php foreach ($lantai as $l): ?>
+	<div id="ruangan-div<?= $l->id_lantai; ?>"  class="container ruangan-table">
 		<div class="row align-items-center">
 			<div class="col-lg-12">
-
-                <div class="row col-md-12 mt-4">
-                    <div class="card-body">
-                      <?php foreach ($lantai as $l): ?>
-                        <table id="ruangan<?= $l->id_lantai; ?>" class="table table-bordered table-striped ruangan-table" data-id="<?= $l->id_lantai; ?>">
-                          <thead>
-                            <tr>
-                              <th style="width: 5%;">NO</th>
-                              <th style="width: 45%;">Nama Ruangan</th>
-                              <th style="width: 45%;">Status Ruangan</th>
-                              <th style="width: 5%;">Aksi</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                              </tr>
-                          </tbody>
-                        </table>
-                      <?php endforeach; ?>
-                    </div>
-                </div>
-
-            </div>
+          <div class="row mt-4">
+              <div class="card-body">
+                <table id="ruangan<?= $l->id_lantai; ?>" class="table table-bordered " data-id="<?= $l->id_lantai; ?>">
+                  <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>Nama Ruangan</th>
+                        <th>Status Ruangan</th>
+                        <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+      </div>
 		</div>
 	</div>
+  <?php endforeach; ?>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
 </section>
 <!-- footer Start -->
 <footer class="footer section gray-bg">
@@ -130,9 +134,11 @@
 
     <script>
       $(document).ready(function() {
-        var selectedLantaiId = <?= $lantai[0]->id_lantai ?>;
+        var selectedLantaiIdLama = <?= $lantai[0]->id_lantai ?>;
+        var selectedLantaiId = 0;
 
-        $("#ruangan"+selectedLantaiId).show();
+        $(".ruangan-table").hide();
+        $("#ruangan-div"+selectedLantaiIdLama).show();
 
         <?php foreach ($lantai as $l): ?>
         $('#ruangan<?= $l->id_lantai; ?>').DataTable({
@@ -143,6 +149,7 @@
               "id": <?= $l->id_lantai; ?>,
             }
           },
+          "autoWidth": false,
           "columns": [{
               "data": null,
               "render": function(data, type, row, meta) {
@@ -169,12 +176,15 @@
         $(".btn-lantai").click(function() {
           selectedLantaiId = $(this).data('id');
           console.log(selectedLantaiId);
-          showRuanganTable(selectedLantaiId);
+
+          showRuanganTable(selectedLantaiId,selectedLantaiIdLama);
         });
 
-        function showRuanganTable(lantaiId) {
-          $(".ruangan-table").hide();
-          $("#ruangan" + lantaiId).show();
+        function showRuanganTable(lantaiId,lantaiIdLama) {
+          $("#ruangan-div" + lantaiIdLama).hide();
+          $("#ruangan-div" + lantaiId).show();
+
+          selectedLantaiIdLama = lantaiId;
         }
       });
     </script>
