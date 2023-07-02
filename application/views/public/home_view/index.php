@@ -99,6 +99,47 @@
   <br />
   <br />
 </section>
+
+
+
+<div class="modal fade" id="modal-view" tabindex="-1" aria-labelledby="modal-view-label" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modal-view-label">Data Ruangan</h5>
+				</div>
+					<div class="modal-body">
+            <div class="row align-items-center">
+                <h4 id="nama_ruangan_view">Nama Ruangan</h4>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                  <p>
+                    Gedung : <span id="nama_gedung">Nama Gedung</span>
+                  </p>
+              </div>
+              <div class="col-md-6">
+                  <p>
+                    Lantai : <span id="nama_lantai">Nama Lantai</span>
+                  </p>
+              </div>
+            </div>
+            <div class="row">
+              <p>
+                Status Bed : &ensp;&ensp;&ensp;
+              </p>              
+              <p id="status_bed">
+                Status Bed
+              </p>
+            </div>
+					</div>
+					<div class="modal-footer">
+						<a href="<?= base_url('login') ?>" class="btn btn-primary">Boking Ruangan</a>
+					</div>
+			</div>
+		</div>
+	</div>
+
 <!-- footer Start -->
 <footer class="footer section gray-bg">
 	<div class="container">
@@ -186,6 +227,35 @@
 
           selectedLantaiIdLama = lantaiId;
         }
+
+        <?php foreach ($lantai as $l): ?>
+        $('#ruangan<?= $l->id_lantai; ?>').on('click', '.btn-edit', function() {
+          var id = $(this).data('id');
+
+          $.ajax({
+            url: '<?= base_url('home/detail_ruangan/') ?>' + id,
+            type: 'GET',
+            dataType: 'json',
+            success: function(response) {
+              console.log(response)
+              $('#modal-view').modal('show');
+
+              $('#nama_ruangan_view').text(response.data['nama_ruangan']);
+              $('#nama_gedung').text(response.data['gedung']);
+              $('#nama_lantai').text(response.data['lantai']);
+              
+              // Clear the existing status bed list
+              $('#status_bed').empty();
+
+              // Create a new list item for each status bed
+              var statusBeds = response.data['status_bed'].split('\n');
+              $.each(statusBeds, function(index, value) {
+                $('#status_bed').append('<li>' + value + '</li>');
+              });
+            }
+          });
+        });
+        <?php endforeach; ?>
       });
     </script>
 

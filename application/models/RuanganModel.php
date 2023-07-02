@@ -43,6 +43,46 @@ class RuanganModel extends CI_Model
 
 		return $result;
     }
+    public function getRuanganDetail($lantai)
+    {
+        $query = $this->db->query("
+								SELECT
+									r.*,
+									b.*,
+									k.*,
+									g.*,
+									kr.*,
+									l.*,
+									gd.*,
+									CASE
+										WHEN SUM(b.sts_bed = '1') > 0 THEN 'Tersedia'
+										ELSE 'Tidak Tersedia'
+									END AS sts_ruangan,
+									GROUP_CONCAT(
+									CONCAT(
+										CONCAT('No. Bed - ', b.no_bed, ': '),
+										CASE
+										WHEN b.sts_bed = '1' THEN 'Tersedia'
+										ELSE 'Terpakai'
+										END
+									)
+									ORDER BY b.no_bed
+									SEPARATOR '\n'
+									) AS status_bed
+								FROM tbl_ruangan r
+								LEFT JOIN tbl_ruangan_bed b ON r.id_ruangan = b.id_ruangan
+								LEFT JOIN tbl_kelompok_ruangan k ON r.id_kelompok_ruangan = k.id_kelompok_ruangan
+								LEFT JOIN tbl_group_ruangan g ON r.id_group_ruangan = g.id_group_ruangan
+								LEFT JOIN tbl_kelas_rawatan kr ON r.id_kelas_rawatan = kr.id_kelas_rawatan
+								LEFT JOIN tbl_lantai l ON r.id_lantai = l.id_lantai
+								LEFT JOIN tbl_gedung gd ON r.id_gedung = gd.id_gedung
+								WHERE r.id_ruangan = ".$lantai."
+					");
+
+					$result = $query->row_array();
+
+		return $result;
+    }
     public function AllRuangan()
     {
         return $this->db->select('a.*,b.group_ruangan,c.kelas_rawatan,d.kelompok_ruangan,e.gedung,f.lantai, COUNT(rb.id_ruangan_bed) AS jumlah_bed')
