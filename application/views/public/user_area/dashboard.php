@@ -8,7 +8,7 @@
             				<div class="d-flex align-items-end row">
             					<div class="col-sm-7">
             						<div class="card-body">
-            							<h2 class="card-title text-primary">Welcome Back Eko Hidayat! 🎉</h2>
+            							<h2 class="card-title text-primary">Welcome Back <?= $this->session->userdata('username') ?>! 🎉</h2>
             							<p class="mb-4">
             								Sekarang Tanggal : <?= date('d-m-Y') ?>.
             							</p>
