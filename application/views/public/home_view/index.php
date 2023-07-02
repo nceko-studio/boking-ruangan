@@ -13,11 +13,11 @@
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="<?= base_url('assets/public/plugins/bootstrap/css/bootstrap.min.css'); ?>">
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="<?= base_url('assets'); ?>/private/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="<?= base_url('assets/private/plugins/fontawesome-free/css/all.min.css') ?>">
   <!-- DataTables -->
-  <link rel="stylesheet" href="<?= base_url('assets'); ?>/private/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?= base_url('assets'); ?>/private/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?= base_url('assets'); ?>/private/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?= base_url('assets/private/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/private/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/private/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
   <!-- Icon Font Css -->
   <link rel="stylesheet" href="<?= base_url('assets/public/plugins/icofont/icofont.min.css'); ?>">
   <!-- Slick Slider  CSS -->
@@ -61,7 +61,7 @@
 	<div class="container">
 		<div class="row">
             <?php foreach ($lantai as $l): ?>
-            <button class="btn btn-info ml-2"><?= $l->lantai; ?></button>
+            <button class="btn btn-info ml-2" data-id="<?= $l->id_lantai; ?>"><?= $l->lantai; ?></button>
             <?php endforeach; ?>
 		</div>
 	</div>
@@ -72,25 +72,17 @@
 
                 <div class="row col-md-12 mt-4">
                         <div class="card-body">
-							<table id="tabel_ada" class="table table-bordered table-striped ">
+							<table id="ruangan" class="table table-bordered table-striped ">
 								<thead>
 									<tr>
 										<th style="width: 5%;">NO</th>
-										<th style="width: 90%;">Jenjang Pendidikan</th>
+										<th style="width: 45%;">Nama Ruangan</th>
+										<th style="width: 45%;">Status Ruangan</th>
 										<th style="width: 5%;">Aksi</th>
 									</tr>
 								</thead>
 								<tbody>
 										<tr>
-											<td>1</td>
-											<td>apa</td>
-											<td>
-												<a href="<?= base_url('private/master_data/pendidikan/jenjang_hapus/') ?>">
-													<button class="btn bg-danger btn-xs" title="Hapus Keting" style="width: 30px;">
-														<i class="fas fa-user-minus"></i>
-													</button>
-												</a>
-											</td>
 										</tr>
 								</tbody>
 							</table>
@@ -104,9 +96,9 @@
 <!-- footer Start -->
 <footer class="footer section gray-bg">
 	<div class="container">
-		<div class="footer-btm py-4 mt-5">
+		<div class="footer-btm">
 			<div class="row align-items-center justify-content-between">
-				<div class="col-lg-6">
+				<div class="col-lg-12">
 					<div class="copyright">
 						&copy; Copyright Reserved to <span class="text-color">Novena</span> by <a href="https://themefisher.com/" target="_blank">Themefisher</a>
 					</div>
@@ -132,14 +124,40 @@
 
     
     <!-- jQuery -->
-    <script src="<?= base_url('assets/private/plugins/jquery/jquery.min.js')?>"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
-    $(function () {
-        $("#table_ada").DataTable({
-        "responsive": true, "lengthChange": false, "autoWidth": false
-        }).buttons().container().appendTo('#table_ada_wrapper .col-md-6:eq(0)');
-    });
+      $(document).ready(function() {
+        $('#ruangan').DataTable({
+          "ajax": {
+            "url": "<?= base_url('home/fetch_lantai') ?>",
+            "type": "POST",
+            "data":{
+              "id": 3,
+            }
+          },
+          "columns": [{
+              "data": null,
+              "render": function(data, type, row, meta) {
+                return meta.row + 1;
+              }
+            },
+            {
+              "data": "nama_ruangan"
+            },
+            {
+              "data": "sts_ruangan"
+            },
+            {
+              "data": null,
+              "render": function(data, type, row) {
+                  return '<button type="button" class="btn btn-square btn-primary btn-edit" data-id="' + row.id_ruangan + '">Detail</button>';
+
+              }
+            }
+          ]
+        });
+      });
     </script>
 
     <!-- DataTables  & Plugins -->
@@ -156,8 +174,8 @@
     <script src="<?= base_url('assets/private/plugins/datatables-buttons/js/buttons.print.min.js') ?>"></script>
     <script src="<?= base_url('assets/private/plugins/datatables-buttons/js/buttons.colVis.min.js') ?>"></script>
 
-	<!-- Bootstrap -->
-	<script src="<?= base_url('assets/private/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+    <!-- Bootstrap -->
+    <script src="<?= base_url('assets/private/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 
     <!-- Slick Slider -->
     <script src="<?= base_url('assets/public/plugins/slick-carousel/slick/slick.min.js'); ?>"></script>
