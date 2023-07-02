@@ -27,7 +27,7 @@
  									</div>
  								</div>
  								<div class="flex-grow-1">
- 									<span class="fw-semibold d-block"><?= $this->session->userdata('nama') ?></span>
+ 									<span class="fw-semibold d-block"><?= $this->session->userdata('username') ?></span>
  									<small class="text-muted"><?php if ($this->session->userdata('role') == 5) { echo "Pasien"; } else { echo "Operator"; }?></small>
  								</div>
  							</div>
