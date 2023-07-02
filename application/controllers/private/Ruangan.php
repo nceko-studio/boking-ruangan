@@ -85,6 +85,7 @@ class Ruangan extends CI_Controller
             'id_ruangan' => $this->input->post('id_ruangan'),
             'no_bed' => $this->input->post('bed'),
             'kondisi' => $this->input->post('kondisi'),
+            'sts_bed' => "1",
         );
 
 		$add = $this->M_ruangan->NewBed($data);
