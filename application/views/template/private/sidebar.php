@@ -30,12 +30,27 @@
 		  					</a>
 		  				</li>
 		  				<li class="nav-item">
-		  					<a href="<?= base_url('pendaftaran') ?>" class="nav-link">
+		  					<a href="#" class="nav-link">
 		  						<i class="nav-icon fas fa-address-card"></i>
 		  						<p>
-		  							Pendaftaran Pasien
+								  Pendaftaran
+		  							<i class="fas fa-angle-left right"></i>
 		  						</p>
 		  					</a>
+		  					<ul class="nav nav-treeview">
+		  						<li class="nav-item">
+		  							<a href="<?= base_url('pendaftaran') ?>" class="nav-link">
+		  								<i class="far fa-circle nav-icon"></i>
+		  								<p>Pasien Baru</p>
+		  							</a>
+		  						</li>
+		  						<li class="nav-item">
+		  							<a href="<?= base_url('pendaftaran_lama') ?>" class="nav-link">
+		  								<i class="far fa-circle nav-icon"></i>
+		  								<p>Pasien Lama</p>
+		  							</a>
+		  						</li>
+		  					</ul>
 		  				</li>
 		  				<li class="nav-item">
 		  					<a href="<?= base_url('data_pasien') ?>" class="nav-link">

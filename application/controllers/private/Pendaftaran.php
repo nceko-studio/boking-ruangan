@@ -5,7 +5,7 @@ class Pendaftaran extends CI_Controller
 {
 	public function index()
 	{
-		$data['title'] = 'Pendaftaran';
+		$data['title'] = 'Pendaftaran Pasien Baru';
         $data['agama'] = $this->MasterData->AllAgama(); 
         $data['status_kawin'] = $this->MasterData->AllSK(); 
         $data['jenjang_pendidikan'] = $this->MasterData->AllJenjang();
@@ -17,6 +17,19 @@ class Pendaftaran extends CI_Controller
 		$this->load->view('template/private/navbar', $data);
 		$this->load->view('template/private/sidebar', $data);
 		$this->load->view('private/pendaftaran', $data);
+		$this->load->view('template/private/footer', $data);
+	}
+
+    public function lama()
+	{
+		$data['title'] = 'Pendaftaran Pasien Lama';
+        $data['user']  = $this->db->select('id_user, nama_user')->where('sts_group',"1")->get('tbl_user')->result(); 
+        $data['dokter'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where_not_in('kd_dpjp',null)->get('tbl_user')->result(); 
+        $data['ruangan'] = $this->M_ruangan->AllRuangan(); 
+		$this->load->view('template/private/header', $data);
+		$this->load->view('template/private/navbar', $data);
+		$this->load->view('template/private/sidebar', $data);
+		$this->load->view('private/pendaftaran_lama', $data);
 		$this->load->view('template/private/footer', $data);
 	}
 
@@ -128,5 +141,43 @@ class Pendaftaran extends CI_Controller
         }
 
         redirect('pendaftaran');
+	}
+
+    public function new_lama()
+	{
+            $jam = date('H');
+            $detik = date('s');
+            $makan = $jam . $detik;
+            $uye = "1212".$makan;
+            $datas = [
+                'no_register' => $uye,
+                'tgl_daftar' => date("Y-m-d H:i:s"),
+                'id_pasien' => $this->input->post('id_user'),
+                'is_ugd' => $this->input->post('ugd'),
+                'id_jenis_rawatan' => $this->input->post('jenis_rawatan'),
+                'laka_lantas' => $this->input->post('laka_lantas'),
+                'tgl_berobat' => date('Y-m-d H:i:s'),
+                'is_confrim' => "1",
+                'id_ruangan_bed' => $this->input->post('bed'),
+                'is_cancled' => "0",
+                'sts_selesai' => "0",
+                'id_dokter' => $this->input->post('id_dokter'),
+            ];
+
+            $sorttime = $this->UserModel->NewRegist($datas);
+
+            if ($sorttime == true) {
+                $hus = $this->M_ruangan->updateBedKosong($this->input->post('bed'));
+
+                if ($hus == true) {                    
+                    $this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> ' . $this->input->post('nama') . ' Sebagai Pasien Baru Berhasil Di Tambahkan.');
+                }else {
+                    $this->session->set_flashdata('error', '<strong>ERROR!!!</strong> ' . $this->input->post('nama') . ' Sebagai Pasien Baru Gagal Di Tambahkan.');
+                }
+            }else {
+                $this->session->set_flashdata('error', '<strong>ERROR!!!</strong> ' . $this->input->post('nama') . ' Sebagai Pasien Baru Gagal Di Tambahkan.');
+            }
+
+        redirect('pendaftaran_lama');
 	}
 }

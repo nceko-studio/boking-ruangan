@@ -64,6 +64,7 @@ $route['boking_ruangan'] = 'public/pendaftaran/boking';
 
 //Pendaftaran Pasien
 $route['pendaftaran'] = 'private/pendaftaran';
+$route['pendaftaran_lama'] = 'private/pendaftaran/lama';
 
 //Biodata Pasien
 $route['data_pasien'] = 'private/pasien';

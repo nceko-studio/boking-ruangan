@@ -89,7 +89,7 @@ class Auth extends CI_Controller
 				'id_user'	=>  $runtime,
 				'username'	=>  $this->input->post('username'),
 				'password'	=>  MD5($this->input->post('password')),
-				'is_active'	=>  "1",
+				'is_active'	=>  "0",
 				'sts_akun'	=>  5,
 				'date_created'	=>  date('Y-m-d H:i:s')
 			);

@@ -1,99 +1,192 @@
-<!-- Contact Start -->
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h3 class="section-title bg-white text-center text-primary  mb-5 p-4">Informasi Ruangan</h3>
-        </div>
-        <div class="row g-4">
-            <div class="col-lg-10 col-md-2 wow fadeInUp" data-wow-delay="0.1s">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Lantai</th>
-                            <th>Nama Ruangan</th>
-                            <th>Status</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $no = 1;
-                        foreach ($info_ruangan as $ru) { ?>
-                            <tr>
-                                <td><?= $no++; ?></td>
-                                <td><?= $ru['lantai']; ?></td>
-                                <td><?= $ru['nama_ruangan']; ?></td>
-                                <td><?= $ru['sts_ruangan']; ?></td>
-                                <td><button class="btn btn-success detail-btn" data-id="<?= $ru['id_ruangan']; ?>">Detail</button></td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
+  <meta name="author" content="themefisher.com">
 
-            <?php foreach ($info_ruangan as $in) { ?>
-                <div class="col-lg-2 col-md-4 wow fadeInUp detail-container float-right" data-wow-delay="0.5s" data-id="<?= $in['id_ruangan']; ?>">
-                    <!-- detail-container content -->
-                    <h5>Informasi Ruangan</h5>
+  <title>Novena- Health & Care Medical template</title>
 
-                        <div class="row g-0">
-                            <p><?= $in['lantai']; ?> (<?= $in['nama_ruangan']; ?>)</p>
-                            <p>Kelas: <?= $in['kelas_rawatan']; ?></p>
-                            <!-- <p class="text-center">Foto Ruangan</p> -->
-                            <!-- <img src="<?= base_url('assets'); ?>/public/img/avatars/6.png" alt="" width="40px"> -->
-                            <p>Keterangan Kamar:</p>
-                            <p><?= $in['status_bed'] ?></p>
-                            <div class="col-12">
-                                <a href="<?= base_url('login') ?>" class="btn btn-primary w-100 py-3" >Pesan Sekarang</a>
-                            </div>
-                        </div>
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets/private/dist/img/logo.png'); ?>" />
+
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="<?= base_url('assets/public/plugins/bootstrap/css/bootstrap.min.css'); ?>">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="<?= base_url('assets/private/plugins/fontawesome-free/css/all.min.css') ?>">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?= base_url('assets/private/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/private/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/private/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
+  <!-- Icon Font Css -->
+  <link rel="stylesheet" href="<?= base_url('assets/public/plugins/icofont/icofont.min.css'); ?>">
+  <!-- Slick Slider  CSS -->
+  <link rel="stylesheet" href="<?= base_url('assets/public/plugins/slick-carousel/slick/slick.css'); ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/public/plugins/slick-carousel/slick/slick-theme.css'); ?>">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="<?= base_url('assets/public/plugins/css/style.css'); ?>">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="<?= base_url('assets'); ?>/private/dist/css/adminlte.min.css">
+
+</head>
+
+<body id="top">
+
+	<nav class="navbar navbar-expand-lg navigation" id="navbar">
+		<div class="container">
+		 	 <a class="navbar-brand" href="<?= base_url('home') ?>">
+                <div class="row">
+                  <img src="<?= base_url('assets/private/dist/img/logo.png') ?>" alt="" class="img-fluid" width="75px" height="75px">
+                  &ensp;
+                  &ensp;
+                  <h2 class="mt-4">SIMBOR</h2>
                 </div>
-            <?php } ?>
-        </div>
-    </div>
-</div>
-<!-- Contact End -->
+			  </a>
 
-<!-- JavaScript -->
-<script>
-    // Ambil semua elemen tombol detail
-    const detailButtons = document.querySelectorAll('.detail-btn');
+		  	<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="icofont-navigation-menu"></span>
+		  </button>
+	  
+		  <div class="collapse navbar-collapse" id="navbarmain">
+			<ul class="navbar-nav ml-auto">
+			   <li class="nav-item"><a class="nav-link" href="<?= base_url('regist') ?>">Sing Up</a></li>
+			   <li class="nav-item"><a class="btn btn-primary" href="<?= base_url('login') ?>">Sign In</a></li>
+			</ul>
+		  </div>
+		</div>
+	</nav>\
 
-    // Loop melalui setiap tombol detail
-    detailButtons.forEach(button => {
-    // Tambahkan event listener saat tombol detail diklik
-    button.addEventListener('click', function() {
-        // Dapatkan ID ruangan dari atribut data-id pada tombol detail
-        const ruanganId = button.getAttribute('data-id');
-        
-        // Dapatkan detail-container dengan ID yang sesuai
-        const detailContainer = document.querySelector(`.detail-container[data-id="${ruanganId}"]`);
-        
-        // Sembunyikan semua detail-container kecuali yang sesuai
-        const allDetailContainers = document.querySelectorAll('.detail-container');
-        allDetailContainers.forEach(container => {
-        if (container.getAttribute('data-id') === ruanganId) {
-            container.style.display = 'none';
-        } else {
-            container.style.display = 'block';
-        }
+<section class="section">
+	<div class="container">
+		<div class="row">
+            <?php foreach ($lantai as $l): ?>
+            <button class="btn btn-info ml-2" data-id="<?= $l->id_lantai; ?>"><?= $l->lantai; ?></button>
+            <?php endforeach; ?>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-12">
+
+                <div class="row col-md-12 mt-4">
+                        <div class="card-body">
+							<table id="ruangan" class="table table-bordered table-striped ">
+								<thead>
+									<tr>
+										<th style="width: 5%;">NO</th>
+										<th style="width: 45%;">Nama Ruangan</th>
+										<th style="width: 45%;">Status Ruangan</th>
+										<th style="width: 5%;">Aksi</th>
+									</tr>
+								</thead>
+								<tbody>
+										<tr>
+										</tr>
+								</tbody>
+							</table>
+						</div>
+                </div>
+
+            </div>
+		</div>
+	</div>
+</section>
+<!-- footer Start -->
+<footer class="footer section gray-bg">
+	<div class="container">
+		<div class="footer-btm">
+			<div class="row align-items-center justify-content-between">
+				<div class="col-lg-12">
+					<div class="copyright">
+						&copy; Copyright Reserved to <span class="text-color">Novena</span> by <a href="https://themefisher.com/" target="_blank">Themefisher</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4">
+					<a class="backtop js-scroll-trigger" href="#top">
+						<i class="icofont-long-arrow-up"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+   
+
+    <!-- 
+    Essential Scripts
+    =====================================-->
+
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        $('#ruangan').DataTable({
+          "ajax": {
+            "url": "<?= base_url('home/fetch_lantai') ?>",
+            "type": "POST",
+            "data":{
+              "id": 3,
+            }
+          },
+          "columns": [{
+              "data": null,
+              "render": function(data, type, row, meta) {
+                return meta.row + 1;
+              }
+            },
+            {
+              "data": "nama_ruangan"
+            },
+            {
+              "data": "sts_ruangan"
+            },
+            {
+              "data": null,
+              "render": function(data, type, row) {
+                  return '<button type="button" class="btn btn-square btn-primary btn-edit" data-id="' + row.id_ruangan + '">Detail</button>';
+
+              }
+            }
+          ]
         });
-    });
-    });
+      });
+    </script>
 
-    // Ambil semua elemen tombol close pada detail-container
-    const closeButtons = document.querySelectorAll('.detail-container .close-btn');
+    <!-- DataTables  & Plugins -->
+    <script src="<?= base_url('assets/private/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
+    <script src="<?= base_url('assets/private/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
+    <script src="<?= base_url('assets/private/plugins/datatables-responsive/js/dataTables.responsive.min.js') ?>"></script>
+    <script src="<?= base_url('assets/private/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') ?>"></script>
+    <script src="<?= base_url('assets/private/plugins/datatables-buttons/js/dataTables.buttons.min.js') ?>"></script>
+    <script src="<?= base_url('assets/private/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') ?>"></script>
+    <script src="<?= base_url('assets/private/plugins/jszip/jszip.min.js') ?>"></script>
+    <script src="<?= base_url('assets/private/plugins/pdfmake/pdfmake.min.js') ?>"></script>
+    <script src="<?= base_url('assets/private/plugins/pdfmake/vfs_fonts.js') ?>"></script>
+    <script src="<?= base_url('assets/private/plugins/datatables-buttons/js/buttons.html5.min.js') ?>"></script>
+    <script src="<?= base_url('assets/private/plugins/datatables-buttons/js/buttons.print.min.js') ?>"></script>
+    <script src="<?= base_url('assets/private/plugins/datatables-buttons/js/buttons.colVis.min.js') ?>"></script>
 
-    // Loop melalui setiap tombol close
-    closeButtons.forEach(button => {
-    // Tambahkan event listener saat tombol close diklik
-    button.addEventListener('click', function() {
-        // Dapatkan detail-container yang berisi tombol close
-        const detailContainer = button.closest('.detail-container');
-        
-        // Sembunyikan detail-container
-        detailContainer.style.display = 'none';
-    });
-    });
+    <!-- Bootstrap -->
+    <script src="<?= base_url('assets/private/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 
-</script>
+    <!-- Slick Slider -->
+    <script src="<?= base_url('assets/public/plugins/slick-carousel/slick/slick.min.js'); ?>"></script>
+    <!-- Counterup -->
+    <script src="<?= base_url('assets/public/plugins/counterup/jquery.waypoints.min.js'); ?>"></script>
+    
+    <script src="<?= base_url('assets/public/plugins/counterup/jquery.counterup.min.js'); ?>"></script>   
+    
+    <script src="<?= base_url('assets/public/plugins/js/script.js'); ?>"></script>
+    <script src="<?= base_url('assets/public/plugins/js/contact.js'); ?>"></script>
+
+  </body>
+  </html>
+   

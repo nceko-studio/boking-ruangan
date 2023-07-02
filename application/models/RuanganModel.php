@@ -2,7 +2,7 @@
 
 class RuanganModel extends CI_Model
 {
-    public function getRuangan()
+    public function getRuangan($lantai)
     {
         $query = $this->db->query("
 								SELECT
@@ -35,6 +35,7 @@ class RuanganModel extends CI_Model
 								LEFT JOIN tbl_kelas_rawatan kr ON r.id_kelas_rawatan = kr.id_kelas_rawatan
 								LEFT JOIN tbl_lantai l ON r.id_lantai = l.id_lantai
 								LEFT JOIN tbl_gedung gd ON r.id_gedung = gd.id_gedung
+								WHERE r.id_lantai = ".$lantai."
 								GROUP BY r.nama_ruangan
 					");
 
