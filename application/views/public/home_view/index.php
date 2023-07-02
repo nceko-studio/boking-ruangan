@@ -5,7 +5,7 @@
   <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
   <meta name="author" content="themefisher.com">
 
-  <title>Novena- Health & Care Medical template</title>
+  <title>SIMBOR | <?= $title; ?></title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets/private/dist/img/logo.png'); ?>" />
@@ -61,37 +61,43 @@
 	<div class="container">
 		<div class="row">
             <?php foreach ($lantai as $l): ?>
-            <button class="btn btn-info ml-2" data-id="<?= $l->id_lantai; ?>"><?= $l->lantai; ?></button>
+            <button class="btn btn-info ml-2 btn-lantai" data-id="<?= $l->id_lantai; ?>"><?= $l->lantai; ?></button>
             <?php endforeach; ?>
 		</div>
 	</div>
 
-	<div class="container">
+  <?php foreach ($lantai as $l): ?>
+	<div id="ruangan-div<?= $l->id_lantai; ?>"  class="container ruangan-table">
 		<div class="row align-items-center">
 			<div class="col-lg-12">
-
-                <div class="row col-md-12 mt-4">
-                        <div class="card-body">
-							<table id="ruangan" class="table table-bordered table-striped ">
-								<thead>
-									<tr>
-										<th style="width: 5%;">NO</th>
-										<th style="width: 45%;">Nama Ruangan</th>
-										<th style="width: 45%;">Status Ruangan</th>
-										<th style="width: 5%;">Aksi</th>
-									</tr>
-								</thead>
-								<tbody>
-										<tr>
-										</tr>
-								</tbody>
-							</table>
-						</div>
-                </div>
-
-            </div>
+          <div class="row mt-4">
+              <div class="card-body">
+                <table id="ruangan<?= $l->id_lantai; ?>" class="table table-bordered " data-id="<?= $l->id_lantai; ?>">
+                  <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>Nama Ruangan</th>
+                        <th>Status Ruangan</th>
+                        <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+      </div>
 		</div>
 	</div>
+  <?php endforeach; ?>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
 </section>
 <!-- footer Start -->
 <footer class="footer section gray-bg">
@@ -100,7 +106,7 @@
 			<div class="row align-items-center justify-content-between">
 				<div class="col-lg-12">
 					<div class="copyright">
-						&copy; Copyright Reserved to <span class="text-color">Novena</span> by <a href="https://themefisher.com/" target="_blank">Themefisher</a>
+						&copy; Copyright <span class="text-color">SIMBOR</span> by <a href="https://github.com/nceko" target="_blank">Simbor Official</a>
 					</div>
 				</div>
 			</div>
@@ -128,14 +134,22 @@
 
     <script>
       $(document).ready(function() {
-        $('#ruangan').DataTable({
+        var selectedLantaiIdLama = <?= $lantai[0]->id_lantai ?>;
+        var selectedLantaiId = 0;
+
+        $(".ruangan-table").hide();
+        $("#ruangan-div"+selectedLantaiIdLama).show();
+
+        <?php foreach ($lantai as $l): ?>
+        $('#ruangan<?= $l->id_lantai; ?>').DataTable({
           "ajax": {
             "url": "<?= base_url('home/fetch_lantai') ?>",
             "type": "POST",
             "data":{
-              "id": 3,
+              "id": <?= $l->id_lantai; ?>,
             }
           },
+          "autoWidth": false,
           "columns": [{
               "data": null,
               "render": function(data, type, row, meta) {
@@ -157,6 +171,21 @@
             }
           ]
         });
+        <?php endforeach; ?>
+
+        $(".btn-lantai").click(function() {
+          selectedLantaiId = $(this).data('id');
+          console.log(selectedLantaiId);
+
+          showRuanganTable(selectedLantaiId,selectedLantaiIdLama);
+        });
+
+        function showRuanganTable(lantaiId,lantaiIdLama) {
+          $("#ruangan-div" + lantaiIdLama).hide();
+          $("#ruangan-div" + lantaiId).show();
+
+          selectedLantaiIdLama = lantaiId;
+        }
       });
     </script>
 
