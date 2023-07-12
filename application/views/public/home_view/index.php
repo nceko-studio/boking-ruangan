@@ -50,6 +50,9 @@
 	  
 		  <div class="collapse navbar-collapse" id="navbarmain">
 			<ul class="navbar-nav ml-auto">
+			   <li class="nav-item"><a class="nav-link" href="<?= base_url('home') ?>">HOME</a></li>
+			   <li class="nav-item"><a class="nav-link" href="<?= base_url('profile') ?>">PROFIL</a></li>
+			   <li class="nav-item"><a class="nav-link" href="<?= base_url('info_ruangan') ?>">INFO RUANGAN</a></li>
 			   <li class="nav-item"><a class="nav-link" href="<?= base_url('regist') ?>">Sing Up</a></li>
 			   <li class="nav-item"><a class="btn btn-primary" href="<?= base_url('login') ?>">Sign In</a></li>
 			</ul>
@@ -92,9 +95,6 @@
 		</div>
 	</div>
   <?php endforeach; ?>
-  <br />
-  <br />
-  <br />
   <br />
   <br />
   <br />
@@ -171,7 +171,7 @@
 
     
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="<?= base_url('assets/private/plugins/jquery/jquery.min.js')?>"></script>
 
     <script>
       $(document).ready(function() {

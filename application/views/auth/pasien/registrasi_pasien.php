@@ -238,7 +238,7 @@
                             <button type="submit" class="btn btn-warning btn-block">Registrasi</button>
                         </div>
                         <div class="col-2">
-                            <a href="<?= base_url('auth'); ?>" type="button" class="btn btn-dark btn-block">Batal</a>
+                            <a href="<?= base_url('auth/login'); ?>" type="button" class="btn btn-dark btn-block">Batal</a>
                         </div>
                     </div>
 

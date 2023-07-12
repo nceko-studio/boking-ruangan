@@ -53,6 +53,10 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+
+$route['profile'] = 'home/profile';
+$route['info_ruangan'] = 'home/info_ruangan';
+
 //Login and register
 $route['login'] = 'auth/login';
 $route['regist'] = 'auth/regist';
