@@ -113,6 +113,12 @@
                 <h4 id="nama_ruangan_view">Nama Ruangan</h4>
             </div>
             <div class="row">
+              <div class="col-md-10">
+                  <img src="<?php echo base_url('uploads/ruangan/default.jpg'); ?>" alt="Ruangan" />
+              </div>
+              <br>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                   <p>
                     Gedung : <span id="nama_gedung">Nama Gedung</span>
