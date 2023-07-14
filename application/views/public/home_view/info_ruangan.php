@@ -133,9 +133,6 @@
               </p>
             </div>
 					</div>
-					<div class="modal-footer">
-						<a href="<?= base_url('login') ?>" class="btn btn-primary">Boking Ruangan</a>
-					</div>
 			</div>
 		</div>
 	</div>
