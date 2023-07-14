@@ -13,6 +13,7 @@ class Pendaftaran extends CI_Controller
         $data['dokter'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where_not_in('kd_dpjp',null)->get('tbl_user')->result(); 
         $data['provinsi'] = $this->db->get('tbl_provinsi')->result(); 
         $data['ruangan'] = $this->M_ruangan->AllRuangan(); 
+        $data['lantai'] = $this->MasterData->AllLantai(); 
 		$this->load->view('template/private/header', $data);
 		$this->load->view('template/private/navbar', $data);
 		$this->load->view('template/private/sidebar', $data);
@@ -61,6 +62,13 @@ class Pendaftaran extends CI_Controller
         
         $id	=	$this->input->post('kecamatan');
 		$data	=	$this->db->where('id_kecamatan', $id)->get('tbl_desa')->result();
+		echo json_encode($data);
+	}
+
+    public function ruang()
+	{
+        $id	=	$this->input->post('lantai');
+		$data	=	$this->db->where('id_lantai', $id)->get('tbl_ruangan')->result();
 		echo json_encode($data);
 	}
 
