@@ -88836,3 +88836,6 @@ INSERT INTO `tbl_mst_role`(`id_role`, `role`) VALUES
 
 ALTER TABLE tbl_ruangan_bed
 ADD COLUMN sts_bed enum('0','1') COMMENT '0 = Terpakai, 1 = Tersedia';
+
+ALTER TABLE tbl_ruangan
+ADD COLUMN photo VARCHAR(255) DEFAULT 'default.jpg';

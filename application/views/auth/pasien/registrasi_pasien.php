@@ -34,20 +34,20 @@
                 <h2 class="login-box-msg">Registrasi Pasien</h2>
                 <form action="<?= base_url('auth/regist_new') ?>" method="post">
                     <div class="form-group row">
-                        <label for="nama">Nama Pasien</label>
+                        <label for="nama">Nama Pasien<code>*</code></label>
                         <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Pasien">
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group col-md-11 row">
-                                <label for="tl">Tempat Lahir</label>
+                                <label for="tl">Tempat Lahir<code>*</code></label>
                                 <input type="text" class="form-control" id="tl" name="tl" placeholder="Tempat Lahir">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group col-md-11 row">
-                                <label for="tgl">Tanggal Lahir</label>
+                                <label for="tgl">Tanggal Lahir<code>*</code></label>
                                 <input type="date" class="form-control" id="tgl" name="tgl" placeholder="Tanggal Lahir">
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group col-md-11 row">
-								<label for="jk">Jenis Kelamin</label>
+								<label for="jk">Jenis Kelamin<code>*</code></label>
 								<select class="form-control" id="jk" name="jk" required>
 									<option>Pilih Jenis Kelamin</option>
 									<option value="1">Laki - Laki</option>
@@ -66,7 +66,7 @@
 
                         <div class="col-md-3">
                             <div class="form-group col-md-11 row">
-								<label for="status_kawin">Status Kawin</label>
+								<label for="status_kawin">Status Kawin<code>*</code></label>
 								<select class="form-control" id="status_kawin" name="status_kawin" required>
 									<option>Pilih Status Kawin</option>
 									<?php foreach ($status_kawin as $sk) { ?>
@@ -78,7 +78,7 @@
 
                         <div class="col-md-3">
                             <div class="form-group col-md-11 row">
-								<label for="agama">Agama</label>
+								<label for="agama">Agama<code>*</code></label>
 								<select class="form-control" id="agama" name="agama" required>
 									<option>Pilih Agama</option>
 									<?php foreach ($agama as $a) { ?>
@@ -90,7 +90,7 @@
 
                         <div class="col-md-3">
                             <div class="form-group col-md-11 row">
-								<label for="goldar">Golongan Darah</label>
+								<label for="goldar">Golongan Darah<code>*</code></label>
 								<select class="form-control" id="goldar" name="goldar" required>
 									<option value="A">Pilih Golongan Darah</option>
                                     <option value="A">A</option>
@@ -104,7 +104,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group col-md-11 row">
-								<label for="jenjang">Jenjang Pendidikan</label>
+								<label for="jenjang">Jenjang Pendidikan<code>*</code></label>
 								<select class="form-control" id="jenjang" name="jenjang" required>
 									<option>Pilih Jenjang Pendidikan</option>
 									<?php foreach ($jenjang_pendidikan as $jp) { ?>
@@ -116,7 +116,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group col-md-11 row">
-								<label for="jurusan">Jurusan Pendidikan</label>
+								<label for="jurusan">Jurusan Pendidikan<code>*</code></label>
 								<select class="form-control" id="jurusan" name="jurusan" required>
 									<option>Pilih Jurusan Pendidikan</option>
 								</select>
@@ -126,7 +126,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group col-md-11 row">
-                                <label for="identitas">Identitas</label>
+                                <label for="identitas">Identitas<code>*</code></label>
                                 <select class="form-control" id="identitas" name="identitas" required>
                                     <option>Pilih Jenis Identitas</option>
                                     <?php foreach ($identitas as $i) { ?>
@@ -138,7 +138,7 @@
 
                         <div class="col-md-4">
                             <div class="form-group col-md-11 row">
-                                    <label for="ni">No Identitas</label>
+                                    <label for="ni">No Identitas<code>*</code></label>
                                     <input type="text" class="form-control" id="ni" name="ni" placeholder="Nomor Identitas">
                             </div>
                         </div>
@@ -153,7 +153,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group col-md-11 row">
-								<label for="provinsi">Provinsi</label>
+								<label for="provinsi">Provinsi<code>*</code></label>
 								<select class="form-control" id="provinsi" name="provinsi" required>
 									<option>Pilih Provinsi</option>
 									<?php foreach ($provinsi as $prov) { ?>
@@ -165,7 +165,7 @@
 
                         <div class="col-md-3">
                             <div class="form-group col-md-11 row">
-								<label for="kabupaten">Kabupaten Kota</label>
+								<label for="kabupaten">Kabupaten Kota<code>*</code></label>
 								<select class="form-control" id="kabupaten" name="kabupaten" required>
 									<option>Pilih Kabupaten</option>
 								</select>
@@ -174,7 +174,7 @@
 
                         <div class="col-md-3">
                             <div class="form-group col-md-11 row">
-								<label for="kecamatan">Kecamatan</label>
+								<label for="kecamatan">Kecamatan<code>*</code></label>
 								<select class="form-control" id="kecamatan" name="kecamatan" required>
 									<option>Pilih Kecamatan</option>
 								</select>
@@ -183,7 +183,7 @@
 
                         <div class="col-md-3">
                             <div class="form-group col-md-11 row">
-								<label for="desa">Desa</label>
+								<label for="desa">Desa<code>*</code></label>
 								<select class="form-control" id="desa" name="desa" required>
 									<option>Pilih Desa</option>
 								</select>
@@ -192,21 +192,21 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="alamat">Alamat</label>
+                        <label for="alamat">Alamat<code>*</code></label>
                         <textarea class="form-control" name="alamat" id="alamat" rows="1" placeholder="Alamat"></textarea>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group col-md-11 row">
-								<label for="no_hp">No Handphone</label>
+								<label for="no_hp">No Handphone<code>*</code></label>
 								<input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="No Handphone">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group col-md-11 row">
-								<label for="email">Email</label>
+								<label for="email">Email<code>*</code></label>
 								<input type="email" class="form-control" id="email" name="email" placeholder="Email">
                             </div>
                         </div>
@@ -220,14 +220,14 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group col-md-11 row">
-                                <label for="username">Username</label>
+                                <label for="username">Username<code>*</code></label>
                                 <input type="text" class="form-control" id="username" name="username" placeholder="Username">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group col-md-11 row">
-                                <label for="password">Password</label>
+                                <label for="password">Password<code>*</code></label>
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                             </div>
                         </div>

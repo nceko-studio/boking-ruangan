@@ -8,7 +8,7 @@ class Home extends CI_Controller
         $data['title'] = 'Home';
         $data['lantai'] = $this->MasterData->AllLantai();
         $data['ruangan'] = $this->M_ruangan->AllRuangan();
-        $this->load->view('public/home_view/index', $data);
+        $this->load->view('public/home_view/home', $data);
         // echo "HOME";
     }
 
@@ -17,7 +17,8 @@ class Home extends CI_Controller
         $data['title'] = 'Profil';
         $data['lantai'] = $this->MasterData->AllLantai();
         $data['ruangan'] = $this->M_ruangan->AllRuangan();
-        $this->load->view('public/home_view/index', $data);
+        $data['user'] = $this->UserModel->AllPegawai(); 
+        $this->load->view('public/home_view/profile', $data);
         // echo "PROFILE";
     }
 
@@ -26,7 +27,7 @@ class Home extends CI_Controller
         $data['title'] = 'Informasi Ruangan';
         $data['lantai'] = $this->MasterData->AllLantai();
         $data['ruangan'] = $this->M_ruangan->AllRuangan();
-        $this->load->view('public/home_view/index', $data);
+        $this->load->view('public/home_view/info_ruangan', $data);
     }
 
 

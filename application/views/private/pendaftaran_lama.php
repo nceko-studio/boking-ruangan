@@ -113,19 +113,27 @@
                                         <?php } ?>
                                     </select>
                                 </div>
-                            <div class="row">
-                                <div class="col-md-6">
+								<div class="row">
+                                <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="ruangan">Ruangan</label>
-                                        <select class="form-control" id="ruangan" name="ruangan" required>
-                                            <option>Pilih Ruangan</option>
-                                            <?php foreach ($ruangan as $d) { ?>
-                                                <option value="<?= $d->id_ruangan ?>"><?= $d->nama_ruangan ?></option>
+                                        <label for="lantai">Lantai</label>
+                                        <select class="form-control" id="lantai" name="lantai" required>
+                                            <option>Pilih Lantai</option>
+                                            <?php foreach ($lantai as $d) { ?>
+                                                <option value="<?= $d->id_lantai ?>"><?= $d->lantai ?></option>
                                             <?php } ?>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="ruangan">Ruangan</label>
+                                        <select class="form-control" id="ruangan" name="ruangan" required>
+                                            <option>Pilih Ruangan</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="bed">Bed</label>
                                         <select class="form-control" id="bed" name="bed" required>
@@ -235,6 +243,24 @@
 					options += '<option value="' + value['id_desa'] + '">' + value['desa'] + '</option>';
 				});
 				$('#desa').html(options);
+			}
+		});
+	});
+	$('#lantai').change(function() {
+		var lantai = $(this).val();
+		$.ajax({
+			type: "POST",
+			url: "<?= base_url('private/pendaftaran/ruang') ?>",
+			data: {
+				lantai: lantai
+			},
+			dataType: "json",
+			success: function(response) {
+				var options = '';
+				$.each(response, function(key, value) {
+					options += '<option value="' + value['id_ruangan'] + '">' + value['nama_ruangan'] + '</option>';
+				});
+				$('#ruangan').html(options);
 			}
 		});
 	});

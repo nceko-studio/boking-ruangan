@@ -58,87 +58,37 @@
 			</ul>
 		  </div>
 		</div>
-	</nav>\
-
-<section class="section">
-	<div class="container">
-		<div class="row">
-            <?php foreach ($lantai as $l): ?>
-            <button class="btn btn-info ml-2 btn-lantai" data-id="<?= $l->id_lantai; ?>"><?= $l->lantai; ?></button>
-            <?php endforeach; ?>
-		</div>
-	</div>
-
-  <?php foreach ($lantai as $l): ?>
-	<div id="ruangan-div<?= $l->id_lantai; ?>"  class="container ruangan-table">
-		<div class="row align-items-center">
-			<div class="col-lg-12">
-          <div class="row mt-4">
-              <div class="card-body">
-                <table id="ruangan<?= $l->id_lantai; ?>" class="table table-bordered " data-id="<?= $l->id_lantai; ?>">
-                  <thead>
-                    <tr>
-                        <th>NO</th>
-                        <th>Nama Ruangan</th>
-                        <th>Status Ruangan</th>
-                        <th>Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+	</nav>
+  
+<section class="section doctors">
+  <div class="container">
+  	  <div class="row justify-content-center">
+        <div class="col-lg-6 text-center">
+          <div class="section-title">
+            <h2>Dokter Dan Pegawai</h2>
+            <div class="divider mx-auto my-4"></div>
           </div>
+        </div>
       </div>
-		</div>
-	</div>
-  <?php endforeach; ?>
-  <br />
-  <br />
-  <br />
+
+    <?php foreach ($user as $v) : ?>
+    <div class="row shuffle-wrapper portfolio-gallery">
+      	<div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item">
+	      	<div class="position-relative doctor-inner-box">
+		        <div class="doctor-profile">
+	            <div class="doctor-img">
+	            		<img src="<?= base_url('uploads/profile/4.jpg') ?>" alt="doctor-image" class="img-fluid w-100">
+	            </div>
+	          </div>
+            <div class="content mt-3">
+              <h4 class="mb-0"><?= $v->nama_pegawai ?></h4>
+              <p>Cardiology</p>
+            </div> 
+	      </div>
+    </div>
+		<?php endforeach; ?>
 </section>
 
-
-
-<div class="modal fade" id="modal-view" tabindex="-1" aria-labelledby="modal-view-label" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="modal-view-label">Data Ruangan</h5>
-				</div>
-					<div class="modal-body">
-            <div class="row align-items-center">
-                <h4 id="nama_ruangan_view">Nama Ruangan</h4>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                  <p>
-                    Gedung : <span id="nama_gedung">Nama Gedung</span>
-                  </p>
-              </div>
-              <div class="col-md-6">
-                  <p>
-                    Lantai : <span id="nama_lantai">Nama Lantai</span>
-                  </p>
-              </div>
-            </div>
-            <div class="row">
-              <p>
-                Status Bed : &ensp;&ensp;&ensp;
-              </p>              
-              <p id="status_bed">
-                Status Bed
-              </p>
-            </div>
-					</div>
-					<div class="modal-footer">
-						<a href="<?= base_url('login') ?>" class="btn btn-primary">Boking Ruangan</a>
-					</div>
-			</div>
-		</div>
-	</div>
 
 <!-- footer Start -->
 <footer class="footer section gray-bg">
