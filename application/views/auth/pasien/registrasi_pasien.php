@@ -35,7 +35,7 @@
                 <form action="<?= base_url('auth/regist_new') ?>" method="post">
                     <div class="form-group row">
                         <label for="nama">Nama Pasien<code>*</code></label>
-                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Pasien">
+                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Pasien" pattern="[^0-9]+">
                     </div>
                     <div class="row">
                         <div class="col-md-6">
