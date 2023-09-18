@@ -65,7 +65,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="department-img">
-					<img src="<?= base_url('assets/public/img/backgrounds/18.jpg') ?>" alt="" class="img-fluid">
+					<img src="<?= base_url('assets/public/img/backgrounds/rsia siti.jpg') ?>" alt="" class="img-fluid">
 				</div>
 			</div>
 		</div>
@@ -75,34 +75,85 @@
 				<div class="department-content mt-5">
 					<h3 class="mt-5 mb-4">Rumah Sakit Siti Khadijah</h3>
 					<div class="divider my-4"></div>
-					<p class="lead">Age forming covered you entered the examine. Blessing scarcely confined her contempt wondered shy. Dashwoods contented sportsmen at up no convinced cordially affection.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum recusandae dolor autem laudantium, quaerat vel dignissimos. Magnam sint suscipit omnis eaque unde eos aliquam distinctio, quisquam iste, itaque possimus . Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet alias modi eaque, ratione recusandae cupiditate dolorum repellendus iure eius rerum hic minus ipsa at, corporis nesciunt tempore vero voluptas. Tempore.</p>
+					<p class="lead">
+					<p>RSIA Sitti Khadijah Gorontalo merupakan rumah sakit ibu dan anak tipe C yang terletak di wilayah Kota Gorontalo. Rumah sakit ini memberikan pelayanan di bidang kesehatan khusus ibu dan anak yang didukung oleh layanan dokter spesialis serta ditunjang dengan fasilitas medis lainnya.
+
+
+          <p class="lead">Fasilitas dan Layanan</p>
+
+<li>Instalasi Gawat Darurat</li>
+<li>Farmasi / Apotek</li>
+<li>Bidan dan Perawat</li>
+<li>Dokter Umum</li>
+
+<p class="lead"></p>
+          <p class="lead">Rawat Jalan</p>
+<p>Poliklinik umum dan poliklinik spesialis memberikan pelayanan sesuai dengan jadwal yang telah ditentukan.
+Berikut ini merupakan daftar layanan poli yang ada di RSIA Sitti Khadijah Gorontalo :</p>
+
+<li>Poliklinik Umum</li>
+<li>Spesialis Kebidanan dan Kandungan</li>
+<li>Spesialis Anak</li>
+<li>Rawat Inap Pasien</li>
+
+<p class="lead"></p>
+
+<li>Ruang Perawatan Kelas VIP</li>
+<li>Ruang Perawatan Kelas I</li>
+<li>Ruang Perawatan Kelas II</li>
+<li>Ruang Perawatan Kelas III</li>
+
+<p class="lead"></p>
+          <p class="lead">Jenis Jenis Pelayanan</p>
+          <li>Pelayanan UGD 24 Jam</li>
+          <li>Klinik kebidanan dan penyakit kandungan</li>
+          <li>klinik imunisasi dan tumbuh kembang</li>
+          <li>laboraturium</li>
+          <li>Praktek dokter spesialis kebidanan dan penyakit kandungan anak dan penyakit dalam.</li>
+          <li>Melayani peserta BPJS.</li>
+
+<p class="lead"></p>
+          <p class="lead">Waktu Pelayanan</p>
+          <li>Waktu pelayanan untuk rawat inap 24 jam.</li>
+          <li>Waktu pelayanan rawat jalan di mulai pukul 08.00 - 14.00 WITA</li>
+          <li>Waktu pelayanan klinik kebidanan dan penyakit dalam :<p>- Poli Kebidanan setiap hari : SENIN,RABU JUM'AT Mulai pukul 08.00 - 14.00 WITA.<p>- Poli KIA/KB setiap hari mulai pukul 08.00 - 14.00 WITA</p></p></li>
+          <li>Waktu Pelayanan klinik anak:<p>- Poli Kebidanan setiap hari : SENIN,RABU JUM'AT Mulai pukul 08.00 - 14.00 WITA.<p>- Poli KIA/KB setiap hari mulai pukul 08.00 - 14.00 WITA</p></p></li>         
+
+
+
 				</div>
 			</div>
 
+      
+
 			<div class="col-lg-4">
 				<div class="sidebar-widget schedule-widget mt-5">
-					<h5 class="mb-4">Time Schedule</h5>
+					<h5 class="mb-8">Alamat:<p>Jl. Nani Wartabone No.101, Heledulaa Sel., Kec. Kota Tim., Kota Gorontalo, Gorontalo 96134</p></h5>
 
-					<ul class="list-unstyled">
+          	<ul class="list-unstyled">
 					  <li class="d-flex justify-content-between align-items-center">
-					    <a href="#">Monday - Friday</a>
-					    <span>9:00 - 17:00</span>
+					    <a href="#">Jam:</a>
+					    <span>Buka 24 Jam</span>
 					  </li>
 					  <li class="d-flex justify-content-between align-items-center">
-					    <a href="#">Saturday</a>
-					    <span>9:00 - 16:00</span>
+					    <a href="#">Telepon:</a>
+					    <span>(0435) 821253</span>
 					  </li>
 					  <li class="d-flex justify-content-between align-items-center">
-					    <a href="#">Sunday</a>
-					    <span>Closed</span>
+					    <a href="#">Provinsi:</a>
+					    <span>Gorontalo</span>
 					  </li>
 					</ul>
 
-					<div class="sidebar-contatct-info mt-4">
-						<p class="mb-0">Need Urgent Help?</p>
-						<h3>+23-4565-65768</h3>
-					</div>
+          <div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="department-img">
+					<img src="<?= base_url('assets/public/img/backgrounds/siti.jpeg') ?>" alt="" class="img-fluid">
+				</div>
+			</div>
+		</div>
+
 				</div>
 			</div>
 		</div>

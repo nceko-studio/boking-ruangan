@@ -65,28 +65,74 @@
   	  <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
           <div class="section-title">
-            <h2>Dokter Dan Pegawai</h2>
+                      <h2>RSIA SITTI KHADIJAH GORONTALO</h2>
+                      
             <div class="divider mx-auto my-4"></div>
           </div>
         </div>
       </div>
 
-    <?php foreach ($user as $v) : ?>
-    <div class="row shuffle-wrapper portfolio-gallery">
-      	<div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item">
-	      	<div class="position-relative doctor-inner-box">
-		        <div class="doctor-profile">
-	            <div class="doctor-img">
-	            		<img src="<?= base_url('uploads/profile/4.jpg') ?>" alt="doctor-image" class="img-fluid w-100">
-	            </div>
-	          </div>
-            <div class="content mt-3">
-              <h4 class="mb-0"><?= $v->nama_pegawai ?></h4>
-              <p>Cardiology</p>
-            </div> 
-	      </div>
-    </div>
-		<?php endforeach; ?>
+     
+        <div class="centered-text">
+          <h5>1. Sejarah</h5>
+          <p>RSIA Sitti Khadijah pada tahun 1970 awalnya masih merupakan klinik ibu dan anak yang menempati gedung
+            asrama putri muhammadiyah. pada tahun 1972 oleh pimpinan Muhammadiyah dan Aisyiyah dan di sponsori oleh
+            seorang dokter ahli kebidanan yaitu dr.Asnawi, klinik tersebut di jadikan rumah bersalin Sitti Khadijah 
+            melalui surat keputusan Gubernur Sulawesi utara No.235 a/KPTS/1972. Pada bulan September tahun 2007 Rumah 
+            bersalin sitti khadijah di kembangkan menjadi Rumah sakit ibu dan anak Sitti Khadijah melalui
+            surat keputusan kepala dinas kesehatan propinsi Gorontalo No. 800/Dikes/3105/IX/2007, tanggal 26 September 2007 yang sudah
+            di lengkapi dengan ruangan anak, sebuah Laboratorium dan sebuah Apotik.</p>
+            
+            <p>Pada bulan November 2009 bangunan RSIA Sitti Khadijah mulai di bongkar total dan di bangun gedung berstruktrur 4 lantai permanen.
+              Pada bulan Februari 2012 gedung baru RSIA Sitti /khadijah mulai di manfaatkan walaupun baru lantai I dan II, lantai III dan IV masih
+              di upayakan penyelesainnya, Pada bulan Januari 2016 bangunan lantai III dan IV di lanjutkan pembangunannya, dan pada tahun 2018 
+              gedung lantai III dan IV mulai di manfaatkan untuk perawatan anak interna.</p>
+
+              <p> RSIA Sitti Khadijah terletak pada pusat kota gorontalo dan ibu kota provinsi gorontalo, tepatnya di jln. Nani wartabone No.101 kel
+                Heledulaa selatan, kec, kota timur kota gorontalo, dengan luas 1063 m dan luas Bangunan yang terdiri dari 4 lantai 975,25 M (lantai I,II,III,IV )</p>
+               
+</div>
+            <style>
+               .element {
+               margin-bottom: 20px;
+  }
+                          </style>
+
+                  <div class="element">
+                    
+                  </div>
+
+              <div class="centered-text">
+                <h5>2. Visi, Misi dan motto</h5>
+                <p>A. VISI RSIA SITTI KHADIJAH ialah Menjadi Rumah Sakit Ibu dan Anak yang terkemuka dan bernuansa islami di provinsi gorontalo.</p>
+                <p>B. MISI RSIA SITTI KHADIJAH yaitu:<li>Menyelenggarakan pelayanan kesehatan bagi ibu dan anak secara profesional, adil, penuh keikhlasan dan keramahan, menghragai hak hidup insani dan peduli kepada yang lemah.</li>
+                <li>melakukan upaya berkelanjutan untuk meningkatkan mutu pelayanan dan keselamatan pasien</li>
+                <li>membangun sumber daya manusia yang profesional, punya integritas tinggi dan berjiwa islami.</li>
+                <li>menciptakan lingkungan rumah sakit yang bersih, indah, nyaman, dan aman bagi pasien, keluarga, pengunjung dan staf rumah sakit.</li>
+                <li>mengembangkan sistem manajemen yang efektif, efisien, dan transparan dengan memanfaatkan kemajuan teknlogi informasi.</li></p>
+                <p>C.  MOTTO Rumah sakit RSIA Sitti Khadijah "SENYUM KARYAWAN ADALAH SEDEKAH BAGI PASIEN"</P>
+
+</div>
+
+                <style>
+               .element {
+               margin-bottom: 20px;
+  }
+                          </style>
+
+                  <div class="element">
+                    
+                  </div>
+                  <div class="centered-text">
+                    <h5>3. Kedudukan dan Tugas</h5>
+                    <h7>a. Kedudukan</h7>
+                    <p>RSIA Sitti Khadijah 'Aisyiyah Kota Gorontalo Merupakan sistem pengolahan rumah sakit swasta kelasm C.</p>
+                    <h7>b. Tugas </h7>
+                    <p>Tugas pokok RSIA Sitti Khadijah kota gorontalo adalah, melaksanakan upaya pelayanan kesehatan kepada seluruh masyrakat provinsinsi gorontalo dan sekitarnya
+                      melalui pendekatan promotif,preventif, kuratif serta rehabilitatif secara berkualitas, efektif dan efisien khusus bagi kesehatan ibu dan anak.</p>
+
+
+    
 </section>
 
 
