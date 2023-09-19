@@ -108,67 +108,19 @@
                                     <label for="kk">No Kartu Keluarga</label>
                                     <input type="text" class="form-control" id="kk" name="kk" placeholder="Nomor Kartu Keluarga">
                                 </div>
-                                <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label for="jr">Jenis Rawatan</label>
-                                        <div class="row" id="jr">
-                                            &ensp;
-                                            &ensp;
-                                            <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="jenis_rawatan" value="1">
-                                            <label class="form-check-label">Rawat Inap</label>
-                                            </div>
-                                            &ensp;
-                                            &ensp;
-                                            <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="jenis_rawatan" value="2">
-                                            <label class="form-check-label">Rawat Jalan</label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+									<label for="gejala" class="col-sm-6 col-form-label form-label">Diagnosa Awal Pasien</label>
+									<div class="col-sm-12">
+										<textarea class="form-control" id="gejala" name="gejala"></textarea>
+									</div>
                                 </div>
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label for="ll">Laka Lantas</label>
-                                        <div class="row" id="ll">
-                                            &ensp;
-                                            &ensp;
-                                            <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="laka_lantas" value="0">
-                                            <label class="form-check-label">NO</label>
-                                            </div>
-                                            &ensp;
-                                            &ensp;
-                                            <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="laka_lantas" value="1">
-                                            <label class="form-check-label">YES</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label for="DU">Dari UGD</label>
-                                        <div class="row" id="DU">
-                                            &ensp;
-                                            &ensp;
-                                            <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="ugd" value="0">
-                                            <label class="form-check-label">NO</label>
-                                            </div>
-                                            &ensp;
-                                            &ensp;
-                                            <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="ugd" value="1">
-                                            <label class="form-check-label">YES</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                
                                 </div>
                                 <div class="col-md-6">
+								<div class="form-group">
+									<label for="nomr">NO Rekam Medis</label>
+									<input type="text" class="form-control" id="nomr" name="nomr" value="<?= 'RSK'.$mr->jumlah_mr; ?>" readonly>
+								</div>
                                 <div class="row">
                                     <div class="col-md-6">
                                     <div class="form-group">
@@ -228,7 +180,7 @@
                             </div>
                             
                                 <div class="form-group">
-                                    <label for="id_dokter">DPJP</label>
+                                    <label for="id_dokter">Dokter Penanggung Jawab Pasien</label>
                                     <select class="form-control" id="id_dokter" name="id_dokter" required>
                                         <option>Pilih Dokter</option>
                                         <?php foreach ($dokter as $d) { ?>

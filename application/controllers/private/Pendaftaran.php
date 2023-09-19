@@ -14,6 +14,7 @@ class Pendaftaran extends CI_Controller
         $data['provinsi'] = $this->db->get('tbl_provinsi')->result(); 
         $data['ruangan'] = $this->M_ruangan->AllRuangan(); 
         $data['lantai'] = $this->MasterData->AllLantai(); 
+		$data['mr'] = $this->db->select('COUNT(id_user) as jumlah_mr')->from('tbl_user')->get()->row();
 		$this->load->view('template/private/header', $data);
 		$this->load->view('template/private/navbar', $data);
 		$this->load->view('template/private/sidebar', $data);
@@ -26,7 +27,7 @@ class Pendaftaran extends CI_Controller
 		$data['title'] = 'Pendaftaran Pasien Lama';
         $data['user']  = $this->db->select('id_user, nama_user')->where('sts_group',"1")->get('tbl_user')->result(); 
         $data['dokter'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where_not_in('kd_dpjp',null)->get('tbl_user')->result(); 
-        $data['ruangan'] = $this->M_ruangan->AllRuangan(); 
+        $data['lantai'] = $this->MasterData->AllLantai();  
 		$this->load->view('template/private/header', $data);
 		$this->load->view('template/private/navbar', $data);
 		$this->load->view('template/private/sidebar', $data);
@@ -83,6 +84,7 @@ class Pendaftaran extends CI_Controller
 	{
         $data = array(
             'nama_user' => $this->input->post('nama'),
+			'no_mr' => $this->input->post('nomr'),
             'tempat_lahir' => $this->input->post('tl'),
             'tgl_lahir' => $this->input->post('tgl'),
             'jk' => $this->input->post('jk'),
@@ -110,24 +112,25 @@ class Pendaftaran extends CI_Controller
 
         $runtime = $this->UserModel->newUser($data);
 
-        if (!empty($runtime)) {;
+        if (!empty($runtime)) {
             $jam = date('H');
             $detik = date('s');
+			$awal = $detik.$jam;
             $makan = $jam . $detik;
-            $uye = "1212".$makan;
+			$uye = $awal.$makan;
             $datas = [
                 'no_register' => $uye,
                 'tgl_daftar' => date("Y-m-d H:i:s"),
                 'id_pasien' => $runtime,
-                'is_ugd' => $this->input->post('ugd'),
-                'id_jenis_rawatan' => $this->input->post('jenis_rawatan'),
-                'laka_lantas' => $this->input->post('laka_lantas'),
+                'id_jenis_rawatan' => "1",
                 'tgl_berobat' => date('Y-m-d H:i:s'),
                 'is_confrim' => "1",
                 'id_ruangan_bed' => $this->input->post('bed'),
                 'is_cancled' => "0",
                 'sts_selesai' => "0",
                 'id_dokter' => $this->input->post('id_dokter'),
+                'gejala_pasien' => "-",
+                'diagnosa_awal' => $this->input->post('diagnosa')
             ];
 
             $sorttime = $this->UserModel->NewRegist($datas);
@@ -155,21 +158,22 @@ class Pendaftaran extends CI_Controller
 	{
             $jam = date('H');
             $detik = date('s');
+			$awal = $detik.$jam;
             $makan = $jam . $detik;
-            $uye = "1212".$makan;
+			$uye = $awal.$makan;
             $datas = [
                 'no_register' => $uye,
                 'tgl_daftar' => date("Y-m-d H:i:s"),
                 'id_pasien' => $this->input->post('id_user'),
-                'is_ugd' => $this->input->post('ugd'),
-                'id_jenis_rawatan' => $this->input->post('jenis_rawatan'),
-                'laka_lantas' => $this->input->post('laka_lantas'),
+                'id_jenis_rawatan' => "1",
                 'tgl_berobat' => date('Y-m-d H:i:s'),
                 'is_confrim' => "1",
                 'id_ruangan_bed' => $this->input->post('bed'),
                 'is_cancled' => "0",
                 'sts_selesai' => "0",
                 'id_dokter' => $this->input->post('id_dokter'),
+                'gejala_pasien' => "-",
+                'diagnosa_awal' => $this->input->post('diagnosa')
             ];
 
             $sorttime = $this->UserModel->NewRegist($datas);
