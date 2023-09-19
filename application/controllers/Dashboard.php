@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller
 			$this->load->view('private/dashboard', $data);
 			$this->load->view('template/private/footer', $data);
 		} else {
-			$data['dokter'] = $this->db->select('COUNT(id_user) as jumlah_dokter')->from('tbl_user')->where('isdokter','1')->get()->row();
+			$data['dokter'] = $this->db->select('COUNT(id_user) as jumlah_dokter')->from('tbl_user')->where_not_in('kd_dpjp',null)->get()->row();
 			$data['ruangan'] = $this->db->select('COUNT(id_ruangan_bed) as jumlah_ruangan_bed')->from('tbl_ruangan_bed')->where('sts_bed','1')->get()->row();
 			$data['pasien'] = $this->db->select('COUNT(no_register) as jumlah_pasien')->from('tbl_pendaftaran')->where('is_confrim = "1" AND is_cancled = "0" AND sts_selesai = "0"')->get()->row();
 			$data['title'] = 'Dashboard';
