@@ -88840,5 +88840,6 @@ ADD COLUMN sts_bed enum('0','1') COMMENT '0 = Terpakai, 1 = Tersedia';
 ALTER TABLE tbl_ruangan
 ADD COLUMN photo VARCHAR(255) DEFAULT 'default.jpg';
 
-ALTER TABLE tbl_user 
-ADD COLUMN isdokter ENUM('0', '1');
+ALTER TABLE tbl_pendaftaran 
+ADD COLUMN gejala_pasien TEXT,
+ADD COLUMN diagnosa_awal TEXT;
