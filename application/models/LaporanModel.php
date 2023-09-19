@@ -6,6 +6,7 @@ class LaporanModel extends CI_Model
 	{
         $query = "
                 SELECT
+				pd.no_register,	u.no_mr, u.alamat, pd.diagnosa_awal, u.jk,
                 u.nama_user AS nama_user,
                 pd.tgl_daftar AS tanggal_daftar,
                 IF(pd.tgl_berobat IS NULL OR pd.tgl_berobat = '', '-', pd.tgl_berobat) AS tanggal_berobat,

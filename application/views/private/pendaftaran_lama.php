@@ -44,9 +44,9 @@
                                     </select>
                                 </div>
                                     <div class="form-group">
-										<label for="gejala" class="col-sm-6 col-form-label form-label">Diagnosa Awal Pasien</label>
+										<label for="diagnosa" class="col-sm-6 col-form-label form-label">Diagnosa Awal Pasien</label>
 										<div class="col-sm-12">
-											<textarea class="form-control" id="gejala" name="gejala"></textarea>
+											<textarea class="form-control" id="diagnosa" name="diagnosa"></textarea>
 										</div>
                                     </div>
                                 </div>

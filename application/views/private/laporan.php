@@ -33,14 +33,16 @@
                             <table id="jenjang_tabel" class="table table-bordered table-striped">
 								<thead>
 									<tr>
-										<th style="width: 5%;">NO</th>
+										<th style="width: 2%;">NO</th>
+										<th style="width: 10%;">NO. Regis</th>
+										<th style="width: 8%;">NO. MR</th>
 										<th style="width: 20%;">Nama Pasien</th>
-										<th style="width: 10%;">Taggal Daftar</th>
-										<th style="width: 10%;">Taggal Berobat</th>
-										<th style="width: 10%;">Taggal Selesai</th>
-										<th style="width: 5%;">Status</th>
-										<th style="width: 15%;">Dokter DPJP</th>
-										<th style="width: 15%;">Perawat</th>
+										<th style="width: 10%;">Alamat</th>
+										<th style="width: 10%;">Taggal Masuk</th>
+										<th style="width: 15%;">Diagnosa Masuk</th>
+										<th style="width: 15%;">Dokter Penanggung Jawab</th>
+										<th style="width: 2%;">JK</th>
+										<th style="width: 8%;">Jam Masuk</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -48,13 +50,15 @@
 									<?php foreach ($user as $v) : ?>
 										<tr>
 											<td><?= $no++ ?></td>
+											<td><?= $v->no_register; ?></td>
+											<td><?= $v->no_mr; ?></td>
 											<td><?= $v->nama_user; ?></td>
-											<td><?= $v->tanggal_daftar; ?></td>
-											<td><?= $v->tanggal_berobat; ?></td>
-											<td><?= $v->tanggal_selesai; ?></td>
-											<td><?= $v->status; ?></td>
+											<td><?= $v->alamat; ?></td>
+											<td><?= date('d-m-Y',strtotime($v->tanggal_berobat)); ?></td>
+											<td><?= $v->diagnosa_awal; ?></td>
 											<td><?= $v->nama_dokter; ?></td>
-											<td><?= $v->nama_perawat; ?></td>
+											<td><?php if($v->jk == "1"){echo "L";}else{echo "P";} ?></td>
+											<td><?= date('H:m',strtotime($v->tanggal_berobat)); ?></td>
 										</tr>
 									<?php endforeach; ?>
 								</tbody>

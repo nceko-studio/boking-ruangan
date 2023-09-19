@@ -105,6 +105,7 @@ class Pendaftaran extends CI_Controller
             'id_desa' => $this->input->post('desa'),
             'alamat' => $this->input->post('alamat'),
             'sts_user' => "1",
+            'sts_group' => "1",
             'date_register' => date("Y-m-d"),
             'user_registered' => $this->session->userdata('id_user'),
             'is_difabel' => "0"
