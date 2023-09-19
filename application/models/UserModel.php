@@ -76,6 +76,15 @@ class UserModel extends CI_Model
 		->row();
 	}
 
+	public function UserVerifiedByNoreg($no_register)
+	{
+		return $this->db->select('a.*')
+		->from('tbl_pendaftaran a')
+		->where('a.no_register',$no_register)
+		->get()
+		->row();
+	}
+
 	public function DataPerawat($no_register)
 	{
 		return $this->db->select('a.*, func_nama_lengkap(pr.gelar_depan,pr.nama_user,pr.gelar_blk) as nama_perawat')

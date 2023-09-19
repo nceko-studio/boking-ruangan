@@ -30,7 +30,8 @@ class Boking extends CI_Controller
                 'tgl_berobat' => $jamila,
                 'is_confrim' => "0",
                 'is_cancled' => "0",
-                'sts_selesai' => "0"
+                'sts_selesai' => "0",
+				'gejala_pasien' => $this->input->post('gejala')
             ];
 
             $sorttime = $this->UserModel->NewRegist($datas);

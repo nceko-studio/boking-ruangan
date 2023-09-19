@@ -114,11 +114,33 @@ class Pasien extends CI_Controller
 		redirect('data_pasien');
 	}
 
-	public function berobat($no_register)
+	public function verified($no_register)
 	{
+		$data['title'] = 'Verifikasi Pasien';
+        $data['user'] = $this->UserModel->UserVerifiedByNoreg($no_register); 
+        $data['alluser']  = $this->db->select('id_user, nama_user')->where('sts_group',"1")->get('tbl_user')->result(); 
+        $data['dokter'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where('kd_dpjp !=',null)->get('tbl_user')->result(); 
+        $data['lantai'] = $this->MasterData->AllLantai();  
+		$this->load->view('template/private/header', $data);
+		$this->load->view('template/private/navbar', $data);
+		$this->load->view('template/private/sidebar', $data);
+		$this->load->view('private/verified', $data);
+		$this->load->view('template/private/footer', $data);
+	}
+
+
+
+	public function berobat()
+	{
+		$no_register = $this->input->post('no_register');
 		$data = array(
 			'tgl_berobat' => date('Y-m-d H:i:s'),
-			'is_confrim' => "1"
+			'is_confrim' => "1",
+			'id_ruangan_bed' => $this->input->post('bed'),
+			'is_cancled' => "0",
+			'sts_selesai' => "0",
+			'id_dokter' => $this->input->post('id_dokter'),
+			'diagnosa_awal' => $this->input->post('diagnosa')
 		);
 
 		$pulang = $this->UserModel->PendaftaranUpdate($no_register,$data);

@@ -50,7 +50,7 @@
 											<td><?= $v->nama_dokter; ?></td>
 											<td>
 												<?php if ($v->is_confrim == "0"): ?>
-												<a href="<?= base_url('private/pasien/berobat/' . $v->no_register) ?>">
+												<a href="<?= base_url('private/pasien/verified/' . $v->no_register) ?>">
 													<button class="btn bg-success btn-xs" title="Konfirmasi Berobat" style="width: 30px;">
 														<i class="fas fa-check"></i>
 													</button>
