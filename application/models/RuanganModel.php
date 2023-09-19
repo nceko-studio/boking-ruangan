@@ -210,11 +210,44 @@ class RuanganModel extends CI_Model
 			return false;
 		}
 	}
+	
+
+	public function FasilitasByRuangan($id)
+    {
+        return $this->db->select('a.*')
+		->from('tbl_fasilitas_ruanngan a')
+        ->where('a.id_ruangan',$id)
+		->get()
+		->result();
+    }
+
+
+	public function deleteFasilitas($id) {
+		if (!empty($id)) {
+			$this->db->where('id_fasilitas_ruangan', $id);
+			$this->db->delete('tbl_fasilitas_ruanngan');
+
+			return true;
+		}else{
+			return false;
+		}
+	}
 
 	function getRuanganFasilitas($id) {
 		$query = $this->db->query("SELECT * FROM tbl_fasilitas_ruanngan WHERE id_ruangan=" . $id);
 		$result = $query->result();
 		return $result;
+	}
+
+	public function updateDatasRuangan($id, $data) {
+		if (!empty($id)) {
+			$this->db->where('id_ruangan', $id);
+			$this->db->update('tbl_ruangan', $data);
+
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 }

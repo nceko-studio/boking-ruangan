@@ -122,6 +122,59 @@ class Ruangan extends CI_Controller
 		$this->load->view('template/private/footer', $data);
 	}
 
+	public function addFasilitas() {
+		$data = array(
+            'id_ruangan' => $this->input->post('id'),
+            'fasilitas_ruangan' => $this->input->post('nf'),
+            'deskripsi' => $this->input->post('dsk'),
+        );
+
+
+		$sorttime = $this->M_ruangan->NewFasil($data);
+
+		if ($sorttime == true) {
+			$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> Data Fasilitas Baru Berhasil Di Tambahkan.');
+		}else {
+			$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Data Fasilitas Baru Gagal Di Tambahkan.');
+		}
+
+        redirect('private/ruangan/fasilitas/' . $this->input->post('id'));
+
+	}
+
+	public function editFasilitas() {
+		$data = array(
+            'id_ruangan' => $this->input->post('id'),
+            'fasilitas_ruangan' => $this->input->post('nf'),
+            'deskripsi' => $this->input->post('dsk'),
+        );
+
+		$sorttime = $this->M_ruangan->UpdateFasil($this->input->post('id'), $data);
+
+
+		if ($sorttime == true) {
+			$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> Data Fasilitas Baru Berhasil Di Update.');
+		}else {
+			$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Data Fasilitas Baru Gagal Di Update.');
+		}
+
+        redirect('private/ruangan/fasilitas/' . $this->input->post('id'));
+	}
+
+	public function deleteFasilitas($id) {
+		$fsl = $this->db->select('id_ruangan, id_fasilitas_ruangan')->where('id_fasilitas_ruangan', $id)->get('tbl_fasilitas_ruanngan')->result();
+		$sorttime = $this->M_ruangan->deleteFasilitas($id);
+
+
+		if ($sorttime == true) {
+			$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> Data Fasilitas Baru Berhasil Di Hapus.');
+		}else {
+			$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Data Fasilitas Baru Gagal Di Hapus.');
+		}
+
+        redirect('private/ruangan/fasilitas/' . $fsl[0]->id_ruangan);
+	}
+
     public function fasilitas_update($id)
 	{
         $data = array(
@@ -138,5 +191,50 @@ class Ruangan extends CI_Controller
 			$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Gagal Menambahkan Data Bed.');
 		}
 		redirect('private/ruangan/bed/'.$id);
+	}
+
+	public function upload_foto($id)
+	{
+		$data['title'] = 'Upload Foto';
+        $data['ruangan'] = $this->M_ruangan->ByIdRuangan($id); 
+        $data['foto'] = $this->M_ruangan->BedByRuangan($id); 
+		$this->load->view('template/private/header', $data);
+		$this->load->view('template/private/navbar', $data);
+		$this->load->view('template/private/sidebar', $data);
+		$this->load->view('private/data-ruangan/foto', $data);
+		$this->load->view('template/private/footer', $data);
+	}
+
+	public function new_foto($id)
+	{
+		$upload_path = './uploads/ruangan/';
+
+        $config['upload_path'] = $upload_path;
+        $config['allowed_types'] = 'jpg|png|jpeg|gif|';
+        $config['max_size'] = 4096; 
+        $config['encrypt_name'] = TRUE;
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('foto')) {
+            $response['error'] = true;
+            $response['message'] = $this->upload->display_errors();
+        } else {
+            $nama_foto  = $this->upload->data('file_name');
+
+            $data = [
+                'photo' => $nama_foto
+            ];
+
+            $result = $this->M_ruangan->updateDatasRuangan($id,$data);
+
+            if ($result == TRUE) {
+				$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> Berhasil Menambahkan Data Gambar Ruangan.');
+			} else {
+				$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Gagal Menambahkan Data Gambar Ruangan.');
+			}
+
+			redirect('private/ruangan');
+        }
 	}
 }

@@ -43,9 +43,10 @@
 									<tr>
 										<th style="width: 5%;">NO</th>
 										<th style="width: 25%;">NAMA RUANGAN</th>
-										<th style="width: 25%;">Nomer Ruangan</th>
+										<th style="width: 10%;">Nomer Ruangan</th>
 										<th style="width: 25%;">Gedung / Lantai</th>
 										<th style="width: 10%;">Jumlah Bed</th>
+										<th style="width: 15%;">Gambar Ruangan</th>
 										<th style="width: 10%;">Aksi</th>
 									</tr>
 								</thead>
@@ -58,6 +59,7 @@
 											<td><?= $v->no_ruangan; ?></td>
 											<td><?= $v->gedung; ?> / <?= $v->lantai; ?></td>
 											<td><?= $v->jumlah_bed; ?></td>
+											<td><img class="img-thumbnail" src="<?php echo base_url('uploads/ruangan/'.$v->photo); ?>" alt="Ruangan" /></td>
 											<td>
 												<a href="<?= base_url('private/ruangan/bed/' . $v->id_ruangan) ?>">
 													<button class="btn bg-primary btn-xs" title="Tambah Bed" style="width: 30px;">
@@ -72,6 +74,11 @@
 												<a href="<?= base_url('private/ruangan/hapus/' . $v->id_ruangan) ?>">
 													<button class="btn bg-danger btn-xs" title="Hapus Ruangan" style="width: 30px;">
 														<i class="fas fa-minus"></i>
+													</button>
+												</a>
+												<a href="<?= base_url('private/ruangan/upload_foto/' . $v->id_ruangan) ?>">
+													<button class="btn bg-warning btn-xs" title="foto Ruangan" style="width: 30px;">
+														<i class="fas fa-plus"></i>
 													</button>
 												</a>
 											</td>
