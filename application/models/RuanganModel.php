@@ -211,4 +211,10 @@ class RuanganModel extends CI_Model
 		}
 	}
 
+	function getRuanganFasilitas($id) {
+		$query = $this->db->query("SELECT * FROM tbl_fasilitas_ruanngan WHERE id_ruangan=" . $id);
+		$result = $query->result();
+		return $result;
+	}
+
 }

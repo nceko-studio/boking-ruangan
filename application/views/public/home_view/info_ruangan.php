@@ -113,10 +113,15 @@
                 <h4 id="nama_ruangan_view">Nama Ruangan</h4>
             </div>
             <div class="row">
-              <div class="col-md-10">
-                  <img src="<?php echo base_url('uploads/ruangan/default.jpg'); ?>" alt="Ruangan" />
+              <div class="col-md-6">
+                  <img class="img-thumbnail" src="<?php echo base_url('uploads/ruangan/default.jpg'); ?>" alt="Ruangan" />
               </div>
-              <br>
+              <div class="col-md-6">
+              <p class="font-weight-bold">Fasilitas</p>
+              <ul id="data-fasilitas">
+                <li></li>
+              </ul>
+              </div>
             </div>
             <div class="row">
               <div class="col-md-6">
@@ -139,6 +144,7 @@
               </p>
             </div>
 					</div>
+          
 			</div>
 		</div>
 	</div>
@@ -236,11 +242,11 @@
           var id = $(this).data('id');
 
           $.ajax({
-            url: '<?= base_url('home/detail_ruangan/') ?>' + id,
+            url: '<?= base_url('home/detail_ruangan/') ?>' +  $(this).data('id'),
             type: 'GET',
             dataType: 'json',
             success: function(response) {
-              console.log(response)
+              console.log("data", response, id)
               $('#modal-view').modal('show');
 
               $('#nama_ruangan_view').text(response.data['nama_ruangan']);
@@ -255,9 +261,26 @@
               $.each(statusBeds, function(index, value) {
                 $('#status_bed').append('<li>' + value + '</li>');
               });
-            }
-          });
+            },
+          }).then((rest) => {
+            $.ajax({
+                url: '<?= base_url('home/detail_fasilitas/') ?>' + rest.data.id_ruangan,
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                  const ulFasilitas = $("#data-fasilitas");
+                  ulFasilitas.empty();
+                  response.data.map(function(item) {
+                      const li = $("<li>").text(item.fasilitas_ruangan);
+                      ulFasilitas.append(li);
+                  })
+                },
+               
+              });
+          })
         });
+
+
         <?php endforeach; ?>
       });
     </script>

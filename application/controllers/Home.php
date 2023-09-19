@@ -53,4 +53,15 @@ class Home extends CI_Controller
 
 		echo json_encode($result);
     }
+
+    public function detail_fasilitas($id)
+    {
+        $data = $this->M_ruangan->getRuanganFasilitas($id);
+
+        $result = array(
+			'data' => $data
+		);
+
+		echo json_encode($result);
+    }
 }
