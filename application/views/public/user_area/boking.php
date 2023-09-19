@@ -8,110 +8,39 @@
             					<div class="row">
             						<div class="col-lg-9">
             							<h4>
-            								Boking Ruangan
+            								Daftar Ranap
             							</h4>
             						</div>
             					</div>
             				</div>
                             <form action="<?= base_url('public/pendaftaran/boking/new') ?>" method="POST">    
                                 <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="id_dokter">DPJP</label>
-                                        <select class="form-control" id="id_dokter" name="id_dokter" required>
-                                            <option>Pilih Dokter</option>
-                                            <?php foreach ($dokter as $d) { ?>
-                                                <option value="<?= $d->id_user ?>"><?= $d->nama_dokter ?></option>
-                                            <?php } ?>
-                                        </select>
-                                    </div>
-                                    <br />
-                                    <div class="row">
-                                    <div class="col-lg-1"></div>
-                                        <div class="col-lg-3">
-                                            <div class="form-group">
-                                                <label for="jr">Jenis Rawatan</label>
-                                                <div class="row" id="jr">
-                                                    &ensp;
-                                                    &ensp;
-                                                    <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="jenis_rawatan" value="1">
-                                                    <label class="form-check-label">Rawat Inap</label>
-                                                    </div>
-                                                    &ensp;
-                                                    &ensp;
-                                                    <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="jenis_rawatan" value="2">
-                                                    <label class="form-check-label">Rawat Jalan</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <div class="form-group">
-                                                <label for="ll">Laka Lantas</label>
-                                                <div class="row" id="ll">
-                                                    &ensp;
-                                                    &ensp;
-                                                    <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="laka_lantas" value="0">
-                                                    <label class="form-check-label">NO</label>
-                                                    </div>
-                                                    &ensp;
-                                                    &ensp;
-                                                    <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="laka_lantas" value="1">
-                                                    <label class="form-check-label">YES</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <div class="form-group">
-                                                <label for="DU">Dari UGD</label>
-                                                <div class="row" id="DU">
-                                                    &ensp;
-                                                    &ensp;
-                                                    <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="ugd" value="0">
-                                                    <label class="form-check-label">NO</label>
-                                                    </div>
-                                                    &ensp;
-                                                    &ensp;
-                                                    <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="ugd" value="1">
-                                                    <label class="form-check-label">YES</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br />
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="lantai">Lantai</label>
-                                                <select class="form-control" id="lantai" name="lantai" required>
-                                                    <option>Pilih Lantai</option>
-                                                    <?php foreach ($lantai as $d) { ?>
-                                                        <option value="<?= $d->id_lantai ?>"><?= $d->lantai ?></option>
-                                                    <?php } ?>
-                                                </select>
+												<label for="tanggal" class="col-sm-6 col-form-label form-label">Tanggal Berobat</label>
+												<div class="col-sm-12">
+													<input type="date" class="form-control" id="tanggal" name="tanggal">
+												</div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="ruangan">Ruangan</label>
-                                                <select class="form-control" id="ruangan" name="ruangan" required>
-                                                    <option>Pilih Ruangan</option>
-                                                </select>
+												<label for="waktu" class="col-sm-3 col-form-label form-label">Jam Berobat</label>
+												<div class="col-sm-12">
+													<input type="time" class="form-control" id="waktu" name="waktu" step="1">
+												</div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                    </div>
+									<br/>
+                                    <div class="row">
+                                        <div class="col-md-10">
                                             <div class="form-group">
-                                                <label for="bed">Bed</label>
-                                                <select class="form-control" id="bed" name="bed" required>
-                                                    <option>Pilih Dokter</option>
-                                                </select>
+												<label for="gejala" class="col-sm-6 col-form-label form-label">Gejala yang di rasakan</label>
+												<div class="col-sm-12">
+													<textarea class="form-control" id="gejala" name="gejala"></textarea>
+												</div>
                                             </div>
                                         </div>
                                     </div>

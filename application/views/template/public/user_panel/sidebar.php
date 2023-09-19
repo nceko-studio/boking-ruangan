@@ -58,7 +58,7 @@
                   </g>
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">Tanaman</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">Pasien</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -76,10 +76,10 @@
               </a>
             </li>
 
-        <li class="menu-item <?php if($title == "Pesan Ruangan"){ echo 'active';} ?>">
+        <li class="menu-item <?php if($title == "Daftar Ranap"){ echo 'active';} ?>">
                 <a href="<?= base_url('boking_ruangan')?>" class="menu-link">
                   <i class="menu-icon tf-icons bx bx-table"></i>
-                  <div data-i18n="Analytics">Boking Ruangan</div>
+                  <div data-i18n="Analytics">Daftar Ranap</div>
                 </a>
               </li>
             

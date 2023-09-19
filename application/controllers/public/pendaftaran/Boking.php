@@ -5,10 +5,7 @@ class Boking extends CI_Controller
 {
 	public function index()
 	{
-		$data['title'] = 'Pesan Ruangan';
-        $data['dokter'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where_not_in('kd_dpjp',null)->get('tbl_user')->result(); 
-        $data['ruangan'] = $this->M_ruangan->AllRuangan(); 
-        $data['lantai'] = $this->MasterData->AllLantai(); 
+		$data['title'] = 'Daftar Ranap';
 		$this->load->view('template/public/user_panel/header', $data);
 		$this->load->view('template/public/user_panel/sidebar', $data);
 		$this->load->view('template/public/user_panel/navbar', $data);
@@ -20,38 +17,30 @@ class Boking extends CI_Controller
 	{
         $jam = date('H');
         $detik = date('s');
+		$awal = $detik.$jam;
         $runtime = $jam . $detik;
         $user_id = $this->session->userdata('id_user');
-		$uye = "1212".$runtime;
+		$jamila = $this->input->post("tanggal")." ".$this->input->post("waktu");
+		$uye = $awal.$runtime;
             $datas = [
                 'no_register' => $uye,
                 'tgl_daftar' => date("Y-m-d H:i:s"),
                 'id_pasien' => $user_id,
-                'is_ugd' => $this->input->post('ugd'),
-                'id_jenis_rawatan' => $this->input->post('jenis_rawatan'),
-                'laka_lantas' => $this->input->post('laka_lantas'),
-                'tgl_berobat' => date('Y-m-d H:i:s'),
+                'id_jenis_rawatan' => "1",
+                'tgl_berobat' => $jamila,
                 'is_confrim' => "0",
-                'id_ruangan_bed' => $this->input->post('bed'),
                 'is_cancled' => "0",
-                'sts_selesai' => "0",
-                'id_dokter' => $this->input->post('id_dokter'),
+                'sts_selesai' => "0"
             ];
 
             $sorttime = $this->UserModel->NewRegist($datas);
 
             if ($sorttime == true) {
-                $hus = $this->M_ruangan->updateBedKosong($this->input->post('bed'));
-
-                if ($hus == true) {                    
-                    $this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> ' . $this->input->post('nama') . ' Sebagai Pasien Baru Berhasil Di Tambahkan.');
-                }else {
-                    $this->session->set_flashdata('error', '<strong>ERROR!!!</strong> ' . $this->input->post('nama') . ' Sebagai Pasien Baru Gagal Di Tambahkan.');
-                }
+				$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong>  Melakukan pendaftaran berobat rawat inap.');
             }else {
-                $this->session->set_flashdata('error', '<strong>ERROR!!!</strong> ' . $this->input->post('nama') . ' Sebagai Pasien Baru Gagal Di Tambahkan.');
+                $this->session->set_flashdata('error', '<strong>ERROR!!!</strong>  Melakukan pendaftaran berobat rawat inap.');
             }
 
-        redirect('boking_ruangan');
+        redirect('riwayat');
 	}
 }
