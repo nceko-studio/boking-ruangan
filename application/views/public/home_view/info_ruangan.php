@@ -114,7 +114,7 @@
             </div>
             <div class="row">
               <div class="col-md-6">
-                  <img class="img-thumbnail" src="<?php echo base_url('uploads/ruangan/default.jpg'); ?>" alt="Ruangan" />
+                  <img class="img-thumbnail" src="<?php echo base_url('uploads/ruangan/default.jpg'); ?>" alt="Ruangan" id="ruangan-image" />
               </div>
               <div class="col-md-6">
               <p class="font-weight-bold">Fasilitas</p>
@@ -261,6 +261,8 @@
               $.each(statusBeds, function(index, value) {
                 $('#status_bed').append('<li>' + value + '</li>');
               });
+
+            	$('#ruangan-image').attr('src', '<?= base_url('uploads/ruangan/') ?>'+response.data['photo']);
             },
           }).then((rest) => {
             $.ajax({
