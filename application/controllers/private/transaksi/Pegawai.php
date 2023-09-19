@@ -21,11 +21,16 @@ class Pegawai extends CI_Controller
 
 	public function new()
 	{
+		if(!empty($this->input->post('dpjp'))){
+			$forksin = $this->input->post('dpjp');
+		}else{
+			$forksin = NULL;
+		}
 		$data = array(
             'nama_user' => $this->input->post('nama'),
             'gelar_depan' => $this->input->post('gelardp'),
             'gelar_blk' => $this->input->post('gelarblk'),
-            'kd_dpjp' => $this->input->post('dpjp'),
+            'kd_dpjp' => $forksin,
             'tempat_lahir' => $this->input->post('tempat_lahir'),
             'tgl_lahir' => $this->input->post('tgl_lahir'),
             'jk' => $this->input->post('jk'),
