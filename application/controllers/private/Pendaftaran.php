@@ -76,7 +76,7 @@ class Pendaftaran extends CI_Controller
     public function bed()
 	{
         $id	=	$this->input->post('ruangan');
-		$data	=	$this->db->where('id_ruangan', $id)->get('tbl_ruangan_bed')->result();
+		$data	=	$this->db->where('id_ruangan', $id)->where('sts_bed = "1" AND kondisi = "1"')->get('tbl_ruangan_bed')->result();
 		echo json_encode($data);
 	}
 

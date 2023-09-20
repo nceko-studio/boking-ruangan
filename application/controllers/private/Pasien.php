@@ -146,7 +146,14 @@ class Pasien extends CI_Controller
 		$pulang = $this->UserModel->PendaftaranUpdate($no_register,$data);
 
 		if ($pulang == true) {
-			$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> Berhasil Mengonfirmasi Pemesanan Pasien.');
+
+			$hus = $this->M_ruangan->updateBedKosong($this->input->post('bed'));
+
+			if ($hus == true) {                    
+				$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> Berhasil Mengonfirmasi Pemesanan Pasien.');
+			}else {
+				$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Gagal Mengonfirmasi Pemesanan Pasien.');
+			}
 		} else {
 			$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Gagal Mengonfirmasi Pemesanan Pasien.');
 		}

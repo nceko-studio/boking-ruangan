@@ -32,8 +32,10 @@
             						<thead>
             							<tr>
             								<th style="width: 5%;">NO</th>
-            								<th style="width: 30%;">Tanggal Berobat</th>
-            								<th style="width: 30%;">Status</th>
+            								<th style="width: 15%;">Tanggal Berobat</th>
+            								<th style="width: 15%;">Status</th>
+            								<th style="width: 15%;">Ruangan Bed</th>
+            								<th style="width: 25%;">Dokter Penanggung Jawab</th>
             								<th style="width: 15%;">Tanggal Selesai</th>
             							</tr>
             						</thead>
@@ -44,6 +46,16 @@
             									<td><?= $no++ ?></td>
             									<td><?= $v->tanggal_berobat; ?></td>
             									<td><?= $v->status; ?></td>
+												<?php if(!empty($v->no_bed)): ?>
+													<td><?= $v->nama_ruangan; ?> / No. <?= $v->no_bed; ?></td>
+												<?php else: ?>
+													<td>-</td>
+												<?php endif; ?>
+												<?php if(!empty($v->nama_dokter)): ?>
+            										<td><?= $v->nama_dokter; ?></td>
+												<?php else: ?>
+													<td>-</td>
+												<?php endif; ?>
             									<td><?= $v->tanggal_selesai; ?></td>
             								</tr>
             							<?php endforeach; ?>

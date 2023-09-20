@@ -38,7 +38,7 @@ class LaporanModel extends CI_Model
         $query = "
                 SELECT
                 u.nama_user AS nama_user,
-                pd.tgl_daftar AS tanggal_daftar,
+                pd.tgl_daftar AS tanggal_daftar, rb.no_bed, r.nama_ruangan,
                 IF(pd.tgl_berobat IS NULL OR pd.tgl_berobat = '', '-', pd.tgl_berobat) AS tanggal_berobat,
                 CASE
                     WHEN pd.sts_selesai = '0' THEN '-'
@@ -57,6 +57,8 @@ class LaporanModel extends CI_Model
                 LEFT JOIN tbl_user d ON pd.id_dokter = d.id_user
                 LEFT JOIN tbl_pendaftaran_detail_perawat dp ON pd.no_register = dp.no_register
                 LEFT JOIN tbl_user p ON dp.id_perawat = p.id_user
+                LEFT JOIN tbl_ruangan_bed rb ON pd.id_ruangan_bed = rb.id_ruangan_bed
+                LEFT JOIN tbl_ruangan r ON rb.id_ruangan = r.id_ruangan
                 WHERE pd.id_pasien = ".$user_id."
                 GROUP BY
                 pd.no_register";
