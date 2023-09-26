@@ -119,7 +119,7 @@
                                 <div class="col-md-6">
 								<div class="form-group">
 									<label for="nomr">NO Rekam Medis</label>
-									<input type="text" class="form-control" id="nomr" name="nomr" value="<?= 'RSK'.$mr->jumlah_mr; ?>" readonly>
+									<input type="text" class="form-control" id="nomr" name="nomr" value="<?= 'RSK'.$mr->jumlah_mr+1; ?>" readonly>
 								</div>
                                 <div class="row">
                                     <div class="col-md-6">

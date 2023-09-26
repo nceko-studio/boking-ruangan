@@ -30,7 +30,6 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="<?= base_url('private/pasien/berobat') ?>" method="POST">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -53,7 +52,7 @@
                                     <div class="form-group">
 										<label for="diagnosa" class="col-sm-6 col-form-label form-label">Diagnosa Awal Pasien</label>
 										<div class="col-sm-12">
-											<textarea class="form-control" id="diagnosa" name="diagnosa"></textarea>
+											<textarea class="form-control" id="diagnosa" name="diagnosa" readonly><?= $user->diagnosa_awal ?></textarea>
 										</div>
                                     </div>
                                 </div>
@@ -67,45 +66,20 @@
                                         <?php } ?>
                                     </select>
                                 </div>
-								<div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="lantai">Lantai</label>
-                                        <select class="form-control" id="lantai" name="lantai" required>
-                                            <option>Pilih Lantai</option>
-                                            <?php foreach ($lantai as $d) { ?>
-                                                <option value="<?= $d->id_lantai ?>"><?= $d->lantai ?></option>
-                                            <?php } ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="ruangan">Ruangan</label>
-                                        <select class="form-control" id="ruangan" name="ruangan" required>
-                                            <option>Pilih Ruangan</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="bed">Bed</label>
-                                        <select class="form-control" id="bed" name="bed" required>
-                                            <option>Pilih Dokter</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                                    
+								<div class="form-group">
+									<label for="nop">Ruangan Bed</label>
+									<input type="text" class="form-control" id="rbed" name="rbed" placeholder="Ruangan Bed" value="<?= $user->nama_ruangan.' / No. '.$user->no_bed; ?>" readonly>
+								</div>                                    
                                 </div>
                             </div>
                         </div>
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+							<a href="<?= base_url('data_pasien') ?>" class="btn btn-danger">
+								Kembali
+							</a>   
                         </div>
-                    </form>
                     </div>
                     <!-- /.card -->
                 </div>

@@ -53,10 +53,13 @@ class Auth extends CI_Controller
 
 	public function regist_new()
 	{
+		$mr = $this->db->select('COUNT(id_user) as jumlah_mr')->from('tbl_user')->get()->row();
+		$nomr = "RSK".$mr->jumlah_mr+1;
 		$data = array(
             'nama_user' => $this->input->post('nama'),
             'tempat_lahir' => $this->input->post('tl'),
             'tgl_lahir' => $this->input->post('tgl'),
+			'no_mr'		=> $nomr,
             'jk' => $this->input->post('jk'),
             'id_status_kawin' => $this->input->post('status_kawin'),
             'id_agama' => $this->input->post('agama'),

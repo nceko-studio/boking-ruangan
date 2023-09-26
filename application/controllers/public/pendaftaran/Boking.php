@@ -6,6 +6,7 @@ class Boking extends CI_Controller
 	public function index()
 	{
 		$data['title'] = 'Daftar Ranap';
+        $data['dokter'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where('kd_dpjp !=',null)->get('tbl_user')->result();
 		$this->load->view('template/public/user_panel/header', $data);
 		$this->load->view('template/public/user_panel/sidebar', $data);
 		$this->load->view('template/public/user_panel/navbar', $data);
@@ -29,6 +30,7 @@ class Boking extends CI_Controller
                 'id_jenis_rawatan' => "1",
                 'tgl_berobat' => $jamila,
                 'is_confrim' => "0",
+                'id_dokter' => $this->input->post('id_dokter'),
                 'is_cancled' => "0",
                 'sts_selesai' => "0",
 				'gejala_pasien' => $this->input->post('gejala')

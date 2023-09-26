@@ -29,6 +29,7 @@
 		  						</p>
 		  					</a>
 		  				</li>
+						<?php if ($this->session->userdata('role') != 3){;?>
 		  				<li class="nav-item">
 		  					<a href="#" class="nav-link">
 		  						<i class="nav-icon fas fa-address-card"></i>
@@ -52,6 +53,7 @@
 		  						</li>
 		  					</ul>
 		  				</li>
+						<?php }; ?>
 		  				<li class="nav-item">
 		  					<a href="<?= base_url('data_pasien') ?>" class="nav-link">
 		  						<i class="nav-icon fas fa-users"></i>

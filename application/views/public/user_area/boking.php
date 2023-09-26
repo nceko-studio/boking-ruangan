@@ -34,6 +34,16 @@
                                         </div>
                                     </div>
 									<br/>
+									<div class="form-group">
+										<label for="id_dokter">Dokter Penanggung Jawab Pasien</label>
+										<select class="form-control" id="id_dokter" name="id_dokter" required>
+											<option>Pilih Dokter</option>
+											<?php foreach ($dokter as $d) { ?>
+												<option value="<?= $d->id_user ?>"><?= $d->nama_dokter ?></option>
+											<?php } ?>
+										</select>
+									</div>
+									<br/>
                                     <div class="row">
                                         <div class="col-md-10">
                                             <div class="form-group">

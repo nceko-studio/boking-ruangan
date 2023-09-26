@@ -6,7 +6,11 @@ class Pasien extends CI_Controller
 	public function index()
 	{
 		$data['title'] = 'Data Pasien Berobat';
-        $data['user'] = $this->UserModel->AllUserDaftar(); 
+		if ($this->session->userdata('role') == 3) {
+			$data['user'] = $this->UserModel->AllUserDaftarById($this->session->userdata('id_user')); 
+		}else{
+			$data['user'] = $this->UserModel->AllUserDaftar(); 
+		}
 		$this->load->view('template/private/header', $data);
 		$this->load->view('template/private/navbar', $data);
 		$this->load->view('template/private/sidebar', $data);
@@ -158,5 +162,18 @@ class Pasien extends CI_Controller
 			$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Gagal Mengonfirmasi Pemesanan Pasien.');
 		}
 		redirect('data_pasien');
+	}
+
+	public function views($no_register)
+	{
+		$data['title'] = 'Pasien Detail';
+        $data['user'] = $this->UserModel->UserVerifiedByNoreg($no_register);
+        $data['alluser']  = $this->db->select('id_user, nama_user')->where('sts_group',"1")->get('tbl_user')->result(); 
+        $data['dokter'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where('kd_dpjp !=',null)->get('tbl_user')->result(); 
+		$this->load->view('template/private/header', $data);
+		$this->load->view('template/private/navbar', $data);
+		$this->load->view('template/private/sidebar', $data);
+		$this->load->view('private/pasien_views', $data);
+		$this->load->view('template/private/footer', $data);
 	}
 }

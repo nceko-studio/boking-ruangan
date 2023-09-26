@@ -34,6 +34,7 @@
 								<thead>
 									<tr>
 										<th style="width: 5%;">NO</th>
+										<th style="width: 5%;">No MR</th>
 										<th style="width: 25%;">Nama Pasien</th>
 										<th style="width: 20%;">Ruangan Bed</th>
 										<th style="width: 20%;">Dokter DPJP</th>
@@ -45,10 +46,12 @@
 									<?php foreach ($user as $v) : ?>
 										<tr>
 											<td><?= $no++ ?></td>
+											<td><?= $v->no_mr; ?></td>
 											<td><?= $v->nama_user; ?></td>
 											<td><?= $v->nama_ruangan; ?> / No. BED :<?= $v->no_bed; ?></td>
 											<td><?= $v->nama_dokter; ?></td>
 											<td>
+											<?php if ($this->session->userdata('role') != 3){;?>
 												<?php if ($v->is_confrim == "0"): ?>
 												<a href="<?= base_url('private/pasien/verified/' . $v->no_register) ?>">
 													<button class="btn bg-success btn-xs" title="Konfirmasi Berobat" style="width: 30px;">
@@ -71,7 +74,14 @@
 														<i class="fas fa-user-check"></i>
 													</button>
 												</a>   
-												<?php endif; ?>                                             
+												<?php endif; ?>        
+											<?php }else{; ?>    
+												<a href="<?= base_url('private/pasien/views/' . $v->no_register) ?>">
+													<button class="btn bg-warning btn-xs" title="Liat Pasien" style="width: 30px;">
+														<i class="fas fa-eye"></i>
+													</button>
+												</a>   
+											<?php }; ?>                               
                                             </td>
 										</tr>
 									<?php endforeach; ?>
