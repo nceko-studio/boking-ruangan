@@ -54,6 +54,7 @@ class Pegawai extends CI_Controller
             'sts_user' => "1",
             'date_register' => date("Y-m-d"),
             'user_registered' => $this->session->userdata('id_user'),
+			'jns_user' => $this->input->post('juser'),
             'is_difabel' => "0"
         );
 

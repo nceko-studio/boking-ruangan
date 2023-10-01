@@ -46,6 +46,7 @@
 											<th style="width: 20%;">TTL</th>
 											<th style="width: 15%;">No Telfon</th>
 											<th style="width: 20%;">Email</th>
+											<th style="width: 20%;">Jabatan</th>
 											<th style="width: 20%;">Aksi</th>
 										</tr>
 									</thead>
@@ -59,6 +60,7 @@
 												<td><?= $v->tempat_lahir; ?> / <?= date("d-m-Y",strtotime($v->tgl_lahir)); ?></td>
 												<td><?= $v->no_hp; ?></td>
 												<td><?= $v->email; ?></td>
+												<td><?php if($v->jns_user == "1"){ echo "Dokter"; }elseif($v->jns_user == "2"){ echo "Perawat"; }else{ echo "Pegawai"; } ?></td>
 												<td>
 													<a href="<?= base_url('private/transaksi/pegawai/hapus/' . $v->id_user) ?>">
 														<button class="btn bg-danger btn-xs" title="Proses Pulang" style="width: 30px;">
@@ -282,6 +284,15 @@
                         <label for="riwayat">Riwayat Alergi</label>
                         <textarea class="form-control" name="riwayat" id="riwayat" rows="1" placeholder="Riwayat Alergi"></textarea>
                     </div>
+					<div class="form-group">
+						<label for="juser">Jenis User</label>
+						<select class="form-control" id="juser" name="juser" required>
+							<option>Pilih Jenis User</option>
+							<option value="1">Dokter</option>
+							<option value="2">Perawat</option>
+							<option value="3">Pegawai</option>
+						</select>
+					</div>
 				</div>
 				<div class="modal-footer justify-content-between">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

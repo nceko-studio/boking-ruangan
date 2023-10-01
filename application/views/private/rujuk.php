@@ -30,7 +30,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="<?= base_url('private/pasien/berobat') ?>" method="POST">
+                    <form action="<?= base_url('private/pasien/rujuk_proses') ?>" method="POST">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -51,56 +51,11 @@
 										</div>
                                     </div>
                                     <div class="form-group">
-										<label for="diagnosa" class="col-sm-6 col-form-label form-label">Diagnosa Awal Pasien</label>
+										<label for="faskes_rujuk" class="col-sm-6 col-form-label form-label">Di Rujuk Ke</label>
 										<div class="col-sm-12">
-											<textarea class="form-control" id="diagnosa" name="diagnosa"></textarea>
+											<textarea class="form-control" id="faskes_rujuk" name="faskes_rujuk"></textarea>
 										</div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="id_dokter">Dokter Penanggung Jawab Pasien</label>
-                                    <select class="form-control" id="id_dokter" name="id_dokter" required>
-                                        <option>Pilih Dokter</option>
-                                        <?php foreach ($dokter as $d) { ?>
-                                            <option value="<?= $d->id_user ?>" <?php if($d->id_user == $user->id_dokter){ echo 'selected'; } ?>><?= $d->nama_dokter ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-								<div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="lantai">Lantai</label>
-                                        <select class="form-control" id="lantai" name="lantai" required>
-                                            <option>Pilih Lantai</option>
-                                            <?php foreach ($lantai as $d) { ?>
-                                                <option value="<?= $d->id_lantai ?>"><?= $d->lantai ?></option>
-                                            <?php } ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="ruangan">Ruangan</label>
-                                        <select class="form-control" id="ruangan" name="ruangan" required>
-                                            <option>Pilih Ruangan</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group" id="view_bed">
-                                        <label for="bed">Bed</label>
-                                        <select class="form-control" id="bed" name="bed" required>
-                                            <option>Pilih Dokter</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group" id="view_button">
-										<br>
-                            			<a href="<?= base_url('private/pasien/rujuk/'.$user->no_register) ?>" class="btn btn-primary col-md-12 mt-2">Rujuk</a>
-                                    </div>
-                                </div>
-                            </div>
-                                    
                                 </div>
                             </div>
                         </div>

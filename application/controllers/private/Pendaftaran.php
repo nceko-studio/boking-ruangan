@@ -10,7 +10,7 @@ class Pendaftaran extends CI_Controller
         $data['status_kawin'] = $this->MasterData->AllSK(); 
         $data['jenjang_pendidikan'] = $this->MasterData->AllJenjang();
         $data['identitas'] = $this->MasterData->AllIdentitas(); 
-        $data['dokter'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where('kd_dpjp !=',null)->get('tbl_user')->result(); 
+        $data['dokter'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where('jns_user',"1")->get('tbl_user')->result(); 
         $data['provinsi'] = $this->db->get('tbl_provinsi')->result(); 
         $data['ruangan'] = $this->M_ruangan->AllRuangan(); 
         $data['lantai'] = $this->MasterData->AllLantai(); 
@@ -26,7 +26,7 @@ class Pendaftaran extends CI_Controller
 	{
 		$data['title'] = 'Pendaftaran Pasien Lama';
         $data['user']  = $this->db->select('id_user, nama_user')->where('sts_group',"1")->get('tbl_user')->result(); 
-        $data['dokter'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where('kd_dpjp !=',null)->get('tbl_user')->result(); 
+        $data['dokter'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where('jns_user',"1")->get('tbl_user')->result(); 
         $data['lantai'] = $this->MasterData->AllLantai();  
 		$this->load->view('template/private/header', $data);
 		$this->load->view('template/private/navbar', $data);

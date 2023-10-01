@@ -33,7 +33,7 @@ class Pasien extends CI_Controller
 	{
 		$data['title'] = 'Perawat Pasien';
         $data['user'] = $this->UserModel->UserDaftarByNoreg($no_register); 
-        $data['perawat'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where_not_in('kd_dpjp',null)->get('tbl_user')->result(); 
+        $data['perawat'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where('jns_user',"2")->get('tbl_user')->result(); 
         $data['long_leng'] = $this->UserModel->DataPerawat($no_register); 
 		$this->load->view('template/private/header', $data);
 		$this->load->view('template/private/navbar', $data);
@@ -123,7 +123,7 @@ class Pasien extends CI_Controller
 		$data['title'] = 'Verifikasi Pasien';
         $data['user'] = $this->UserModel->UserVerifiedByNoreg($no_register); 
         $data['alluser']  = $this->db->select('id_user, nama_user')->where('sts_group',"1")->get('tbl_user')->result(); 
-        $data['dokter'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where('kd_dpjp !=',null)->get('tbl_user')->result(); 
+        $data['dokter'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where('jns_user',"1")->get('tbl_user')->result(); 
         $data['lantai'] = $this->MasterData->AllLantai();  
 		$this->load->view('template/private/header', $data);
 		$this->load->view('template/private/navbar', $data);
@@ -169,11 +169,43 @@ class Pasien extends CI_Controller
 		$data['title'] = 'Pasien Detail';
         $data['user'] = $this->UserModel->UserVerifiedByNoreg($no_register);
         $data['alluser']  = $this->db->select('id_user, nama_user')->where('sts_group',"1")->get('tbl_user')->result(); 
-        $data['dokter'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where('kd_dpjp !=',null)->get('tbl_user')->result(); 
+        $data['dokter'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where('jns_user',"1")->get('tbl_user')->result(); 
 		$this->load->view('template/private/header', $data);
 		$this->load->view('template/private/navbar', $data);
 		$this->load->view('template/private/sidebar', $data);
 		$this->load->view('private/pasien_views', $data);
 		$this->load->view('template/private/footer', $data);
+	}
+
+	public function rujuk($no_register)
+	{
+		$data['title'] = 'Rujuk Pasien';
+        $data['user'] = $this->UserModel->UserVerifiedByNoreg($no_register); 
+        $data['alluser']  = $this->db->select('id_user, nama_user')->where('sts_group',"1")->get('tbl_user')->result(); 
+        $data['dokter'] = $this->db->select('id_user, func_nama_lengkap(gelar_depan,nama_user,gelar_blk) as nama_dokter')->where('sts_group',"2")->where('jns_user',"1")->get('tbl_user')->result(); 
+        $data['lantai'] = $this->MasterData->AllLantai();  
+		$this->load->view('template/private/header', $data);
+		$this->load->view('template/private/navbar', $data);
+		$this->load->view('template/private/sidebar', $data);
+		$this->load->view('private/rujuk', $data);
+		$this->load->view('template/private/footer', $data);
+	}
+
+	public function rujuk_proses()
+	{
+		$no_register = $this->input->post('no_register');
+		$data = array(
+			'is_rujuk' => "1",
+			'faskes_rujuk' => $this->input->post('faskes_rujuk')
+		);
+
+		$pulang = $this->UserModel->PendaftaranUpdate($no_register,$data);
+
+		if ($pulang == true) {
+			$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> Berhasil memproses rujukan pasien.');
+		} else {
+			$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Gagal memproses rujukan pasien.');
+		}
+		redirect('data_pasien');
 	}
 }

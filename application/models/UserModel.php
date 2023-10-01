@@ -15,6 +15,7 @@ class UserModel extends CI_Model
 		->join('tbl_ruangan r','rb.id_ruangan=r.id_ruangan', 'left')
 		->join('tbl_user b1','a.id_dokter=b1.id_user', 'left')
 		->where('is_cancled','0')
+		->where('is_rujuk !=','1')
 		->where('sts_selesai','0')
 		->get()
 		->result();
@@ -30,6 +31,7 @@ class UserModel extends CI_Model
 		->join('tbl_user b1','a.id_dokter=b1.id_user', 'left')
 		->where('is_cancled','0')
 		->where('sts_selesai','0')
+		->where('is_rujuk !=','1')
 		->where('a.id_dokter',$id)
 		->get()
 		->result();

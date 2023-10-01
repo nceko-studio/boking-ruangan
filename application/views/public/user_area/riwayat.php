@@ -33,10 +33,11 @@
             							<tr>
             								<th style="width: 5%;">NO</th>
             								<th style="width: 15%;">Tanggal Berobat</th>
-            								<th style="width: 15%;">Status</th>
+            								<th style="width: 5%;">Status</th>
             								<th style="width: 15%;">Ruangan Bed</th>
-            								<th style="width: 25%;">Dokter Penanggung Jawab</th>
+            								<th style="width: 15%;">Dokter Penanggung Jawab</th>
             								<th style="width: 15%;">Tanggal Selesai</th>
+            								<th style="width: 25%;">Keterangan</th>
             							</tr>
             						</thead>
             						<tbody>
@@ -57,6 +58,7 @@
 													<td>-</td>
 												<?php endif; ?>
             									<td><?= $v->tanggal_selesai; ?></td>
+            									<td><?= $v->ket_laporan; ?></td>
             								</tr>
             							<?php endforeach; ?>
             						</tbody>

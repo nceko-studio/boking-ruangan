@@ -88843,3 +88843,10 @@ ADD COLUMN photo VARCHAR(255) DEFAULT 'default.jpg';
 ALTER TABLE tbl_pendaftaran 
 ADD COLUMN gejala_pasien TEXT,
 ADD COLUMN diagnosa_awal TEXT;
+
+ALTER TABLE tbl_user
+ADD COLUMN jns_user enum('0','1','2','3') COMMENT '0 = Patien, 1 = Dokter, 2 = Perawat, 3 = Pegawai' DEFAULT '0';
+
+ALTER TABLE tbl_pendaftaran 
+ADD COLUMN is_rujuk enum('0','1') COMMENT '0 = Dis Rujuk, 1 = Rujuk' DEFAULT '0',
+ADD COLUMN faskes_rujuk TEXT;

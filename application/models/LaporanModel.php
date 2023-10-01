@@ -27,6 +27,7 @@ class LaporanModel extends CI_Model
                 LEFT JOIN tbl_user d ON pd.id_dokter = d.id_user
                 LEFT JOIN tbl_pendaftaran_detail_perawat dp ON pd.no_register = dp.no_register
                 LEFT JOIN tbl_user p ON dp.id_perawat = p.id_user
+				WHERE pd.is_rujuk != '1' 
                 GROUP BY
                 pd.no_register";
 
@@ -47,10 +48,15 @@ class LaporanModel extends CI_Model
                 CASE
                     WHEN pd.is_cancled = '1' THEN 'Dibatalkan'
                     WHEN pd.sts_selesai = '1' THEN 'Selesai'
+                    WHEN pd.is_rujuk = '1' THEN 'Di Rujuk'
                     ELSE '-'
                 END AS status,
                 func_nama_lengkap(d.gelar_depan,d.nama_user,d.gelar_blk) AS nama_dokter,
-                IF(COUNT(p.id_user) = 0, '-', REPLACE(GROUP_CONCAT(func_nama_lengkap(p.gelar_depan,p.nama_user,p.gelar_blk) SEPARATOR '<br/>'), ',', '<br/>')) AS nama_perawat
+                IF(COUNT(p.id_user) = 0, '-', REPLACE(GROUP_CONCAT(func_nama_lengkap(p.gelar_depan,p.nama_user,p.gelar_blk) SEPARATOR '<br/>'), ',', '<br/>')) AS nama_perawat,
+				CASE
+                    WHEN pd.is_rujuk = '0' THEN '-'
+                    ELSE pd.faskes_rujuk
+                END AS ket_laporan
                 FROM
                 tbl_pendaftaran pd
                 INNER JOIN tbl_user u ON pd.id_pasien = u.id_user
