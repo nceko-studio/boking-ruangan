@@ -91,12 +91,14 @@
                                     <div class="form-group" id="view_bed">
                                         <label for="bed">Bed</label>
                                         <select class="form-control" id="bed" name="bed" required>
-                                            <option>Pilih Dokter</option>
+                                            <option>Pilih Bed</option>
                                         </select>
                                     </div>
                                     <div class="form-group" id="view_button">
-										<br>
-                            			<a href="<?= base_url('private/pasien/rujuk/'.$user->no_register) ?>" class="btn btn-primary col-md-12 mt-2">Rujuk</a>
+                                        <label for="bed_full">Bed</label>
+                                        <select class="form-control" id="bed_full" name="bed_full" required readonly>
+                                            <option>X</option>
+                                        </select>										
                                     </div>
                                 </div>
                             </div>
@@ -107,7 +109,10 @@
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+							<div class="row">
+								<button type="submit" class="btn btn-success col-md-2 mt-2">Submit</button>
+								<a href="<?= base_url('private/pasien/rujuk/'.$user->no_register) ?>" class="btn btn-primary col-md-2 mt-2 ml-4">Rujuk</a>
+							</div>
                         </div>
                     </form>
                     </div>
@@ -235,9 +240,22 @@
 			success: function(response) {
 				var options = '';
 				if (response.length === 0) {
-					$('#view_button').show();
 					$('#view_bed').hide();
+					$('#view_button').show();
+
+					$(function() {
+						var Toast = Swal.mixin({
+							toast: true,
+							position: 'top-end',
+							showConfirmButton: false,
+							timer: 3000
+						});
+
+						toastr.error('Bed untuk Ruangan yang di pilih telah penuh !')
+					});
 				} else {
+					$('#view_bed').show();
+					$('#view_button').hide();
 					$.each(response, function(key, value) {
 						options += '<option value="' + value['id_ruangan_bed'] + '">' + value['no_bed'] + '</option>';
 					});

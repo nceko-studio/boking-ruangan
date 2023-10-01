@@ -29,7 +29,9 @@ class LaporanModel extends CI_Model
                 LEFT JOIN tbl_user p ON dp.id_perawat = p.id_user
 				WHERE pd.is_rujuk != '1' 
                 GROUP BY
-                pd.no_register";
+                pd.no_register
+				ORDER BY
+				pd.tgl_daftar DESC";
 
         return $this->db->query($query)->result();
 	}
@@ -67,7 +69,9 @@ class LaporanModel extends CI_Model
                 LEFT JOIN tbl_ruangan r ON rb.id_ruangan = r.id_ruangan
                 WHERE pd.id_pasien = ".$user_id."
                 GROUP BY
-                pd.no_register";
+                pd.no_register
+				ORDER BY
+				pd.tgl_daftar DESC";
 
         return $this->db->query($query)->result();
 	}
